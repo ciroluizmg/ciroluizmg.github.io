@@ -1296,154 +1296,19 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     });
 </script>
 
-<script>
-    /*var LC_API = LC_API || {};
-    var livechat_chat_started = false;
-    var modifyLivechatRuntimes = 0;
-    var modifyLivechat = function () {
-        modifyLivechatRuntimes++;
-        console.log(LC_API);
-        // don't hide the chat window only if visitor
-        // is currently chatting with an agent
-        if (LC_API.visitor_engaged() === false && livechat_chat_started === false) {
-            LC_API.hide_chat_window();
-        }
-        LC_API.on_chat_started = function () {
-            livechat_chat_started = true;
-        };
-        LC_API.on_chat_window_hidden = function () {
-            clearInterval(livechatClean);
-            setTimeout(function () {
-                jQuery("body").css("position", "initial");
-                jQuery("body").css("overflow", "initial");
-            }, 100);
-        };
-        LC_API.on_chat_window_minimized = function () {
-            LC_API.hide_chat_window();
-        };
-        jQuery(".nav-chat a").click(function () {
-            LC_API.open_chat_window();
-        })
-        if (modifyLivechatRuntimes == 10) {
-            clearInterval(livechatClean);
-        }
-    };
-    var livechatClean = setInterval(modifyLivechat, 2500);*/
-</script>
-<script>
-    function getQueryVariable(variable) {
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (pair[0] == variable) { return pair[1]; }
-        }
-        return (false);
-    }
 
-    $(document).ready(function () {
-        var utm_source = getQueryVariable("utm_source");
-        if (utm_source) {
-            var phoneLinkOnly = document.getElementsByClassName("JS_PhoneLinkHref");
-            var phoneTextOnly = document.getElementsByClassName("JS_PhoneLinkText");
-            var phoneLinkAll = document.getElementsByClassName("JS_PhoneLinkAll");
-            var phoneLink = "tel:131090";
-            var phoneText = "13 10 90";
-            if (utm_source.toLowerCase() == "finder") {
-                phoneLink = "tel:1800200775";
-                phoneText = "1800 200 775";
-            }
-            else if (utm_source.toLowerCase() == "mozo") {
-                phoneLink = "tel:1800677389";
-                phoneText = "1800 677 389";
-            }
-            else if (utm_source.toLowerCase() == "canstar") {
-                phoneLink = "tel:1800684417";
-                phoneText = "1800 684 417";
-            }
-            else if (utm_source.toLowerCase() == "ratecity") {
-                phoneLink = "tel:1800791570";
-                phoneText = "1800 791 570";
-            }
-            for (var i = 0; i < phoneLinkOnly.length; i++) {
-                phoneLinkOnly[i].href = phoneLink;
-            }
-            for (var i = 0; i < phoneTextOnly.length; i++) {
-                phoneTextOnly[i].innerHTML = phoneText;
-            }
-            for (var i = 0; i < phoneLinkAll.length; i++) {
-                phoneLinkAll[i].href = phoneLink;
-                phoneLinkAll[i].innerHTML = phoneText;
-            }
-        }
-    });
-</script>
-<div class="o-site-search-box"></div>
-<div class="site-search-box">
-    <form class="searchBox" id="searchFormHeader" name="searchFormHeader" action="https://www.loans.com.au/search-results">
-        <input type="text" class="form-control js-searchbox searchbox-watermark" autocomplete="off" name="q">
-        <input type="image" src="./Car loan calculator - loans.com_files/search.png" alt="Search">
-    </form>
-</div>
     
-    <div class="page-banner page-banner-slim page-banner-dark">
-        <div class="container">
-                                        <div class="row align-items-center banner-breadcrumb">
-                    <div class="col-auto">
-                        <a href="https://www.loans.com.au/">Home</a>
-                    </div>
-                                            <div class="col-auto p-0 divider">
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                                                    <div class="col-auto">
-                                <a href="https://www.loans.com.au/calculators">Calculators</a>
-                            </div>
-                                                                    <div class="col-auto p-0 divider">
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                                                    <div class="col-auto">
-                                <span class="current-page">Car loan calculator</span>
-                            </div>
-                                                            </div>
-                    </div>
-    </div>
+    
 
-    <div class="page-content">
+    
                         
-<section class="content_content no-padding no-border is-main-heading" id="CONTENT_c7f39e71edd14129827bf8a20aef0bd4">
-    <div class="container">
-                    <div class="row heading">
-                <div class="col">
-                                    <h1 class="">Car loan calculator</h1>
-                                </div>
-            </div>
-                <div class="row">
-            <div class="col">
-                <p>Estimate your car loan repayments below.</p>
-            </div>
-        </div>
-                    <div class="collapse" id="collapseExample">
-                <div class="row">
-                    <div class="col">
-                        <p>Use our car loan calculator as a general guide on what your car loan repayments will look like.</p>
-<p>This calculator will also tell you how much you may pay in total over the life of your loan. To use this calculator, simply enter your estimated vehicle value, loan term, any initial deposit, and the amount of any balloon payment (a lump sum payment payable at the end of the loan).</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <a data-toggle="collapse" href="https://www.loans.com.au/calculators/car-loan#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="link-read-more">
-                        <span class="is-closed">
-                            Read more <span class="text-pink">+</span>
-                        </span>
-                        <span class="is-open">
-                            Read less <span class="text-pink">-</span>
-                        </span>
-                    </a>
-                </div>
-            </div>
-            </div>
-</section>
+
+<div class="row heading">
+    <div class="col">
+        <h1 class="">Car loan calculator</h1>
+    </div>
+</div>
+          
 <section id="CALCCLREPAY_7b24d123146f4bde8b1c32a3431cd378" class="widget_calculator calculator_car-loan-repayment"><div class="container"><div class="calculator_tile"><!----> <div><div class="flex-layout"><div class="input flex-input"><div class="fg-loan-amount util-width-50"><div class="form-group"><label>Loan amount</label> <div class="input-group"><span class="input-group-prepend">$</span> <input type="tel" class="form-control"></div> <!----></div></div> <div class="fg-vehicle-purchase-price util-width-50"><div class="form-group"><label>Vehicle purchase price</label> <div class="input-group"><span class="input-group-prepend">$</span> <input type="tel" class="form-control"></div> <!----></div></div> <div class="fg-initial-deposit util-width-50"><div class="form-group"><label>Initial deposit / trade in</label> <p class="static-form-control">$ 0</p></div></div> <div class="fg-loan-term util-width-50"><div class="form-group"><label>Loan term</label> <select class="form-control"><option value="3">
                                         3 years
                                     </option><option value="4">
@@ -1531,7 +1396,9 @@ function getCustomVariablesLC(){var a=[{name:"leadID",value:"undefined"},{name:"
 
 
 <script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","881223505259839");fbq("track","PageView");</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=881223505259839&amp;ev=PageView&amp;noscript=1"></noscript>
+
+
+
 <script type="text/javascript" id="">(function(){function b(){!1===c&&(c=!0,Munchkin.init("979-LYJ-350"))}var c=!1,a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="//munchkin.marketo.net/munchkin.js";a.onreadystatechange=function(){"complete"!=this.readyState&&"loaded"!=this.readyState||b()};a.onload=b;document.getElementsByTagName("head")[0].appendChild(a)})();</script>
 
     
