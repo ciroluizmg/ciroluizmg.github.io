@@ -334,6 +334,39 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
                                         loan term, calculated
                                         on the entered interest rate.</li></ul> <ul><li>Payable over 3/4/5 years figure excludes any balloon payment</li></ul></div></div></div></div></div></div></div></section>
 
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 <script type="text/javascript" src="./Car loan calculator - loans.com_files/calculator-car-loan-repayment.js.download"></script>
 <script>
     vueapps["Calculator_7b24d123146f4bde8b1c32a3431cd378"] = new VUE_APP_CALCCLREPAY("7b24d123146f4bde8b1c32a3431cd378", {interestRate: 4.89, balloonAmount: 30, loanType: "personal"});
@@ -395,34 +428,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 
 
-<script>
-    var openUWP = function (instanceId, config) {
-        if (config.hasOwnProperty("heading")) {
-            vueapps["uwp_" + instanceId].uiData.headingText = config['heading'];
-        }
-        if (config.hasOwnProperty("body")) {
-            vueapps["uwp_" + instanceId].uiData.bodyText = config['body'];
-        }
-        if (config.hasOwnProperty("enquiryType")) {
-            vueapps["uwp_" + instanceId].inputData.enquiryType = config.enquiryType;
-        }
-        if (config.hasOwnProperty("hideEnquiryType")) {
-            vueapps["uwp_" + instanceId].uiData.showEnquiryType = false;
-        }
-        jQuery('#Modal_UWP_' + instanceId).modal('show');
-    };
-</script>
 
 
-<!--
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Modal_UWP_globalmodal">
-    Launch with Bootstrap
-</button>
-
-<a class="btn btn-primary btn-lg" href="javascript:openUWP('globalmodal', {enquiryType: 2, hideEnquiryType: true})">
-    Launch with Javascript
-</a>
--->    
 
 
 
