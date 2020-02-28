@@ -276,18 +276,14 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <script type="text/javascript" async="" src="./Car loan calculator - loans.com_files/munchkin.js(1).download"></script><script type="text/javascript" src="chrome-extension://aggiiclaiamajehmlfpkjmlbadmkledi/popup.js" async=""></script><script type="text/javascript" src="chrome-extension://aggiiclaiamajehmlfpkjmlbadmkledi/tat_popup.js" async=""></script><script src="./Car loan calculator - loans.com_files/f(1).txt"></script><script type="text/javascript"></script><script async="" src="./Car loan calculator - loans.com_files/modules.e483a7fd5848d79df4ee.js.download" charset="utf-8"></script>
 
-<style type="text/css">
-    iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}
-</style>
 
-<style type="text/css">
-    #livechat-full {    bottom: 0 !important;    right: 0 !important;    height: 740px !important;    max-height: 100% !important;    width: 400px !important;  }
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
-  #livechat-compact-container {    width: 320px !important;  }
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
-  #livechat-full {    width: 360px !important;    height: 635px !important;  }
-
-</style>
 
 </head>
 
@@ -296,187 +292,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0" class="vsc-initialized">
     
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLP4JH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<!-- header.vtl -->
 
 
-<script>
-    var LCAHeaderApp = {
-        showMobileNav: false,
-        showSearchBox: false,
-        activeMM: {
-            'mmHomeLoans': 'home-loan-left-1',
-            'mmCarLoans': 'car-loan-left-1',
-            'mmCalculators': 'calculators-left-1'
-        }
-    }
-    var toggleMobileNav = function () {
-        LCAHeaderApp.showMobileNav = !LCAHeaderApp.showMobileNav;
-        if (LCAHeaderApp.showMobileNav) {
-            jQuery('.submenu-for-mobile').addClass("show");
-            jQuery('.o-menu-mobile').removeClass("fadeOut animated");
-            jQuery('.o-menu-mobile').addClass("open fadeIn animated");
-        } else {
-            jQuery('.submenu-for-mobile').removeClass("show");
-            jQuery('.o-menu-mobile').removeClass("open fadeIn animated");
-            jQuery('.o-menu-mobile').addClass("fadeOut animated");
-            //Close mobile menus
-            jQuery(".mobile-parent-list").find("li.active").removeClass("active");
-            jQuery(".mobile-parent-list").find("a.opened").removeClass("opened");
-            jQuery(".mobile-parent-list").find("ul.mobile-child-list").hide();
-            jQuery(".mobile-child-list").find("li.active").removeClass("active");
-            jQuery(".mobile-child-list").find("a.opened").removeClass("opened");
-            jQuery(".mobile-child-list").find("ul").hide();
-        }
-    }
-    var toggleSearchBox = function () {
-        LCAHeaderApp.showSearchBox = !LCAHeaderApp.showSearchBox;
-        if (LCAHeaderApp.showSearchBox) {
-            jQuery('.o-site-search-box').removeClass("fadeOut animated");
-            jQuery('.o-site-search-box').addClass("open fadeIn animated");
-            jQuery('.site-search-box').removeClass("slideOutUp animated");
-            jQuery('.site-search-box').addClass("open slideInDown animated");
-        } else {
-            jQuery('.o-site-search-box').removeClass("fadeIn animated");
-            jQuery('.o-site-search-box').addClass("fadeOut animated");
-            jQuery('.site-search-box').removeClass("slideInDown animated");
-            jQuery('.site-search-box').addClass("slideOutUp animated");
-        }
-    }
-    var toggleMM = function (elem, menu, tab) {
-        LCAHeaderApp.activeMM[menu] = tab;
-        jQuery("#LCAHeaderApp #" + menu + " .mm-menu").removeClass("open");
-        jQuery("#LCAHeaderApp #" + menu + " .mm-tab").removeClass("active");
-        jQuery(elem).addClass("open");
-        jQuery("#" + tab).addClass("active");
-    }
-    var setSelectedParentMenu = function (elem) {
-        var isOpen = jQuery(elem).hasClass("opened");
-        jQuery(".mobile-parent-list").find("li.active").removeClass("active");
-        jQuery(".mobile-parent-list").find("a.opened").removeClass("opened");
-        jQuery(".mobile-parent-list").find("ul.mobile-child-list").hide();
-        jQuery(".mobile-child-list").find("li.active").removeClass("active");
-        jQuery(".mobile-child-list").find("a.opened").removeClass("opened");
-        jQuery(".mobile-child-list").find("ul").hide();
-        if (!isOpen) {
-            jQuery(elem).addClass("opened");
-            jQuery(elem).parent("li").addClass("active");
-            jQuery(elem).siblings("ul").show();
-        }
-    }
-    var setSelectedChildMenu = function (elem) {
-        var isOpen = jQuery(elem).hasClass("opened");
-        jQuery(".mobile-child-list").find("li.active").removeClass("active");
-        jQuery(".mobile-child-list").find("a.opened").removeClass("opened");
-        jQuery(".mobile-child-list").find("ul").hide();
-        if (!isOpen) {
-            jQuery(elem).addClass("opened");
-            jQuery(elem).parent("li").addClass("active");
-            jQuery(elem).siblings("ul").show();
-        }
-    }
-    var openPreChatModal = function () {
-        /*jQuery('#Modal_UWPChat').modal('show');*/
-        LC_API.open_chat_window();
-        jQuery('li.dropdown.mega-dropdown.open').removeClass('open');
-    }
-    var runOnScroll = function (scrollTop) {
-        if (scrollTop > 41) {
-            jQuery('.nav-apply a').addClass('on-scroll');
-        }
-        else {
-            jQuery('.nav-apply a').removeClass('on-scroll');
-        }
-    }
-    var menuHighlight_TopMenu = function () {
-        var activePageElem = null;
-        var locationPaths = location.pathname.split("/");
-        var hrefValue = "";
-        for (var i = 1; i < locationPaths.length; i++) {
-            if (locationPaths[i] != "") {
-                hrefValue += "/" + locationPaths[i];
-                activePageElem = jQuery("#LCAHeaderApp .menu-top a[href$='" + hrefValue + "'][no-active!='true']");
-                activePageElem.addClass("active");
-                if (location.pathname == "/resources/ontrack" && hrefValue == "/resources/") {
-                    activePageElem.removeClass("active");
-                }
-                activePageElem = null;
-            }
-        }
-    };
-    var menuHighlight_MainMenu = function () {
-        if (location.pathname == "/") {
-            return;
-        }
-        var activePageElem = null;
-        var locationPaths = location.pathname.split("/");
-        var hrefValue = "";
-        if (locationPaths[1] == "home-loans" || location.pathname == "/content/semantic-search") {
-            jQuery("#ddHomeLoans").addClass("active");
-        }
-        else if (locationPaths[1] == "car-loans") {
-            jQuery("#ddCarLoans").addClass("active");
-        }
-        else if (locationPaths[1] == "calculators") {
-            jQuery("#ddCalculators").addClass("active");
-        }
-        activePageElem = jQuery("#LCAHeaderApp .nav-menu-main a[href$='" + location.pathname + "'][no-active!='true']");
-        if (activePageElem.length == 0) {
-            activePageElem = jQuery("#LCAHeaderApp .nav-menu-main a[href$='" + location.pathname.substr(0, location.pathname.length - location.pathname.split("/")[(location.pathname.split("/").length - 1)].length - 1) + "'][no-active!='true']");
-        }
-        if (activePageElem.length > 0) {
-            if (locationPaths[1] == "home-loans" || location.pathname == "/content/semantic-search") {
-                jQuery("#LCAHeaderApp #mmHomeLoans .mm-menu").removeClass("open");
-                jQuery("#LCAHeaderApp #mmHomeLoans .mm-tab").removeClass("active");
-            }
-            else if (locationPaths[1] == "car-loans") {
-                jQuery("#LCAHeaderApp #mmCarLoans .mm-menu").removeClass("open");
-                jQuery("#LCAHeaderApp #mmCarLoans .mm-tab").removeClass("active");
-            }
-            else if (locationPaths[1] == "calculators") {
-                jQuery("#LCAHeaderApp #mmCalculators .mm-menu").removeClass("open");
-                jQuery("#LCAHeaderApp #mmCalculators .mm-tab").removeClass("active");
-            }
-            activePageElem.addClass("active");
-            activePageElem.parents(".mm-tab").addClass("active");
-            activePageElem.parents(".on-left").find("a[for='" + activePageElem.parents(".mm-tab").attr("id") + "']").addClass("open active");
-        }
-        activePageElem = null
-    };
-
-    jQuery(document).ready(function () {
-        jQuery('li.dropdown.mega-dropdown > a').on('click', function (e) {
-            if (jQuery(this).parent().hasClass("open")) {
-                jQuery('li.dropdown.mega-dropdown.open').removeClass('open');
-            } else {
-                jQuery('li.dropdown.mega-dropdown.open').removeClass('open');
-                jQuery(this).parent().addClass("open");
-                jQuery('#mmHomeLoans, #mmCarLoans, #mmCalculators').removeClass("fadeOut animated");
-                jQuery('#mmHomeLoans, #mmCarLoans, #mmCalculators').addClass("fadeIn animated");
-            }
-        });
-        jQuery('.o-dropdown-backdrop').on('click', function (e) {
-            jQuery('li.dropdown.mega-dropdown.open').removeClass('open');
-        });
-        jQuery('body').on('click', function (e) {
-            if (!jQuery('li.dropdown.mega-dropdown').is(e.target) && jQuery('li.dropdown.mega-dropdown').has(e.target).length === 0 && jQuery('.open').has(e.target).length === 0) {
-                jQuery('li.dropdown.mega-dropdown').removeClass('open');
-            }
-        });
-        menuHighlight_TopMenu();
-        menuHighlight_MainMenu();
-        runOnScroll(jQuery(this).scrollTop());
-        jQuery(".nav-options").click(function () {
-            jQuery(this).toggleClass("active");
-            jQuery(this).find(".list").toggleClass("fadeOutUp fadeInDown");
-        });
-    });
-    jQuery(document).on('scroll', function (e) {
-        runOnScroll(jQuery(this).scrollTop());
-    });
-</script>
 
 
     
