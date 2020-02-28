@@ -399,25 +399,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 
 
-<script type="text/javascript">
-    jQuery(document).ready(function () {
-        jQuery(".faq-title").click(function () {
-            var faq = jQuery(this).parents(".faq_tile");
-            var isOpen = faq.hasClass("open");
-            if (isOpen) {
-                faq.find(".faq-trigger .fas").hide();
-                faq.find(".faq-trigger .fa-chevron-down").show();
-                faq.find(".faq-content").slideUp();
-                faq.removeClass("open");
-            } else {
-                faq.find(".faq-trigger .fas").hide();
-                faq.find(".faq-trigger .fa-chevron-up").show();
-                faq.find(".faq-content").slideDown();
-                faq.addClass("open");
-            }
-        });
-    });
-</script>
+
 
 
 
