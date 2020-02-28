@@ -321,18 +321,24 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
                                         Fortnightly
                                     </option><option value="weekly">
                                         Weekly
-                                    </option></select> <!----></div></div></div> <div class="results"><p class="p1">Your estimated repayments are</p> <!----> <p></p> <p class="p2"><span class="ps1">$</span> <span class="ps2">647.87</span> <span>monthly</span> <!----> <!----></p> <hr> <div><p class="p3">Ready to get started?</p></div>
+                                    </option></select> <!----></div></div></div> 
+
+                                    <div class="results">
+                                        <div class="result-box" style="display: none;">    
+                                            <p class="p1">Your estimated repayments are</p>
+                                             <!----> 
+                                             <p></p> 
+                                             <p class="p2"><span class="ps1">$</span> <span class="ps2">647.87</span> <span>monthly</span> <!----> <!----></p> 
+                                             <hr> 
+                                             <div>
+                                                <p class="p3">Ready to get started?</p>
+                                            </div>
+                                        </div>    
 
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-brand-secondary" data-toggle="modal" data-target="#exampleModal">
                                         See Payment
                                     </button>
-
-
-
-                                
-
-
                                 </div>
 
                             </div> 
@@ -381,8 +387,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
         <label>telefone number</label>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+        <button type="button" class="btn btn-primary" onclick='$(".result-box").show(500)'>See Payment</button>
       </div>
     </div>
   </div>
