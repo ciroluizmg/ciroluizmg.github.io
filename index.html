@@ -380,17 +380,18 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
       </div>
       <div class="modal-body">
         <div class="modal_inputs_div">
-            <label>email</label>
-            <input id="calc_email" class="modal_input" type="email" name="email">
-            <label>name</label>
+            <label>First Name</label>
             <input id="calc_name" class="modal_input" type="text" name="name">
-            <label>telefone number</label>
+            <label>Your Email Adress</label>
+            <input id="calc_email" class="modal_input" type="email" name="email">
+            <label>Telefone Number</label>
             <input id="calc_tel" class="modal_input" type="telefone" name="telefone">
+
         </div>    
       </div>
       <div class="modal-footer">
         <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-        <button type="button" class="btn btn-primary" onclick='$(".result-box").show(500)' data-dismiss="modal">See Payment</button>
+        <button type="button" class="btn btn-brand-secondary" onclick='$(".result-box").show(500)' data-dismiss="modal">See Payment</button>
       </div>
     </div>
   </div>
@@ -425,8 +426,11 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
         color: rgb(38, 38, 41);
     }
     .modal-footer button {
-        background-color: #17A306;
+        
 
+    }
+    .modal_inputs_div label {
+        margin-top: 8px;
     }
 
 </style>
