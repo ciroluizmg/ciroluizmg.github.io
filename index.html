@@ -379,12 +379,14 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
         </button>
       </div>
       <div class="modal-body">
-        <input id="calc_email" class="modal_input" type="email" name="email">
-        <label>email</label>
-        <input id="calc_name" class="modal_input" type="text" name="name">
-        <label>name</label>
-        <input id="calc_tel" class="modal_input" type="telefone" name="telefone">
-        <label>telefone number</label>
+        <div class="modal_inputs_div">
+            <label>email</label>
+            <input id="calc_email" class="modal_input" type="email" name="email">
+            <label>name</label>
+            <input id="calc_name" class="modal_input" type="text" name="name">
+            <label>telefone number</label>
+            <input id="calc_tel" class="modal_input" type="telefone" name="telefone">
+        </div>    
       </div>
       <div class="modal-footer">
         <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
@@ -395,14 +397,19 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 </div>
 
 <style type="text/css">
-    .modal-body{
-        background-color: gray;
+    .modal_inputs_div{
+        display: block;
+        width: 80%;
+        margin: 0px auto;
     }
-    #modal-header {
-        background-color: pink;
+    .modal-body{
+        background-color: #E5E5E5;
+    }
+    .modal-header {
+        background-color: #EA1777;
     }
     .modal-footer{
-        background-color: pink;
+        background-color: #EA1777;
     }
     .modal-title{
         font-size: 24px;
@@ -410,15 +417,17 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
         font-weight: bold;
     }
     .modal_input{
-        display: block;
-        width: 80%;
-        margin: 0px auto;
+        width: 100%;
         padding: .375rem .75rem;
         border: 0 none;
         box-shadow: none;
         font-size: 16px;
         font-weight: 300;
         color: rgb(38, 38, 41);
+    }
+    .modal-footer button {
+        background-color: #17A306;
+
     }
 
 </style>
