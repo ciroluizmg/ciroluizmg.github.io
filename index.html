@@ -379,11 +379,11 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
         </button>
       </div>
       <div class="modal-body">
-        <input type="email" name="email">
+        <input id="calc_email" class="modal_input" type="email" name="email">
         <label>email</label>
-        <input type="text" name="name">
+        <input id="calc_name" class="modal_input" type="text" name="name">
         <label>name</label>
-        <input type="telefone" name="telefone">
+        <input id="calc_tel" class="modal_input" type="telefone" name="telefone">
         <label>telefone number</label>
       </div>
       <div class="modal-footer">
@@ -394,7 +394,34 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   </div>
 </div>
 
+<style type="text/css">
+    .modal-body{
+        background-color: gray;
+    }
+    #modal-header {
+        background-color: pink;
+    }
+    .modal-footer{
+        background-color: pink;
+    }
+    .modal-title{
+        font-size: 24px;
+        font: white;
+        font-weight: bold;
+    }
+    .modal_input{
+        display: block;
+        width: 80%;
+        margin: 0px auto;
+        padding: .375rem .75rem;
+        border: 0 none;
+        box-shadow: none;
+        font-size: 16px;
+        font-weight: 300;
+        color: rgb(38, 38, 41);
+    }
 
+</style>
 
 
 
