@@ -217,17 +217,37 @@
                                         7 years
                                     </option>
 
-                                </select> <!----></div></div> <div class="fg-interest-rate util-width-50"><div class="form-group"><label>Interest rate</label> <div class="input-group"><input type="number" maxlength="5" class="form-control"> <span class="input-group-append">%</span></div> <!----></div></div> <div class="fg-balloon-repayment util-width-50"><div class="form-group"><label>
+                                </select> <!----></div></div> 
+                                <div class="fg-interest-rate util-width-50"><div class="form-group"><label>Interest rate</label> <div class="input-group"><input type="number" maxlength="5" class="form-control"> <span class="input-group-append">%</span></div> <!----></div></div> <div class="fg-balloon-repayment util-width-50"><div class="form-group"><label>
                                     Balloon repayment
-                                    <a href="https://www.loans.com.au/calculators/car-loan#" data-toggle="tooltip" id="tooltip1" data-original-title="" title="">
-                                        
-                                    </a></label> <div class="flex-balloon"><div><div class="input-group"><input type="number" class="form-control"> <span class="input-group-append">%</span></div></div></div> <!----></div></div> <div class="fg-if-businesspersonal"><div class="form-group"><label>Personal or Business</label> <select class="form-control"><option value="personal">Personal</option> <option value="business">Business</option></select> <!----></div></div> <div class="fg-repayment-frequency d-none d-lg-block"><div class="form-group"><label>Repayment frequency</label> <div role="group" aria-label="..." class="btn-group d-flex w-100"><a href="javascript:void(0)" role="button" class="btn btn-selected">Monthly</a> <a href="javascript:void(0)" role="button" class="btn">Fortnightly</a> <a href="javascript:void(0)" role="button" class="btn">Weekly</a></div> <!----></div></div> <div class="fg-repayment-frequency d-block d-lg-none"><div class="form-group"><label>Repayment frequency</label> <select class="form-control"><option value="monthly">
-                                        Monthly
-                                    </option><option value="fortnightly">
-                                        Fortnightly
-                                    </option><option value="weekly">
-                                        Weekly
-                                    </option></select> <!----></div></div></div> 
+                                    
+
+                                </label> <div class="flex-balloon"><div><div class="input-group"><input type="number" class="form-control"> <span class="input-group-append">%</span></div></div></div> <!----></div></div> <div class="fg-if-businesspersonal"><div class="form-group"><label>Personal or Business</label> <select class="form-control"><option value="personal">Personal</option> <option value="business">Business</option></select> <!----></div></div> <div class="fg-repayment-frequency d-none d-lg-block">
+                                    <div class="form-group">
+                                        <label>Repayment frequency</label> 
+                                        <div role="group" aria-label="..." class="btn-group d-flex w-100">
+                                            <a href="javascript:void(0)" role="button" class="btn-freq btn btn-selected">Monthly</a> 
+                                            <a href="javascript:void(0)" role="button" class="btn-freq btn">Fortnightly</a> 
+                                            <a href="javascript:void(0)" role="button" class="btn-freq btn">Weekly</a>
+                                        </div> <!---->
+                                    </div>
+                                </div> 
+                                <div class="fg-repayment-frequency d-block d-lg-none">
+                                    <div class="form-group">
+                                        <label>Repayment frequency</label> 
+                                        <select class="form-control">
+                                            <option value="monthly">
+                                                 Monthly
+                                            </option><option value="fortnightly">
+                                                 Fortnightly
+                                            </option>
+                                            <option value="weekly">
+                                                 Weekly
+                                            </option>
+                                        </select> <!---->
+                                    </div>
+                                </div>
+                            </div> 
 
                                     <div class="results">
                                         <div class="result-box" style="display: none;">    
@@ -395,16 +415,6 @@
             formatPhone(this)}}function formatPhone(A){A.value=formatPhoneStr(A.value)}function formatPhoneStr(A){var C=A.replace(/[^0-9xX]/g,"");C=C.replace(/[xX]/g,"x");var B="";if(C.indexOf("x")>-1){B=" "+C.substr(C.indexOf("x"));C=C.substr(0,C.indexOf("x"))}switch(C.length){case (10):return C.replace(/(..)(....)(....)/g,"($1) $2 $3")+B;case (11):if(C.substr(0,1)=="1"){return C.substr(1).replace(/(..)(....)(....)/g,"($1) $2 $3")+B}break;default:}return A}
 
         window.onload=function(){doFormatPhone("calc_tel")};
-
-   // $('#calc_tel').keyup(function(e) {
-        //doFormatPhone('calc_tel');
-       /* $(this).val(new libphonenumber.AsYouType('AU').input($(this).val()));*/
-   // });
-
-
-
-
-
 </script>
 
 
@@ -504,7 +514,19 @@ $("#button-modal").click(function(){
  
 </script>
 
+<script type="text/javascript">
+    $('.btn-freq').click(function(){
+        $('.btn-freq').each(function(i, obj) {
+            $(this).removeClass( "btn-selected" );
+        });
+       
+        $(this).addClass( "btn-selected" );
+       
 
+});
+
+
+</script>
 <!--
 <script type="text/javascript" src="./Car loan calculator - loans.com_files/calculator-car-loan-repayment.js.download"></script>
 <script>
