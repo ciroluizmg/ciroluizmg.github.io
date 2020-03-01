@@ -1,0 +1,686 @@
+function VUE_APP_UWP(instanceId, config) {
+    return new Vue({
+        el: '#UWP_' + instanceId,
+        data: {
+            inputData: {
+                externalLeadId: null,
+                customer: {
+                    isNew: true,
+                    fullName: "",
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    postcode: "",
+                    mobile: "",
+                },
+                enquiryType: "",
+                homeLoan: {
+                    loanPurpose: "",
+                    propertyValue: "",
+                    loanAmount: "",
+                    haveFoundProperty: true,
+                    isOwnerOccupied: true
+                },
+                carLoan: {
+                    loanPurpose: "",
+                    loanAmount: "",
+                    haveFoundVehicle: true,
+                    isForBusinessUse: false
+                },
+                propertyReport: {
+                    getPropertyReport: false,
+                    propertyReportAddress: "",
+                    propertyReportAddressId: null
+                },
+                existingCustomer: {
+                    loanPurpose: ""
+                }
+            },
+            typeData: {
+                enquiryTypes: [{
+                    id: 1,
+                    text: "Home loan"
+                },{
+                    id: 2,
+                    text: "Car loan"
+                },{
+                    id: 5,
+                    text: "Your property report"
+                }],
+                homeLoanPurposeTypes: [],
+                carLoanPurposeTypes: [{
+                    id: 11,
+                    text: "Buying a new car"
+                },{
+                    id: 12,
+                    text: "Buying a used car from a dealer"
+                },{
+                    id: 14,
+                    text: "Refinancing my car loan"
+                }],
+                carLoanPurposeVxTypes: [],
+                existingCustomerPurposeTypes: [{
+                    id: "existing-loan",
+                    text: "Existing loan account"
+                },{
+                    id: "new-loan",
+                    text: "New loan account"
+                }]
+            },
+            uiData: {
+                headingText: null,
+                bodyText: null,
+                isHomeLoanEnquiry: false,
+                isCarLoanEnquiry: false,
+                isPropertyReportRequest: false,
+                propertyReportSearchTerm: "",
+                propertyReportSearchResults: [],
+                preventMobileWatch: false,
+                showEnquiryType: true,
+                showInternalResponse: false,
+                postRedirect: null,
+                isSubmitting: false
+            },
+            errors: {
+                customer: {
+                    fullName: null,
+                    firstName: null,
+                    lastName: null,
+                    email: null,
+                    postcode: null,
+                    mobile: null,
+                },
+                enquiryType: null,
+                homeLoan: {
+                    loanPurpose: null,
+                    propertyValue: null,
+                    loanAmount: null,
+                },
+                carLoan: {
+                    loanPurpose: null,
+                    loanAmount: null,
+                },
+                propertyReport: {
+                    propertyReportAddress: null,
+                },
+                existingCustomer: {
+                    loanPurpose: null
+                }
+            }
+        },
+        watch: {
+            "inputData.customer.fullName": _.debounce(function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.customer.fullName = null;
+                    var customerName = utils.splitCustomerName(newValue);
+                    if (customerName.LastName == "") {
+                        $vm.errors.customer.fullName = "Please enter both a first and last name."
+                    }
+                    else {
+                        $vm.inputData.customer.firstName = customerName.FirstName;
+                        $vm.inputData.customer.lastName = customerName.LastName;
+                        visitor.setValues({
+                            "applicant1-firstName": $vm.inputData.customer.firstName,
+                            "applicant1-lastName": $vm.inputData.customer.lastName
+                        }, function () {})
+                    }
+                }
+            }, 500),
+            "inputData.customer.email": _.debounce(function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.customer.email = null;
+                    if (validation.emailFormat(newValue)) {
+                        validation.emailValid(newValue, function(response) {
+                            if (!response) {
+                                $vm.errors.customer.email = "Please enter a valid email address.";
+                            }
+                            else {
+                                visitor.setValues({
+                                    "applicant1-email": $vm.inputData.customer.email
+                                }, function () {})
+                            }
+                        });
+                    }
+                    else {
+                        $vm.errors.customer.email = "Please enter a valid email address.";
+                    }
+                }
+            }, 500),
+            "inputData.customer.postcode": _.debounce(function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.customer.postcode = null;
+                    if (!validation.minLength(newValue, 4) || !validation.maxLength(newValue, 4)) {
+                        $vm.errors.customer.postcode = "Please provide a valid postcode.";
+                    }
+                    else {
+                        visitor.setValues({
+                            "applicant1-postcode": $vm.inputData.customer.postcode
+                        }, function () {})
+                    }
+                }
+            }, 500),
+            "inputData.customer.mobile": _.debounce(function (newValue, oldValue) {
+                var $vm = this;
+                if ($vm.uiData.preventMobileWatch) {
+                    $vm.uiData.preventMobileWatch = false;
+                    return;
+                }
+                if (validation.required(newValue)) {
+                    $vm.errors.customer.mobile = null;
+                    var mobileTests = validation.phoneFormat(newValue);
+                    if (mobileTests.isValid) {
+                        $vm.uiData.preventMobileWatch = true;
+                        $vm.inputData.customer.mobile = "+" + mobileTests.format.countryCode + mobileTests.format.areaCode + mobileTests.format.localNumber;
+                        if (mobileTests.numberType == "MOBILE") {
+                            validation.phoneValid(newValue, function(response) {
+                                if (!response) {
+                                    $vm.errors.customer.mobile = "Please enter a valid phone number.";
+                                }
+                                else {
+                                    visitor.setValues({
+                                        "applicant1-mobile": $vm.inputData.customer.mobile
+                                    }, function () {})
+                                }
+                            });
+                        }
+                        else {
+                            visitor.setValues({
+                                "applicant1-phoneAreaCode": mobileTests.format.areaCode,
+                                "applicant1-phoneLocalNumber": mobileTests.format.localNumber
+                            }, function () {})
+                        }
+                    }
+                    else {
+                        $vm.errors.customer.mobile = "Please enter a valid phone number.";
+                    }
+                }
+            }, 500),
+            "inputData.enquiryType": function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.enquiryType = null;
+                    visitor.setValues({
+                        "product-loanTypeId": $vm.inputData.enquiryType
+                    }, function () {})
+                }
+                $vm.uiData.isHomeLoanEnquiry = ($vm.inputData.enquiryType == 1);
+                $vm.uiData.isCarLoanEnquiry = ($vm.inputData.enquiryType == 2);
+                $vm.uiData.isPropertyReportRequest = ($vm.inputData.enquiryType == 5);
+            },
+            "inputData.homeLoan.loanPurpose": function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.homeLoan.loanPurpose = null;
+                    if ($vm.errors.homeLoan.loanPurpose == 5 || $vm.errors.homeLoan.loanPurpose == 6) {
+                        $vm.inputData.homeLoan.isOwnerOccupied = false;
+                    }
+                    else {
+                        $vm.inputData.homeLoan.isOwnerOccupied = true;
+                    }
+                    visitor.setValues({
+                        "product-loanPurposeId": $vm.inputData.homeLoan.loanPurpose
+                    }, function () {})
+                }
+            },
+            "inputData.homeLoan.propertyValue": _.debounce(function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.homeLoan.propertyValue = null;
+                    if (!isNaN(parseFloat($vm.inputData.homeLoan.loanAmount)) && parseFloat($vm.inputData.homeLoan.loanAmount) > parseFloat(newValue)) {
+                        $vm.errors.homeLoan.propertyValue = "The property value should be greater than the loan amount."
+                    }
+                    else {
+                        visitor.setValues({
+                            "product-securityValue": $vm.inputData.homeLoan.propertyValue
+                        }, function () {})
+                    }
+                }
+            }, 500),
+            "inputData.homeLoan.loanAmount": _.debounce(function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.homeLoan.propertyValue = null;
+                    if (!isNaN(parseFloat($vm.inputData.homeLoan.propertyValue)) && parseFloat(newValue) > parseFloat($vm.inputData.homeLoan.propertyValue)) {
+                        $vm.errors.homeLoan.propertyValue = "The property value should be greater than the loan amount."
+                    }
+                    else {
+                        visitor.setValues({
+                            "product-loanAmount": $vm.inputData.homeLoan.loanAmount
+                        }, function () {})
+                    }
+                }
+            }, 500),
+            "inputData.carLoan.loanPurpose": function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.carLoan.loanPurpose = null;
+                    visitor.setValues({
+                        "product-carLoanPurposeId": $vm.inputData.carLoan.loanPurpose
+                    }, function () {})
+                }
+            },
+            "inputData.carLoan.loanAmount": function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.carLoan.loanAmount = null;
+                    visitor.setValues({
+                        "product-carLoanAmount": $vm.inputData.carLoan.loanAmount
+                    }, function () {})
+                }
+            },
+            "inputData.propertyReport.propertyReportAddress": function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.propertyReport.propertyReportAddress = null;
+                }
+            },
+            "uiData.propertyReportSearchTerm": _.debounce(function (newValue, oldValue) {
+                var $vm = this;
+                if (newValue.length > 5) {
+                    axios
+                        .get(utils.apiPath() + "/forms/aux/address/search?frag=" + $vm.uiData.propertyReportSearchTerm)
+                        .then(function(response) {
+                            $vm.uiData.propertyReportSearchResults = response.data;
+                        })
+                }
+            }, 500),
+            "inputData.existingCustomer.loanPurpose": function (newValue, oldValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.existingCustomer.loanPurpose = null;
+                    visitor.setValues({
+                        "product-existingCustomerPurposeId": newValue
+                    }, function () {})
+                }
+            },
+            "inputData.carLoan.isForBusinessUse": function (newValue, oldValue) {
+                var $vm = this;
+                visitor.setValues({
+                    "product-carBusinessUse": newValue
+                }, function () {})
+            },
+            "inputData.carLoan.haveFoundVehicle": function (newValue, oldValue) {
+                var $vm = this;
+                visitor.setValues({
+                    "product-foundCar": newValue
+                }, function () {})
+            }
+            
+        },
+        methods: {
+            selectAddress: function (address) {
+                var $vm = this;
+                if (address == "as-entered") {
+                    $vm.inputData.propertyReport.propertyReportAddress = $vm.uiData.propertyReportSearchTerm;
+                }
+                else {
+                    $vm.inputData.propertyReport.propertyReportAddress = address.address[0];
+                    $vm.inputData.propertyReport.propertyReportAddressId = address.id[0];
+                }
+                $vm.uiData.propertyReportSearchTerm = "";
+                $vm.uiData.propertyReportSearchResults = [];
+                visitor.setValues({
+                    "rpdata-propertyText": $vm.inputData.propertyReport.propertyReportAddress,
+                    "rpdata-propertyId": $vm.inputData.propertyReport.propertyReportAddressId
+                }, function () {})
+            },
+            clearAddress: function () {
+                var $vm = this;
+                $vm.inputData.propertyReport.propertyReportAddress = "";
+                $vm.inputData.propertyReport.propertyReportAddressId = null;
+            },
+            validate: function () {
+                var $vm = this;
+                var validationFailed = false;
+                if (!validation.required($vm.inputData.customer.fullName)) {
+                    $vm.errors.customer.fullName = "This field is required.";
+                    validationFailed = true;
+                }
+                else if ($vm.errors.customer.fullName != null) {
+                    validationFailed = true;
+                }
+                if (!validation.required($vm.inputData.customer.email)) {
+                    $vm.errors.customer.email = "This field is required.";
+                    validationFailed = true;
+                }
+                else if ($vm.errors.customer.email != null) {
+                    validationFailed = true;
+                }
+                if (!validation.required($vm.inputData.customer.postcode)) {
+                    $vm.errors.customer.postcode = "This field is required.";
+                    validationFail = true;
+                }
+                if (!validation.required($vm.inputData.customer.mobile)) {
+                    $vm.errors.customer.mobile = "This field is required.";
+                    validationFailed = true;
+                }
+                else if ($vm.errors.customer.mobile != null) {
+                    validationFailed = true;
+                }
+                if (!validation.required($vm.inputData.enquiryType)) {
+                    $vm.errors.enquiryType = "This field is required.";
+                    validationFailed = true;
+                }
+                if (!$vm.inputData.customer.isNew) {
+                    if (!validation.required($vm.inputData.existingCustomer.loanPurpose)) {
+                        $vm.errors.existingCustomer.loanPurpose = "This field is required.";
+                        validationFailed = true;
+                    }
+                }
+                if ($vm.uiData.isHomeLoanEnquiry) {
+                    if ($vm.inputData.customer.isNew) {
+                        if (!validation.required($vm.inputData.homeLoan.loanPurpose)) {
+                            $vm.errors.homeLoan.loanPurpose = "This field is required.";
+                            validationFailed = true;
+                        }
+                    }
+                    if (!validation.required($vm.inputData.homeLoan.propertyValue)) {
+                        $vm.errors.homeLoan.propertyValue = "This field is required.";
+                        validationFailed = true;
+                    }
+                    else if ($vm.errors.homeLoan.propertyValue != null) {
+                        validationFailed = true;
+                    }
+                    if (!validation.required($vm.inputData.homeLoan.loanAmount)) {
+                        $vm.errors.homeLoan.loanAmount = "This field is required.";
+                        validationFailed = true;
+                    }
+                }
+                if (($vm.uiData.isHomeLoanEnquiry && $vm.inputData.propertyReport.getPropertyReport) || $vm.uiData.isPropertyReportRequest) {
+                    if (!validation.required($vm.inputData.propertyReport.propertyReportAddress)) {
+                        $vm.errors.propertyReport.propertyReportAddress = "This field is required.";
+                        validationFailed = true;
+                    }
+                }
+                if ($vm.uiData.isCarLoanEnquiry) {
+                    if ($vm.inputData.customer.isNew) {
+                        if (!validation.required($vm.inputData.carLoan.loanPurpose)) {
+                            $vm.errors.carLoan.loanPurpose = "This field is required.";
+                            validationFailed = true;
+                        }
+                    }
+                    if (!validation.required($vm.inputData.carLoan.loanAmount)) {
+                        $vm.errors.carLoan.loanAmount = "This field is required.";
+                        validationFailed = true;
+                    }
+                }
+                return !validationFailed;
+            },
+            submit: function () {
+                var $vm = this;
+                $vm.uiData.isSubmitting = true;
+                if ($vm.validate()) {
+                    var selectedLoanPurpose = null;
+                    if ($vm.uiData.isHomeLoanEnquiry || $vm.uiData.isPropertyReportRequest) {
+                        var submitPacket = {
+                            "members": [{
+                                "__t": "customer",
+                                "bestTimeToCall": null,
+                                "contact": {
+                                    "firstName": $vm.inputData.customer.firstName,
+                                    "lastName": $vm.inputData.customer.lastName,
+                                    "phone": $vm.inputData.customer.mobile,
+                                    "email": $vm.inputData.customer.email
+                                }
+                            }],
+                            "purposes": [],
+                            "postcode": $vm.inputData.customer.postcode,
+                            "externalId": $vm.inputData.externalLeadId
+                        }
+                        if ($vm.inputData.enquiryType == "1") {
+                            selectedLoanPurpose = $vm.typeData.homeLoanPurposeTypes.find(function (type) { return type.id == $vm.inputData.homeLoan.loanPurpose }).text
+                            submitPacket.purposes.push({
+                                "__t": "home-loan",
+                                "primaryPurpose": selectedLoanPurpose.toLowerCase().replace(/ /g,"-"),
+                                "propertyFound": $vm.inputData.homeLoan.haveFoundProperty,
+                                "securityValue": $vm.inputData.homeLoan.propertyValue,
+                                "splits": [{
+                                    "amount": $vm.inputData.homeLoan.loanAmount
+                                }],
+                                "firstHomeBuyer": false,
+                                "smsf": false,
+                                "ownerOccupier": $vm.inputData.homeLoan.isOwnerOccupied,
+                            })
+                            if ($vm.inputData.propertyReport.getPropertyReport) {
+                                submitPacket.purposes[0]['rp'] = {
+                                    "propertyId": $vm.inputData.propertyReport.propertyReportAddressId,
+                                    "address": $vm.inputData.propertyReport.propertyReportAddress
+                                }
+                            }
+                        }
+                        if ($vm.inputData.enquiryType == "5") {
+                            selectedLoanPurpose = $vm.typeData.homeLoanPurposeTypes.find(function (type) { return type.id == $vm.inputData.homeLoan.loanPurpose }).text
+                            submitPacket.purposes.push({
+                                "__t": "rp-data",
+                                "primaryPurpose": selectedLoanPurpose.toLowerCase().replace(/ /g,"-"),
+                                "rp": {
+                                    "propertyId": $vm.inputData.propertyReport.propertyReportAddressId,
+                                    "address": $vm.inputData.propertyReport.propertyReportAddress
+                                }
+                            })
+                        }
+                        axios
+                            .post(utils.apiPath() + "/sales/lead", submitPacket, {
+                                withCredentials: false,
+                                headers: {
+                                    'x-api-version': "1.0.0"
+                                }
+                            })
+                            .then(function(response) { 
+                                visitor.setValues({
+                                    "externalLeadId": response.data
+                                }, function () {
+                                    if ($vm.uiData.postRedirect) {
+                                        location.assign($vm.uiData.postRedirect);
+                                    }
+                                    else {
+                                        if ($vm.uiData.isHomeLoanEnquiry) {
+                                            location.assign("/hardsell/uwp-thank-you?l=" + response.data);
+                                        }
+                                        if ($vm.uiData.isPropertyReportRequest) {
+                                            location.assign("/hardsell/uwp-thank-you?l=" + response.data);
+                                        }
+                                    }
+                                });
+                            });
+                    }
+                    if ($vm.uiData.isCarLoanEnquiry) {
+                        var selectedLoanPurpose = $vm.typeData.carLoanPurposeVxTypes.find(function (type) { 
+                            if ($vm.inputData.carLoan.loanPurpose == 11) {
+                                if ($vm.inputData.carLoan.isForBusinessUse) {
+                                    return type.id == "purchase-new-business";
+                                }
+                                else {
+                                    return type.id == "purchase-new-personal";
+                                }
+                            }
+                            if ($vm.inputData.carLoan.loanPurpose == 12) {
+                                if ($vm.inputData.carLoan.isForBusinessUse) {
+                                    return type.id == "purchase-used-business";
+                                }
+                                else {
+                                    return type.id == "purchase-used-personal";
+                                }
+                            }
+                            if ($vm.inputData.carLoan.loanPurpose == 14) {
+                                return type.id == "refinance-personal";
+                            }
+                        });
+                        var submitPacket = {
+                            "purposes": [{
+                                "channel": "retail",
+                                "loanAmount": $vm.inputData.carLoan.loanAmount,
+                                "purpose": selectedLoanPurpose.id,
+                                "applicants": [
+                                    {
+                                        "guarantor": false,
+                                        "id": "1"
+                                    }
+                                ],
+                                "collaterals": ["1"],
+                                "type": ($vm.inputData.carLoan.isForBusinessUse ? "business-vehicle" : "motor-vehicle-loan")
+                            }],
+                            "collaterals": [{
+                                "usage": ($vm.inputData.carLoan.isForBusinessUse ? "business" : "personal"),
+                                "year": new Date().getFullYear(),
+                                "model": ($vm.inputData.carLoan.haveFoundVehicle ? "tbd" : "n/a"),
+                                "make": ($vm.inputData.carLoan.haveFoundVehicle ? "tbd" : "n/a"),
+                                "type": "motor-vehicle-loan",
+                                "id": "1"
+                            }],
+                            "applicants": [{
+                                "contact": {
+                                    "email": $vm.inputData.customer.email,
+                                    "mobile": $vm.inputData.customer.mobile
+                                },
+                                "lastName": $vm.inputData.customer.lastName,
+                                "otherNames": [],
+                                "firstName": $vm.inputData.customer.firstName,
+                                "type": "individual",
+                                "id": "1"
+                            }],
+                            "lead": {
+                                "creationSource": "lca-contact-us",
+                                "status": "new-lead",
+                                "shop": "car-shop",
+                                "relatesTo": ($vm.inputData.carLoan.isForBusinessUse ? "business-car-loan" : "car-loan"),
+                                "channel": "lca-website",
+                                "postcode": $vm.inputData.customer.postcode,
+                                "id": null,
+                                "sessionId": cookies.getCookie("dmid")
+                            },
+                            "parties": { "originator": 134, "broker": 135, "contact": 133383, "internalBdm": 562511 }
+                        }
+                        axios
+                            .post(utils.apiPath() + "/submission/submit?debug=true", submitPacket, {
+                                withCredentials: false,
+                                headers: {
+                                    'x-workflow-id': "lead-submission"
+                                }
+                            })
+                            .then(function(response) {
+                                try {
+                                    dataLayer.push({
+                                        'event': 'dataPush',
+                                        'leadId': response.data.lead.id,
+                                        'externalLeadId': response.data.lead.externalId,
+                                    });
+                                } catch (e) { }
+                                visitor.setValues({
+                                    "externalLeadId": response.data.lead.externalId
+                                }, function () {
+                                    if ($vm.uiData.isCarLoanEnquiry) {
+                                        if ($vm.inputData.carLoan.isForBusinessUse) {
+                                            window.dataLayer.push({
+                                                event: 'pageview',
+                                                virtualUrl: '/virtual-pageview/car-loan-arrange-a-call-complete'
+                                            });
+                                            $vm.uiData.showInternalResponse = true;
+                                        }
+                                        else {
+                                            location.assign("/hardsell/car-uwp-thank-you?l=" + response.data.lead.externalId);
+                                        }
+                                    }
+                                });
+                            });
+                    }
+                    return true;
+                }
+                else {
+                    $vm.uiData.isSubmitting = false;
+                    return false;
+                }
+            },
+            setHomeLoanPurposeTypes: function($vm, response) {
+                $vm.typeData.homeLoanPurposeTypes = response;
+            }
+        },
+        created: function () {
+            var $vm = this;
+            axios
+                .get(utils.apiPath() + "/types/list/home-loan-purposes")
+                .then(function(response) {
+                    $vm.typeData.homeLoanPurposeTypes = response.data;
+                })
+            axios
+                .get(utils.apiPath() + "/types/list/car-loan-loan-purpose-types-vx")
+                .then(function(response) {
+                    $vm.typeData.carLoanPurposeVxTypes = response.data;
+                })
+            visitor.getValue("externalLeadId,applicant1-existingCustomer,product-loanTypeId,applicant1-firstName,applicant1-lastName,applicant1-email,applicant1-countryCode,applicant1-postcode,applicant1-mobile,applicant1-phoneAreaCode,applicant1-phoneLocalNumber,product-loanPurposeId,product-carLoanPurposeId,product-securityValue,product-loanAmount,product-ownerOccupier,product-firstHomeBuyer,product-foundProperty,product-carLoanAmount,product-foundCar,product-carBusinessUse,rpdata-reportRequired,rpdata-propertyId,rpdata-propertyText,product-existingCustomerPurposeId", function (response) {
+                if (response.hasOwnProperty("externalLeadId")) {
+                    $vm.inputData.externalLeadId = response['externalLeadId'];
+                }
+                if (response.hasOwnProperty("applicant1-existingCustomer")) {
+                    $vm.inputData.customer.isNew = response['applicant1-existingCustomer'];
+                }
+                if (response.hasOwnProperty("applicant1-firstName") && response.hasOwnProperty("applicant1-lastName")) {
+                    $vm.inputData.customer.fullName = response['applicant1-firstName'] + " " + response['applicant1-lastName'];
+                }
+                else if (response.hasOwnProperty("applicant1-firstName") && !response.hasOwnProperty("applicant1-lastName")) {
+                    $vm.inputData.customer.fullName = response['applicant1-firstName'];
+                }
+                if (response.hasOwnProperty("applicant1-email")) {
+                    $vm.inputData.customer.email = response['applicant1-email'];
+                }
+                if (response.hasOwnProperty("applicant1-postcode")) {
+                    $vm.inputData.customer.postcode = response['applicant1-postcode'];
+                }
+                if (response.hasOwnProperty("applicant1-mobile")) {
+                    $vm.inputData.customer.mobile = response['applicant1-mobile'];
+                }
+                if (response.hasOwnProperty("applicant1-phoneAreaCode") && response.hasOwnProperty("applicant1-phoneLocalNumber")) {
+                    $vm.inputData.customer.mobile = response["applicant1-phoneAreaCode"] + response["applicant1-phoneLocalNumber"];
+                }
+                if (response.hasOwnProperty("product-loanTypeId")) {
+                    $vm.inputData.enquiryType = response['product-loanTypeId'];
+                }
+                if (response.hasOwnProperty("product-loanPurposeId")) {
+                    $vm.inputData.homeLoan.loanPurpose = response['product-loanPurposeId'];
+                }
+                if (response.hasOwnProperty("product-securityValue")) {
+                    $vm.inputData.homeLoan.propertyValue = response['product-securityValue'];
+                }
+                if (response.hasOwnProperty("product-loanAmount")) {
+                    $vm.inputData.homeLoan.loanAmount = response['product-loanAmount'];
+                }
+                if (response.hasOwnProperty("product-foundProperty")) {
+                    $vm.inputData.homeLoan.haveFoundProperty = response['product-foundProperty'];
+                }
+                if (response.hasOwnProperty("product-carLoanPurposeId")) {
+                    $vm.inputData.carLoan.loanPurpose = response['product-carLoanPurposeId'];
+                }
+                if (response.hasOwnProperty("product-carLoanAmount")) {
+                    $vm.inputData.carLoan.loanAmount = response['product-carLoanAmount'];
+                }
+                if (response.hasOwnProperty("product-foundCar")) {
+                    $vm.inputData.carLoan.haveFoundVehicle = response['product-foundCar'];
+                }
+                if (response.hasOwnProperty("product-carBusinessUse")) {
+                    $vm.inputData.carLoan.isForBusinessUse = response['product-carBusinessUse'];
+                }
+                if (response.hasOwnProperty("rpdata-reportRequired")) {
+                    $vm.inputData.propertyReport.getPropertyReport = response['rpdata-reportRequired'];
+                }
+                if (response.hasOwnProperty("rpdata-propertyText")) {
+                    $vm.inputData.propertyReport.propertyReportAddress = response['rpdata-propertyText'];
+                }
+                if (response.hasOwnProperty("rpdata-propertyId")) {
+                    $vm.inputData.propertyReport.propertyReportAddressId = response['rpdata-propertyId'];
+                }
+                if (response.hasOwnProperty("product-carPersonalUs")) {
+                    $vm.inputData.propertyReport.propertyReportAddressId = response['product-carPersonalUs'];
+                }
+            })
+            /* Process Config */
+            $vm.uiData.headingText = config.heading;
+            $vm.uiData.bodyText = config.body;
+            if (config.hideEnquiryType) {
+                $vm.uiData.showEnquiryType = false;
+            }
+        }
+    })
+}
