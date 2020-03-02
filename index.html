@@ -174,14 +174,14 @@
           
 <section id="CALCCLREPAY_7b24d123146f4bde8b1c32a3431cd378" class="widget_calculator calculator_car-loan-repayment" style="margin-bottom: 0;">
 
-    <div class="container"><div class="calculator_tile"><!----> <div><div class="flex-layout"><div class="input flex-input"><div class="fg-loan-amount util-width-50"><div class="form-group"><label>Loan amount</label> <div class="input-group"><span class="input-group-prepend">$</span> <input type="tel" class="form-control"></div> <!----></div></div> 
+    <div class="container"><div class="calculator_tile"><!----> <div><div class="flex-layout"><div class="input flex-input"><div class="fg-loan-amount util-width-50"><div class="form-group"><label>Loan amount</label> <div class="input-group"><span class="input-group-prepend">$</span> <input type="tel" class="form-control" value="15,000"></div> <!----></div></div> 
 
     <div class="fg-vehicle-purchase-price util-width-50">
         <div class="form-group">
             <label>Vehicle purchase price</label> 
             <div class="input-group">
                 <span class="input-group-prepend">$</span> 
-                <input type="tel" class="form-control">
+                <input type="tel" class="form-control" value="50,000">
             </div> <!---->
         </div>
     </div> 
@@ -216,24 +216,24 @@
                                     </option>
 
                                 </select> <!----></div></div> 
-                                <div class="fg-interest-rate util-width-50"><div class="form-group"><label>Interest rate</label> <div class="input-group"><input type="number" maxlength="5" class="form-control"> <span class="input-group-append">%</span></div> <!----></div></div> <div class="fg-balloon-repayment util-width-50"><div class="form-group"><label>
+                                <div class="fg-interest-rate util-width-50"><div class="form-group"><label>Interest rate</label> <div class="input-group"><input type="number" maxlength="5" class="form-control" value="4.57"> <span class="input-group-append">%</span></div> <!----></div></div> <div class="fg-balloon-repayment util-width-50"><div class="form-group"><label>
                                     Balloon repayment
                                     
 
-                                </label> <div class="flex-balloon"><div><div class="input-group"><input type="number" class="form-control"> <span class="input-group-append">%</span></div></div></div> <!----></div></div> <div class="fg-if-businesspersonal"><div class="form-group"><label>Personal or Business</label> <select class="form-control"><option value="personal">Personal</option> <option value="business">Business</option></select> <!----></div></div> <div class="fg-repayment-frequency d-none d-lg-block">
+                                </label> <div class="flex-balloon"><div><div class="input-group"><input type="number" class="form-control" value="20"> <span class="input-group-append">%</span></div></div></div> <!----></div></div> <div class="fg-if-businesspersonal"><div class="form-group"><label>Personal or Business</label> <select class="form-control"><option value="personal">Personal</option> <option value="business">Business</option></select> <!----></div></div> <div class="fg-repayment-frequency d-none d-lg-block">
                                     <div class="form-group">
                                         <label>Repayment frequency</label> 
                                         <div role="group" aria-label="..." class="btn-group d-flex w-100">
-                                            <a href="javascript:void(0)" role="button" class="btn-freq btn btn-selected">Monthly</a> 
-                                            <a href="javascript:void(0)" role="button" class="btn-freq btn">Fortnightly</a> 
-                                            <a href="javascript:void(0)" role="button" class="btn-freq btn">Weekly</a>
+                                            <a href="javascript:void(0)" role="button" data-val="monthly" class="btn-freq btn btn-selected">Monthly</a> 
+                                            <a href="javascript:void(0)" role="button" data-val="fortnightly" class="btn-freq btn">Fortnightly</a> 
+                                            <a href="javascript:void(0)" role="button" data-val="weekly" class="btn-freq btn">Weekly</a>
                                         </div> <!---->
                                     </div>
                                 </div> 
                                 <div class="fg-repayment-frequency d-block d-lg-none">
                                     <div class="form-group">
                                         <label>Repayment frequency</label> 
-                                        <select class="form-control">
+                                        <select class="rep-freq-select form-control">
                                             <option value="monthly">
                                                  Monthly
                                             </option><option value="fortnightly">
@@ -396,6 +396,76 @@
 </style>
 
 
+<script type="text/javascript">
+
+
+
+    /*format currency*/  
+    $('[type="tel"][class="form-control"],[class="static-form-control"]').on('input', function(){
+        $(this).val( new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(
+        $(this).val().replace(/\D/g,'')
+        ) );
+    });
+
+    var loanAmountValid = false;
+    var interestValid = false;
+    var balloonValid = false;
+
+    /* max loan amount*/
+    $('.fg-loan-amount').find("input").on('input', function(){
+        if (   parseInt($(this).val().replace(/\D/g,'')) > 200000){
+            loanAmountValid = false;
+
+            if( ! $(this).parent().parent().find(".alert").length  ){
+                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is $200,000.</div>");
+            }        
+           
+        }else{
+            loanAmountValid = true;
+            if( $(this).parent().parent().find(".alert").length  ){
+                $(this).parent().parent().find(".alert").remove();
+            }       
+        }
+    });
+
+
+    
+    /* max interest amount*/
+    $('.fg-interest-rate').find("input").on('input', function(){
+        if (   parseInt($(this).val()) > 25){
+            interestValid = false;
+
+            if( ! $(this).parent().parent().find(".alert").length  ){
+                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is 25%</div>");
+            }        
+           
+        }else{
+            interestValid = true;
+            if( $(this).parent().parent().find(".alert").length  ){
+                $(this).parent().parent().find(".alert").remove();
+            }       
+        }
+    });
+
+/* max balloon*/
+    $('.fg-balloon-repayment').find("input").on('input', function(){
+        if (   parseInt($(this).val() ) > 50){
+            balloonValid = false;
+
+            if( ! $(this).parent().parent().find(".alert").length  ){
+                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is 50%</div>");
+            }        
+           
+        }else{
+            balloonValid = true;
+            if( $(this).parent().parent().find(".alert").length  ){
+                $(this).parent().parent().find(".alert").remove();
+            }       
+        }
+    });
+
+</script>
+
 <script src="https://unpkg.com/libphonenumber-js@^1.7.6/bundle/libphonenumber-min.js"></script>
 
 <script>
@@ -519,9 +589,61 @@ $("#button-modal").click(function(){
         });
        
         $(this).addClass( "btn-selected" );
+        $('.rep-freq-select').val(  $(this).attr('data-val')  );
 });
+</script>
+
+<script type="text/javascript">
+    /*Calculate payments*/
+    /*get values from inputs*/
+    function calcPayments(){   
+        var calcEl = $('#CALCCLREPAY_7b24d123146f4bde8b1c32a3431cd378');
+
+        var loanAmount = parseInt(calcEl.find('.fg-loan-amount').find('input').val().replace(/\D/g,''));
+        console.log(loanAmount);
+        var vehiclePrice = parseInt(calcEl.find('.fg-vehicle-purchase-price').find('input').val().replace(/\D/g,''));
+        console.log(vehiclePrice);
+        var initialDeposit = vehiclePrice - loanAmount;
+        var loanTerm = parseInt(calcEl.find('.fg-loan-term').find('select').val());
+        console.log(loanTerm);
+        var interestRate = parseFloat(calcEl.find('.fg-interest-rate').find('input').val());
+        console.log(interestRate);
+        var balloonRep = parseFloat(calcEl.find('.fg-balloon-repayment').find('input').val());
+        console.log(balloonRep);
+        var personalBusiness = calcEl.find('.fg-if-businesspersonal').find('select').val();
+        console.log(personalBusiness);
+        var repayFrequency = $('.rep-freq-select').val();
+
+        var balloonAmount = vehiclePrice * (balloonRep/100) ;
+        console.log(balloonAmount);
+
+        var n = loanTerm * 12;
+        var r = interestRate/(100*12); 
 
 
+        var paymentMonth = (loanAmount - (balloonAmount/(  Math.pow( (1+r) , n) ))) * (  r/(1- (  1 / (   Math.pow((1+r) , n)   )    ) )  )  ;
+        var paymentFortnight = paymentMonth / 2;
+        var paymentWeek = paymentMonth / 4;
+        var repayment;
+        if(repayFrequency == 'monthly'){
+            repayment = paymentMonth;
+        }
+        if(repayFrequency == 'fortnightly'){
+            repayment = paymentFortnight;
+        }
+        if(repayFrequency == 'weekly'){
+            repayment = paymentWeek;
+        }
+        repayment  = repayment.toFixed(2);
+        $('.ps2').html(repayment);
+        $('.ps2').next().html(repayFrequency);
+
+    }
+
+
+    $('#get_result').find('button').click(function() {
+        calcPayments();
+    })
 
 </script>
 <!--
