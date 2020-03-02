@@ -405,6 +405,9 @@
         $(this).val( new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(
         $(this).val().replace(/\D/g,'')
         ) );
+        var calcEl = $('#CALCCLREPAY_7b24d123146f4bde8b1c32a3431cd378'); 
+        var dep = parseInt(calcEl.find('.fg-vehicle-purchase-price').find('input').val().replace(/\D/g,'')) - calcEl.find('.fg-loan-amount').find('input').val().replace(/\D/g,'');
+        $('.static-form-control').html( '$ '+ new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format( dep ))
     });
 
     var loanAmountValid = false;
