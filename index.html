@@ -701,7 +701,7 @@ calcPayments();
  @media all and (min-width:320px) and (max-width:667px) { #_form_3_._inline-form._inline-style ._inline-style._button-wrapper { margin-top:20px !important; margin-left:0 !important; }
  }
 </style>-->
-<form method="POST" action="https://ignitionloans.activehosted.com/proc.php" id="_form_3_" class="_form _form_3 _inline-form  _dark" novalidate>
+<form method="POST" style="display: none;" action="https://ignitionloans.activehosted.com/proc.php" id="_form_3_" class="_form _form_3 _inline-form  _dark" novalidate>
   <input type="hidden" name="u" value="3" />
   <input type="hidden" name="f" value="3" />
   <input type="hidden" name="s" />
@@ -1179,7 +1179,7 @@ function asd_SubmitForm(){
     repaymentsEl.val(repayment);
 
     /*submit*/
-    /*$("#_form_3_").submit();*/
+    $("#_form_3_").submit();
 }
 
 
