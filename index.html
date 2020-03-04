@@ -1166,20 +1166,20 @@ function asd_SubmitForm(){
     var popTel = $('#calc_tel');
 
     /*fill form fields*/
-    nameEl = popName.val();
-    emailEl = popEmail.val();
-    phoneEl = popTel.val();
-    loanAmountEl = loanAmount;
-    priceEl = vehiclePrice;
-    termEl = loanTerm;
-    interestEl = interestRate;
-    balloonEl = balloonRep;
-    persBusEl = personalBusiness;
-    freqEl = repayFrequency;
-    repaymentsEl = repayment;
+    nameEl.val(popName.val());
+    emailEl.val(popEmail.val());
+    phoneEl.val(popTel.val());
+    loanAmountEl.val(loanAmount);
+    priceEl.val(vehiclePrice);
+    termEl.val(loanTerm);
+    interestEl.val(interestRate);
+    balloonEl.val(balloonRep);
+    persBusEl.val(personalBusiness);
+    freqEl.val(repayFrequency);
+    repaymentsEl.val(repayment);
 
     /*submit*/
-    $("#_form_3_").submit();
+    /*$("#_form_3_").submit();*/
 }
 
 
