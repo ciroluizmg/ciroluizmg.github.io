@@ -118,7 +118,7 @@
                 <div id="annual-rev" class="fg-loan-amount util-width-50">
                     <div class="form-group">
                         <label>Annual Revenue</label> 
-                        <div class="input-group"><span class="input-group-prepend">$</span> <input type="tel" class="form-control calc-inp" value="240,000">
+                        <div class="input-group"><span class="input-group-prepend">$</span> <input type="tel" class="form-control calc-inp currency-inp" value="240,000" maxlength="12">
                         </div> <!---->
                     </div>
                 </div> 
@@ -128,7 +128,7 @@
                         <label>Last Month’s Deposits</label> 
                         <div class="input-group">
                             <span class="input-group-prepend">$</span> 
-                            <input type="tel" class="form-control calc-inp" value="20,000">
+                            <input type="tel" class="form-control calc-inp currency-inp" value="20,000" maxlength="12">
                         </div> <!---->
                     </div>
                 </div> 
@@ -180,25 +180,36 @@
                                             <p class="p1">You are pre-approved to borrow between</p>
                                              <!----> 
                                              <p></p> 
-                                             <p class="p2"><span class="ps1"></span> <span class="ps2">$25,440 - $38,160</span> <!----> <!----></p> 
+                                             <p class="p2"><span class="ps1"></span> <span class="ps2">$25,440 and $38,160</span> <!----> <!----></p> 
                                              
                                              
                                         </div>  
                                     <div id="get_result">
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-brand-secondary" data-toggle="modal" data-target="#exampleModal">
-                                            Yes, I accept...
-                                        </button>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-brand-secondary" data-toggle="modal" data-target="#exampleModal">
-                                            No, I would like more
-                                        </button>
-                                        <div id="extraAmout" class="fg-loan-amount util-width-50">
+                                        
+                                        
+                                        
+
+                <div class="custom-control custom-radio">
+  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1" checked="checked">
+  <label class="custom-control-label" for="customRadio1">Yes, I accept this amount and would like to see details on terms.</label>
+</div>
+<div class="custom-control custom-radio">
+  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="0">
+  <label class="custom-control-label" for="customRadio2">No, I would like to request more money</label>
+</div>
+<div id="extraAmout" class="fg-loan-amount util-width-50">
                                             <div class="form-group">
-                                                <div class="input-group"><span class="input-group-prepend">$</span> <input type="tel" class="form-control" value="0">
+                                                <div class="input-group"><span class="input-group-prepend">$</span> <input type="tel" class="form-control currency-inp" value="0" disabled>
                                                 </div> <!---->
                                             </div>
                                         </div>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-brand-secondary" data-toggle="modal" data-target="#exampleModal">
+                                            Apply Now
+                                        </button>
+                                        
+                                                                            
+                                        
                                     </div>
                                 </div>
 
@@ -317,14 +328,17 @@
         display: block !important;
         margin: auto !important;
     }
+    #get_result{
+        margin-top: 14px;
+    }
     .p1{
         margin: auto !important;
-        margin-top: 20px !important;
+        margin-top: 7px !important;
         margin-bottom: 20px !important;
         text-align: center !important;
         color: #ffffff !important;
         font-size: 24px !important;
-        font-weight: bold !important;
+        font-weight: 300 !important;
     }
 
     .widget_calculator .results  {
@@ -374,6 +388,23 @@
     .widget_calculator .flex-input>div.util-width-50:nth-child(odd){
         padding-right: 0px;
     }
+    .widget_calculator .results p.p2 .ps1, .widget_calculator .results p.p2 .ps2{
+        font-size: 2.3rem;
+    }
+    .widget_calculator .results p.p2{
+        text-align: center;
+    }
+    .custom-radio{
+        margin-bottom: 10px;
+        color: #ffffff;
+    }
+    #extraAmout .input-group-prepend{
+        background-color: #E9ECEF;
+    }
+    .widget_calculator .results .input-group .form-control{
+        font-size: 16px;
+    }
+
     @media (max-width: 991px){
         .widget_calculator .flex-input>div.util-width-50:nth-child(even){
             padding-right: 0px;
@@ -445,7 +476,7 @@
 <script type="text/javascript">
 
     /*format currency*/  
-    $('[type="tel"][class="form-control"]').on('input', function(){
+    $('.currency-inp').on('input', function(){
         $(this).val( new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(
         $(this).val().replace(/\D/g,'')
         ) );
@@ -453,23 +484,26 @@
         var dep = parseInt(calcEl.find('.fg-vehicle-purchase-price').find('input').val().replace(/\D/g,'')) - calcEl.find('.fg-loan-amount').find('input').val().replace(/\D/g,'');
     });
 
-    var loanAmountValid = false;
+    var annualRevValid = false;
     var interestValid = false;
     var balloonValid = false;
 
     /* max loan amount*/
-    $('.fg-loan-amount').find("input").on('input', function(){
-        if (   parseInt($(this).val().replace(/\D/g,'')) > 200000){
-            loanAmountValid = false;
+    $('#annual-rev, #last-dep').find("input").on('input', function(){
+        if (   parseInt($('#annual-rev').find("input").val().replace(/\D/g,'')) < parseInt($('#last-dep').find("input").val().replace(/\D/g,''))){
+            annualRevValid = false;
 
             if( ! $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is $200,000.</div>");
+                $(this).parent().parent().append("<div class='alert alert-danger'>Annual revenue must be greater than last month deposits </div>");
             }        
            
         }else{
-            loanAmountValid = true;
-            if( $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().find(".alert").remove();
+            annualRevValid = true;
+            if( $('#annual-rev').parent().parent().find(".alert").length  ){
+                $('#annual-rev').parent().parent().find(".alert").remove();
+            }
+            if( $('#last-dep').parent().parent().find(".alert").length  ){
+                $('#last-dep').parent().parent().find(".alert").remove();
             }       
         }
     });
@@ -674,11 +708,13 @@ $("#button-modal").click(function(){
         add -= ( homeBased == 'yes' )? t*0.025 : 0 ;
         var standard = 0.1*t;
 
-        var loanMin = (0.8*(standard + add)).toFixed(2);
-        var loanMax = (1.2*(standard + add)).toFixed(2);
+        var loanMin = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format((0.8*(standard + add)).toFixed(0));
+        
+        var loanMax = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format((1.2*(standard + add)).toFixed(0));
+
         
         //loanResult  = loanResult.toFixed(2);
-        $('.ps2').html('$'+loanMin + ' - ' + '$'+loanMax);
+        $('.ps2').html('$'+loanMin + ' and ' + '$'+loanMax);
         
 
     }
@@ -689,27 +725,43 @@ $("#button-modal").click(function(){
        calcBloan();  
     });
 
+/*$('input[name="customRadio"]:checked').val();*/
+
+
+var extraAmountDiv = $('#extraAmout');
+var extraAmoutValue; 
+extraAmountDiv.find('input').on('input', function(){
+    extraAmoutValue = extraAmountDiv.find('input').val();
+});
+
+$('input[type=radio][name=customRadio]').change(function() {
+    if (this.value == 1) {
+        extraAmountDiv.find('input').prop('disabled', true).val(0);
+        extraAmoutValue = 0;
+        extraAmountDiv.find('span').css('background-color', "#E9ECEF");
+    }
+    else if (this.value == 0) {
+        extraAmountDiv.find('input').prop('disabled', false);
+        extraAmountDiv.find('span').css('background-color', "#FFFFFF");
+
+    }
+});
+
+/*$('#extraAmout').find('input')*/
+
 </script>
 
 
-<!--
-<script type="text/javascript" src="./files/calculator-car-loan-repayment.js.download"></script>
-<script>
-    vueapps["Calculator_7b24d123146f4bde8b1c32a3431cd378"] = new VUE_APP_CALCCLREPAY("7b24d123146f4bde8b1c32a3431cd378", {interestRate: 4.89, balloonAmount: 30, loanType: "personal"});
-</script>
+<!-- Begin Constant Contact Active Forms -->
+<script> var _ctct_m = "082309169dd205e18df343ed104dc4ad"; </script>
+<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+<!-- End Constant Contact Active Forms -->
 
-<script type="text/javascript" src="./files/product-info.js.download"></script>
-<script type="text/javascript">
-    vueapps["productInfo_27c6cf1a9d62449c9c82397dffae42f5"] = new VUE_APP_PRODUCTINFO("27c6cf1a9d62449c9c82397dffae42f5", {activeTab: "1"});
-</script>
-
-<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","881223505259839");fbq("track","PageView");</script>
+<!-- Begin Constant Contact Inline Form Code -->
+<div class="ctct-inline-form" data-form-id="3c026bec-a1a1-4a1d-8b81-8c6fdc6ac3d3"></div>
+<!-- End Constant Contact Inline Form Code -->
 
 
 
-<script type="text/javascript" id="">(function(){function b(){!1===c&&(c=!0,Munchkin.init("979-LYJ-350"))}var c=!1,a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="//munchkin.marketo.net/munchkin.js";a.onreadystatechange=function(){"complete"!=this.readyState&&"loaded"!=this.readyState||b()};a.onload=b;document.getElementsByTagName("head")[0].appendChild(a)})();</script>
-
-
--->
 
 </body></html>
