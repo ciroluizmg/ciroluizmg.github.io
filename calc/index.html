@@ -263,6 +263,8 @@
       </div>
       <div class="modal-body">
         <div class="modal_inputs_div">
+            <label>Business Name</label>
+            <input id="calc_BusName" class="modal_input" type="text" name="busName">
             <label>First Name</label>
             <input id="calc_name" class="modal_input" type="text" name="name">
             <label>Your Email Adress</label>
@@ -677,20 +679,28 @@ $("#button-modal").click(function(){
 <script type="text/javascript">
     /*Calculate payments*/
     /*get values from inputs*/
+    var calcEl;
+    var annualRev;
+    var lastMDep;
+    var startMonth;
+    var startYear;
+    var creditScore;
+    var homeBased;            
+    var result;
     function calcBloan(){   
-        var calcEl = $('#CALCCLREPAY_7b24d123146f4bde8b1c32a3431cd378');
+        calcEl = $('#CALCCLREPAY_7b24d123146f4bde8b1c32a3431cd378');
 
-        var annualRev = parseInt(calcEl.find('#annual-rev').find('input').val().replace(/\D/g,''));
+        annualRev = parseInt(calcEl.find('#annual-rev').find('input').val().replace(/\D/g,''));
         
-        var lastMDep = parseInt(calcEl.find('#last-dep').find('input').val().replace(/\D/g,''));
+        lastMDep = parseInt(calcEl.find('#last-dep').find('input').val().replace(/\D/g,''));
         
-        var startMonth = parseInt(calcEl.find('#month-sel').val());
+        startMonth = parseInt(calcEl.find('#month-sel').val());
 
-        var startYear = parseInt(calcEl.find('#year-sel').val());
+        startYear = parseInt(calcEl.find('#year-sel').val());
 
-        var creditScore = parseInt(calcEl.find('#credit-score').find('select').val());
+        creditScore = parseInt(calcEl.find('#credit-score').find('select').val());
 
-        var homeBased = calcEl.find('#home-based').find('select').val();
+        homeBased = calcEl.find('#home-based').find('select').val();
 
 
         var t = ((12*lastMDep) + annualRev)/2;
@@ -715,7 +725,7 @@ $("#button-modal").click(function(){
         
         //loanResult  = loanResult.toFixed(2);
         $('.ps2').html('$'+loanMin + ' and ' + '$'+loanMax);
-        
+        result = '$'+loanMin + ' - ' + '$'+loanMax;
 
     }
 
@@ -763,5 +773,222 @@ $('input[type=radio][name=customRadio]').change(function() {
 
 
 
+<!--
+*******************************************************
+-->
+
+
+
+<div class="ctct-inline-form" data-form-id="3c026bec-a1a1-4a1d-8b81-8c6fdc6ac3d3"><div class="ctct-form-container ctct-form-embed form_0">
+    <div class="ctct-form-defaults" data-qe-id="form-background">
+        <div id="success_message_0" class="ctct-form-success" style="display:none;" data-qe-id="success-message">
+            <h2 class="ctct-form-header">Thanks for signing up!</h2>
+            <p class="ctct-form-text">You can unsubscribe at any time using the Unsubscribe link at the bottom of every email.</p>
+        </div>
+        <form class="ctct-form-custom" id="ctct_form_0" autocomplete="on" data-qe-id="form-data">
+            
+            <h2 data-qe-id="form-title" class="ctct-form-header">Business Loan Calculator</h2>
+            
+            
+            <p data-qe-id="form-description" class="ctct-form-text">Get news from Anderson Kent Financial Services in your inbox.</p>
+            
+
+            <div id="email_address_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-email" id="email_address_label_0" for="email_address_0" class="ctct-form-label ctct-form-required">Email</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-email" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-email" id="email_address_0" type="email" name="email_address" value="" maxlength="80">
+            </div>
+
+            
+            <div id="first_name_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-first-name" id="first_name_label_0" for="first_name_0" class="ctct-form-label ">First Name</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-first-name" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-first-name" id="first_name_0" type="text" name="first_name" value="" maxlength="50">
+            </div>
+            
+
+            
+
+            
+            <div id="phone_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-phone" id="phone_label_0" for="phone_0" class="ctct-form-label ">Phone</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-phone" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-phone" id="phone_0" type="tel" name="phone" value="" maxlength="50">
+            </div>
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        
+            
+            <div id="custom_field_string_estimated_loan_amount_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-custom-field-Estimated Loan Amount" id="custom_field_string_estimated_loan_amount_label_0" for="custom_field_string_estimated_loan_amount_0" class="ctct-form-label ctct-form-label ">Estimated Loan Amount</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-custom-field-Estimated Loan Amount" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-custom-field-Estimated Loan Amount" id="custom_field_string_estimated_loan_amount_0" type="text" name="custom_field_string_estimated_loan_amount" value="" maxlength="255">
+            </div>
+            
+            
+        
+            
+            <div id="custom_field_string_business_name_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-custom-field-Business Name" id="custom_field_string_business_name_label_0" for="custom_field_string_business_name_0" class="ctct-form-label ctct-form-label ">Business Name</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-custom-field-Business Name" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-custom-field-Business Name" id="custom_field_string_business_name_0" type="text" name="custom_field_string_business_name" value="" maxlength="255">
+            </div>
+            
+            
+        
+            
+            <div id="custom_field_string_business_start_month_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-custom-field-Business Start Month" id="custom_field_string_business_start_month_label_0" for="custom_field_string_business_start_month_0" class="ctct-form-label ctct-form-label ">Business Start Month</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-custom-field-Business Start Month" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-custom-field-Business Start Month" id="custom_field_string_business_start_month_0" type="text" name="custom_field_string_business_start_month" value="" maxlength="255">
+            </div>
+            
+            
+        
+            
+            <div id="custom_field_string_business_start_year_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-custom-field-Business Start Year" id="custom_field_string_business_start_year_label_0" for="custom_field_string_business_start_year_0" class="ctct-form-label ctct-form-label ">Business Start Year</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-custom-field-Business Start Year" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-custom-field-Business Start Year" id="custom_field_string_business_start_year_0" type="text" name="custom_field_string_business_start_year" value="" maxlength="255">
+            </div>
+            
+            
+        
+            
+            <div id="custom_field_string_annual_revenue_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-custom-field-Annual Revenue" id="custom_field_string_annual_revenue_label_0" for="custom_field_string_annual_revenue_0" class="ctct-form-label ctct-form-label ">Annual Revenue</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-custom-field-Annual Revenue" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-custom-field-Annual Revenue" id="custom_field_string_annual_revenue_0" type="text" name="custom_field_string_annual_revenue" value="" maxlength="255">
+            </div>
+            
+            
+        
+            
+            <div id="custom_field_string_last_month_s_deposits_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-custom-field-Last Month’s Deposits" id="custom_field_string_last_month_s_deposits_label_0" for="custom_field_string_last_month_s_deposits_0" class="ctct-form-label ctct-form-label ">Last Month’s Deposits</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-custom-field-Last Month’s Deposits" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-custom-field-Last Month’s Deposits" id="custom_field_string_last_month_s_deposits_0" type="text" name="custom_field_string_last_month_s_deposits" value="" maxlength="255">
+            </div>
+            
+            
+        
+            
+            <div id="custom_field_string_credit_score_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-custom-field-Credit Score" id="custom_field_string_credit_score_label_0" for="custom_field_string_credit_score_0" class="ctct-form-label ctct-form-label ">Credit Score</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-custom-field-Credit Score" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-custom-field-Credit Score" id="custom_field_string_credit_score_0" type="text" name="custom_field_string_credit_score" value="" maxlength="255">
+            </div>
+            
+            
+        
+            
+            <div id="custom_field_string_home-based_field_0" class="ctct-form-field">
+                <label data-qe-id="form-label-custom-field-Home-Based" id="custom_field_string_home-based_label_0" for="custom_field_string_home-based_0" class="ctct-form-label ctct-form-label ">Home-Based</label>
+                <div class="ctct-form-errorMessage" data-qe-id="form-error-custom-field-Home-Based" style="display: none;"></div>
+                <input class="ctct-form-element" data-qe-id="form-input-custom-field-Home-Based" id="custom_field_string_home-based_0" type="text" name="custom_field_string_home-based" value="" maxlength="255">
+            </div>
+            
+            
+        
+
+            
+
+            <div id="error_message_0" class="ctct-form-error" style="display:none;">
+                <p class="ctct-form-errorMessage">Sorry, we could not complete your sign-up. Please contact us to resolve this.</p>
+            </div>
+            <div id="network_error_message_0" class="ctct-form-error" style="display:none;">
+                <p class="ctct-form-errorMessage">Operation timed out, please try again.</p>
+            </div>
+
+            <div id="gdpr_text">
+                <p class="ctct-gdpr-text" data-qe-id="form-gdpr-text">
+                    By submitting this form, you are consenting to receive marketing emails from: Anderson Kent Financial Services, 471 North Broadway, #359, Jericho, NY, 11753, US, http://andersonkentfsi.com. You can revoke your consent to receive emails at any time by using the SafeUnsubscribe® link, found at the bottom of every email.
+                    <a href="https://www.constantcontact.com/legal/service-provider" target="_blank" data-qe-id="form-service-link" class="ctct-form-footer-link">Emails are serviced by Constant Contact.</a>
+                    
+                </p>
+            </div>
+
+            <button data-qe-id="form-button" type="submit" class="ctct-form-button">Sign Up!</button>
+
+            
+            <div class="g-recaptcha" id="ctct_recaptcha_0" data-sitekey="6LfHrSkUAAAAAPnKk5cT6JuKlKPzbwyTYuO8--Vr" data-size="invisible"><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfHrSkUAAAAAPnKk5cT6JuKlKPzbwyTYuO8--Vr&amp;co=aHR0cHM6Ly9jaXJvbHVpem1nLmdpdGh1Yi5pbzo0NDM.&amp;hl=pt-BR&amp;v=v1QHzzN92WdopzN_oD7bUO2P&amp;size=invisible&amp;cb=e1tp8pr0rtpn" width="256" height="60" role="presentation" name="a-bsrvpgj32pwq" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+            
+        </form>
+        <p class="ctct-form-footer">
+            
+            <span data-qe-id="form-branding">
+                <a href="http://www.constantcontact.com/index.jsp?cc=forms_popup" rel="nofollow" target="_blank" class="ctct-form-footer-link">
+                    <img src="https://static.ctctcdn.com/lp/images/standard/logos/logo-ctct-white.svg" alt="" class="ctct-form-footer-img">
+                </a>
+            </span>
+            
+        </p>
+    </div>
+</div>
+</div>
+
+
+<!--
+***********************************************************
+-->
+<script type="text/javascript">
+    function asd_SubmitForm(){
+    /*auto responder form filds*/
+    var formEl = $('#ctct_form_0');
+    var nameEl = formEl.find('#first_name_0');
+    var emailEl = formEl.find('#email_address_0');
+    var phoneEl = formEl.find('#phone_0');
+    var estLoanAmountEl = formEl.find('#custom_field_string_estimated_loan_amount_0');
+    var busNameEl = formEl.find('#custom_field_string_business_name_0');
+    var startMonthEl = formEl.find('#custom_field_string_business_start_month_0');
+    var startYearEl = formEl.find('#custom_field_string_business_start_year_0');
+    var annualRevEl = formEl.find('#custom_field_string_annual_revenue_0');
+    var lastMonthDepEl = formEl.find('#custom_field_string_last_month_s_deposits_0');
+    var creditScoreEl = formEl.find('#custom_field_string_credit_score_0');
+    var homeBasedEl = formEl.find('#custom_field_string_home-based_0'); 
+     
+
+    /*pop up form fields*/
+    var popBusName = $('#calc_BusName'); 
+    var popName = $('#calc_name');
+    var popEmail = $('#calc_email');
+    var popTel = $('#calc_tel');
+
+    /*fill form fields*/
+    nameEl.val(popName.val());
+    emailEl.val(popEmail.val());
+    phoneEl.val(popTel.val());
+    estLoanAmountEl.val(result);
+    busNameEl.val(popBusName);
+    startMonthEl.val(startMonth);
+    startYearEl.val(startYear);
+    annualRevEl.val(annualRev);
+    lastMonthDepEl.val(lastMDep);
+    creditScoreEl.val(creditScore);
+    homeBasedEl.val(homeBased);
+
+    /*submit*/
+    /*formEl.submit();*/
+}
+
+</script>
 
 </body></html>
