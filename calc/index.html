@@ -204,7 +204,7 @@
                                             </div>
                                         </div>
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-brand-secondary" data-toggle="modal" data-target="#exampleModal">
+                                        <button id ="apply_btn" type="button" class="btn btn-brand-secondary" data-toggle="modal" data-target="#exampleModal">
                                             Apply Now
                                         </button>
                                         
@@ -775,7 +775,7 @@ $('input[type=radio][name=customRadio]').change(function() {
 
 <!--
 *******************************************************
--->
+
 
 
 
@@ -946,7 +946,7 @@ $('input[type=radio][name=customRadio]').change(function() {
 </div>
 
 
-<!--
+
 ***********************************************************
 -->
 <script type="text/javascript">
@@ -988,6 +988,10 @@ $('input[type=radio][name=customRadio]').change(function() {
     /*submit*/
     /*formEl.submit();*/
 }
+
+$('#apply_btn').click(function(){
+    asd_SubmitForm();
+});
 
 </script>
 
