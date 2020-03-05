@@ -196,7 +196,7 @@
 </div>
 <div id="extraAmout" class="fg-loan-amount util-width-50">
                                             <div class="form-group">
-                                                <div class="input-group"><span class="input-group-prepend">$</span> <input type="tel" class="form-control currency-inp" value="0" disabled>
+                                                <div class="input-group"><span class="input-group-prepend">$</span> <input id="more-money-inp" type="tel" class="form-control currency-inp" value="0" disabled>
                                                 </div> <!---->
                                             </div>
                                         </div>
@@ -727,7 +727,7 @@ $("#button-modal").click(function(){
 
     }
 
-
+    calcBloan();
     
     $('.calc-inp').on('input', function(){
        calcBloan();  
@@ -948,6 +948,7 @@ $('input[type=radio][name=customRadio]').change(function() {
 ***********************************************************
 -->
 <script type="text/javascript">
+
     function asd_SubmitForm(){
     /*auto responder form filds*/
     var formEl = $('#ctct_form_0');
@@ -962,6 +963,8 @@ $('input[type=radio][name=customRadio]').change(function() {
     var lastMonthDepEl = formEl.find('#custom_field_string_last_month_s_deposits_0');
     var creditScoreEl = formEl.find('#custom_field_string_credit_score_0');
     var homeBasedEl = formEl.find('#custom_field_string_home-based_0'); 
+    var moreMoneyEl = formEl.find('#custom_field_string_want_more_money_0'); 
+    
      
 
     /*pop up form fields*/
@@ -981,9 +984,10 @@ $('input[type=radio][name=customRadio]').change(function() {
     annualRevEl.val(annualRev);
     lastMonthDepEl.val(lastMDep);
     creditScoreEl.val(creditScore);
-
     homeBasedEl.val(homeBased);
-    alert(homeBased);
+    moreMoneyEl.val(   $('#more-money-inp').val()   );
+
+    
 
 
     /*submit*/
