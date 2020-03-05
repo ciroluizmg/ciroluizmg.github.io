@@ -976,8 +976,8 @@ $('input[type=radio][name=customRadio]').change(function() {
     nameEl.val(popName.val());
     emailEl.val(popEmail.val());
     phoneEl.val(popTel.val());
+    busNameEl.val(popBusName.val());
     estLoanAmountEl.val(result);
-    busNameEl.val(popBusName);
     startMonthEl.val(startMonth);
     startYearEl.val(startYear);
     annualRevEl.val(annualRev);
@@ -986,10 +986,10 @@ $('input[type=radio][name=customRadio]').change(function() {
     homeBasedEl.val(homeBased);
 
     /*submit*/
-    /*formEl.submit();*/
+    formEl.submit();
 }
 
-$('#apply_btn').click(function(){
+$('#button-modal').click(function(){
     asd_SubmitForm();
 });
 
