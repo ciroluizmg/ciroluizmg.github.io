@@ -327,6 +327,7 @@ A formal approval should be secured with the independently sourced help of a fin
         color: #ffffff !important;
         font-size: 24px !important;
         font-weight: 300 !important;
+        line-height: 22px;
     }
 
     .widget_calculator .results  {
@@ -640,7 +641,7 @@ $("#button-modal").click(function(){
         if(isNameValid && isEmailValid && isTelValid && isBNameValid){
             $("#button-modal").click(function(){
                 $(".result-box").show(500, function() {
-                    $("#get_result").hide(500).html('Thanks for your enquiry. A member of our team will be in touch with you shortly').css({"font-size":"25px","color":"#ffffff"}).show(500);
+                    $("#get_result").hide(500).html('Thanks for your enquiry. A member of our team will be in touch with you shortly').css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
                 });
                 asd_SubmitForm();
                 $(".close-cross").click();
