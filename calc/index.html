@@ -983,6 +983,7 @@ function formv3(){
     data.fields[10].value = homeBased;
     var mm =  $('#more-money-inp').val();
     data.fields[11].value = '$ '+ mm;
+    alert(data.fields[11].value);
 
     var final_data = JSON.stringify(data);
     console.log(final_data);
