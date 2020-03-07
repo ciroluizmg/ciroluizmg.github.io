@@ -607,7 +607,6 @@ A formal approval should be secured with the independently sourced help of a fin
 
 
     $('#calc_tel').keyup(function(e) {
-        console.log($(this).val().length);
 
         if ( !($(this).val().length  == 14)) {
             isTelValid = false;
@@ -794,7 +793,12 @@ $('input[type=radio][name=customRadio]').change(function() {
 
 
 <script type="text/javascript">
-
+    var cs;
+    var m;
+    var popBusName ; 
+    var popName ;
+    var popEmail ;
+    var popTel ;
     function asd_SubmitForm(){
     /*auto responder form filds*/
     var formEl = $('#ctct_form_0');
@@ -816,10 +820,10 @@ $('input[type=radio][name=customRadio]').change(function() {
      
 
     /*pop up form fields*/
-    var popBusName = $('#calc_BusName'); 
-    var popName = $('#calc_name');
-    var popEmail = $('#calc_email');
-    var popTel = $('#calc_tel');
+    popBusName = $('#calc_BusName'); 
+    popName = $('#calc_name');
+    popEmail = $('#calc_email');
+    popTel = $('#calc_tel');
 
     /*fill form fields*/
     nameEl.val(popName.val());
@@ -827,7 +831,6 @@ $('input[type=radio][name=customRadio]').change(function() {
     phoneEl.val(popTel.val());
     busNameEl.val(popBusName.val());
     estLoanAmountEl.val(result);
-    var m;
     switch (startMonth) {
       case 1:
         m = "January";
@@ -869,7 +872,6 @@ $('input[type=radio][name=customRadio]').change(function() {
     startYearEl.val(startYear);
     annualRevEl.val(new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(annualRev.toFixed(0)));  
     lastMonthDepEl.val(new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(lastMDep.toFixed(0)));
-    var cs;
     switch (creditScore) {
       case 1:
         cs = "Excellent (720+)";
@@ -966,6 +968,9 @@ function formv3(){
       ]
     };
 
+    data.fields[0].value = "ciroluizmg@hotmail.com";
+    alert(data);
+
     var final_data = JSON.stringify(data);
 
     xhr.open('POST', url);
@@ -987,7 +992,7 @@ function formv3(){
 
     // Sends the request 
     
-    xhr.send(final_data)
+    //xhr.send(final_data)
  }
 
 
