@@ -981,7 +981,7 @@ function formv3(){
     data.fields[8].value = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(lastMDep.toFixed(0));
     data.fields[9].value = cs;
     data.fields[10].value = homeBased;
-    data.fields[11].value = $('#more-money-inp').val();
+    data.fields[11].value = '$ ' + $('#more-money-inp').val();
 
     var final_data = JSON.stringify(data);
     console.log(final_data);
