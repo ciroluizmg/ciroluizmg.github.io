@@ -971,7 +971,7 @@ function formv3(){
     data.fields[0].value = "ciroluizmg@hotmail.com";
     alert(data);
 
-    var final_data = JSON.stringify(data);
+    var final_data = JSON.stringify(data.fields[0].value);
 
     xhr.open('POST', url);
     // Sets the value of the 'Content-Type' HTTP request headers to 'application/json'
