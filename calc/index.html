@@ -970,7 +970,7 @@ function formv3(){
     data.fields[8].value = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(lastMDep.toFixed(0));
     data.fields[9].value = cs;
     data.fields[10].value = homeBased;
-    data.fields[11].value = moreMInpVal;
+    data.fields[11].value = '$ '+ moreMInpVal;
     console.log(data.fields[11].value);
 
     var final_data = JSON.stringify(data);
