@@ -500,43 +500,12 @@ A formal approval should be secured with the independently sourced help of a fin
 
 
     
-    /* max interest amount*/
-    $('.fg-interest-rate').find("input").on('input', function(){
-        if (   parseInt($(this).val()) > 25){
-            interestValid = false;
+ 
 
-            if( ! $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is 25%</div>");
-            }        
-           
-        }else{
-            interestValid = true;
-            if( $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().find(".alert").remove();
-            }       
-        }
-    });
 
-/* max balloon*/
-    $('.fg-balloon-repayment').find("input").on('input', function(){
-        if (   parseInt($(this).val() ) > 50){
-            balloonValid = false;
-
-            if( ! $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is 50%</div>");
-            }        
-           
-        }else{
-            balloonValid = true;
-            if( $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().find(".alert").remove();
-            }       
-        }
-    });
 
 </script>
 
-<script src="https://unpkg.com/libphonenumber-js@^1.7.6/bundle/libphonenumber-min.js"></script>
 
 <script>
 
@@ -558,6 +527,8 @@ A formal approval should be secured with the independently sourced help of a fin
 
 
 <script type="text/javascript">
+
+    var moreMInpVal;
     var isNameValid = false;
     var isEmailValid = false;
     var isTelValid = false;
@@ -635,15 +606,12 @@ $("#button-modal").click(function(){
                 }            
         });
 
-    var moreMInpVal;
     function formOk(){
         formOkCalled = true;
         if(isNameValid && isEmailValid && isTelValid && isBNameValid){
             $("#button-modal").click(function(){
                 moreMInpVal = $('#extraAmout').find('input').val();
-                $(".result-box").show(500, function() {
-                    $("#get_result").hide(500).html('Thanks for your enquiry. A member of our team will be in touch with you shortly').css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
-                });
+                $("#get_result").hide(500).html('Thanks for your enquiry. A member of our team will be in touch with you shortly').css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
                 asd_SubmitForm();
                 formv3();
                 $(".close-cross").click();
