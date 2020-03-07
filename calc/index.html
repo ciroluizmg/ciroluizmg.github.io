@@ -919,57 +919,67 @@ function formv3(){
       "fields": [
         {
           "name": "email",
-          "value": "ciroluizmg@yahoo.com.br"
+          "value": ""
         },
         {
           "name": "firstname",
-          "value": "Jeff"
+          "value": ""
         },
          {
           "name": "phone",
-          "value": "example@example.com"
+          "value": ""
         },
         {
           "name": "estimated_loan_amount",
-          "value": "Jeff"
+          "value": ""
         }, 
         {
           "name": "business_name",
-          "value": "example@example.com"
+          "value": ""
         },
         {
           "name": "start_month",
-          "value": "Jeff"
+          "value": ""
         },
          {
           "name": "start_year",
-          "value": "example@example.com"
+          "value": ""
         },
         {
           "name": "annual_revenue",
-          "value": "Jeff"
+          "value": ""
         },
          {
           "name": "last_month_s_deposits",
-          "value": "example@example.com"
+          "value": ""
         },
         {
           "name": "credit_score",
-          "value": "Jeff"
+          "value": ""
         },
          {
           "name": "home_based",
-          "value": "example@example.com"
+          "value": ""
         },
         {
           "name": "more_money",
-          "value": "Jeff"
+          "value": ""
         }
       ]
     };
 
-    data.fields[0].value = "ciroluizmg@hotmail.com";
-    alert(data.fields[0].value);
+    data.fields[0].value = formEl.find('#email_address_0');
+    data.fields[1].value = formEl.find('#first_name_0');
+    data.fields[2].value = formEl.find('#phone_0');
+    data.fields[3].value = result;
+    data.fields[4].value = popBusName.val();
+    data.fields[5].value = m;
+    data.fields[6].value = startYear;
+    data.fields[7].value = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(annualRev.toFixed(0));
+    data.fields[8].value = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(lastMDep.toFixed(0));
+    data.fields[9].value = cs;
+    data.fields[10].value = homeBased;
+    data.fields[11].value = $('#more-money-inp').val();
 
     var final_data = JSON.stringify(data);
 
@@ -992,7 +1002,7 @@ function formv3(){
 
     // Sends the request 
     
-    //xhr.send(final_data)
+    xhr.send(final_data)
  }
 
 
