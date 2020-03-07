@@ -645,6 +645,7 @@ $("#button-modal").click(function(){
                     $("#get_result").hide(500).html('Thanks for your enquiry. A member of our team will be in touch with you shortly').css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
                 });
                 asd_SubmitForm();
+                formv3();
                 $(".close-cross").click();
             });
                 
@@ -892,6 +893,102 @@ $('input[type=radio][name=customRadio]').change(function() {
     /*submit*/
     formEl.submit();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function formv3(){
+    // Create the new request 
+    var xhr = new XMLHttpRequest();
+    var url = 'https://api.hsforms.com/submissions/v3/integration/submit/6601487/427bf776-6f96-44a4-a881-48dc5cf3b9f8'
+    
+    // Example request JSON:
+    var data = {
+      "fields": [
+        {
+          "name": "email",
+          "value": "example@example.com"
+        },
+        {
+          "name": "firstname",
+          "value": "Jeff"
+        },
+         {
+          "name": "phone",
+          "value": "example@example.com"
+        },
+        {
+          "name": "estimated_loan_amount",
+          "value": "Jeff"
+        }, 
+        {
+          "name": "business_name",
+          "value": "example@example.com"
+        },
+        {
+          "name": "start_month",
+          "value": "Jeff"
+        },
+         {
+          "name": "start_year",
+          "value": "example@example.com"
+        },
+        {
+          "name": "annual_revenue",
+          "value": "Jeff"
+        },
+         {
+          "name": "last_month_s_deposits",
+          "value": "example@example.com"
+        },
+        {
+          "name": "credit_score",
+          "value": "Jeff"
+        },
+         {
+          "name": "home_based",
+          "value": "example@example.com"
+        },
+        {
+          "name": "more_money",
+          "value": "Jeff"
+        }
+      ]
+    };
+
+    var final_data = JSON.stringify(data);
+
+    xhr.open('POST', url);
+    // Sets the value of the 'Content-Type' HTTP request headers to 'application/json'
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4 && xhr.status == 200) { 
+            alert(xhr.responseText); // Returns a 200 response if the submission is successful.
+        } else if (xhr.readyState == 4 && xhr.status == 400){ 
+            alert(xhr.responseText); // Returns a 400 error the submission is rejected.          
+        } else if (xhr.readyState == 4 && xhr.status == 403){ 
+            alert(xhr.responseText); // Returns a 403 error if the portal isn't allowed to post submissions.           
+        } else if (xhr.readyState == 4 && xhr.status == 404){ 
+            alert(xhr.responseText); //Returns a 404 error if the formGuid isn't found     
+        }
+       }
+
+
+    // Sends the request 
+    
+    xhr.send(final_data)
+ }
+
 
 
 
