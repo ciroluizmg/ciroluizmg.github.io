@@ -635,7 +635,7 @@ $("#button-modal").click(function(){
                 }            
         });
 
-
+    var moreMInpVal;
     function formOk(){
         formOkCalled = true;
         if(isNameValid && isEmailValid && isTelValid && isBNameValid){
@@ -643,6 +643,7 @@ $("#button-modal").click(function(){
                 $(".result-box").show(500, function() {
                     $("#get_result").hide(500).html('Thanks for your enquiry. A member of our team will be in touch with you shortly').css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
                 });
+                moreMInpVal = $('#extraAmout').find('input').val();
                 asd_SubmitForm();
                 formv3();
                 $(".close-cross").click();
@@ -877,8 +878,8 @@ $('input[type=radio][name=customRadio]').change(function() {
     }
     creditScoreEl.val(cs);
     homeBasedEl.val(homeBased);
-    moreMoneyEl.val(   $('#more-money-inp').val()   );
-
+    moreMoneyEl.val(  moreMInpVal  );
+    console.log('cc '+moreMoneyEl.val());
     
 
 
@@ -969,9 +970,8 @@ function formv3(){
     data.fields[8].value = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(lastMDep.toFixed(0));
     data.fields[9].value = cs;
     data.fields[10].value = homeBased;
-    var mm =  $('#more-money-inp').val();
-    data.fields[11].value = '$ '+ mm;
-    alert(mm);
+    data.fields[11].value = moreMInpVal;
+    console.log(data.fields[11].value);
 
     var final_data = JSON.stringify(data);
     console.log(final_data);
