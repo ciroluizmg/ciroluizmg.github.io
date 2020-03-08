@@ -602,7 +602,7 @@ $("#button-modal").click(function(){
                 formv3();
                 $(".close-cross").click();
                 isFormOk = true;
-                $("#get_result").hide(500).html(respText).css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
+                
             });
                 
         }else{
@@ -866,15 +866,19 @@ function formv3(){
         if(xhr.readyState == 4 && xhr.status == 200) { 
             //console.log(xhr.responseText); // Returns a 200 response if the submission is successful.
             respText ='Thanks for your enquiry. A member of our team will be in touch with you shortly';
+            $("#get_result").hide(500).html(respText).css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
         } else if (xhr.readyState == 4 && xhr.status == 400){ 
             respText = xhr.responseText;
+            $("#get_result").hide(500).html(respText).css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
             //console.log(xhr.responseText); // Returns a 400 error the submission is rejected.          
         } else if (xhr.readyState == 4 && xhr.status == 403){ 
            // console.log(xhr.responseText); // Returns a 403 error if the portal isn't allowed to post submissions.
             respText = xhr.responseText;
+            $("#get_result").hide(500).html(respText).css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
         } else if (xhr.readyState == 4 && xhr.status == 404){ 
             //console.log(xhr.responseText); //Returns a 404 error if the formGuid isn't found 
             respText = xhr.responseText;
+            $("#get_result").hide(500).html(respText).css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
         }
        }
 
