@@ -599,15 +599,16 @@ $("#button-modal").click(function(){
                     $('#calc_BusName').css("border","red solid 2px");
                 }            
         });
-
+    var isFormOk = false;
     function formOk(){
         formOkCalled = true;
-        if(isNameValid && isEmailValid && isTelValid && isBNameValid){
+        if(isNameValid && isEmailValid && isTelValid && isBNameValid && !isFormOk){
             $("#button-modal").click(function(){
                 moreMInpVal = $('#extraAmout').find('input').val();
                 $("#get_result").hide(500).html('Thanks for your enquiry. A member of our team will be in touch with you shortly').css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
                 formv3();
                 $(".close-cross").click();
+                isFormOk = true;
             });
                 
         }else{
@@ -626,7 +627,8 @@ $("#button-modal").click(function(){
                 } 
                 if(!isBNameValid){
                     $('#calc_BusName').css("border","red solid 2px");
-                }    
+                }
+                isFormOk = false;    
         });
         }
     }
@@ -693,7 +695,6 @@ $("#button-modal").click(function(){
         var loanMax = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format((1.2*(standard + add)).toFixed(0));
 
         
-        //loanResult  = loanResult.toFixed(2);
         $('.ps2').html('$'+loanMin + ' and ' + '$'+loanMax);
         result = '$'+loanMin + ' - ' + '$'+loanMax;
 
