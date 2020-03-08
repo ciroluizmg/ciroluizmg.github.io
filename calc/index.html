@@ -612,7 +612,6 @@ $("#button-modal").click(function(){
             $("#button-modal").click(function(){
                 moreMInpVal = $('#extraAmout').find('input').val();
                 $("#get_result").hide(500).html('Thanks for your enquiry. A member of our team will be in touch with you shortly').css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
-                asd_SubmitForm();
                 formv3();
                 $(".close-cross").click();
             });
@@ -752,38 +751,7 @@ $('input[type=radio][name=customRadio]').change(function() {
     var popTel ;
     var formEl ;
 
-    function asd_SubmitForm(){
-    /*auto responder form filds*/
-    formEl = $('#ctct_form_0');
-
-
-    var nameEl = formEl.find('#first_name_0');
-    var emailEl = formEl.find('#email_address_0');
-    var phoneEl = formEl.find('#phone_0');
-    var estLoanAmountEl = formEl.find('#custom_field_string_estimated_loan_amount_0');
-    var busNameEl = formEl.find('#custom_field_string_business_name_0');
-    var startMonthEl = formEl.find('#custom_field_string_business_start_month_0');
-    var startYearEl = formEl.find('#custom_field_string_business_start_year_0');
-    var annualRevEl = formEl.find('#custom_field_string_annual_revenue_0');
-    var lastMonthDepEl = formEl.find('#custom_field_string_last_month_s_deposits_0');
-    var creditScoreEl = formEl.find('#custom_field_string_credit_score_0');
-    var homeBasedEl = formEl.find('#custom_field_string_home-based_0'); 
-    var moreMoneyEl = formEl.find('#custom_field_string_want_more_money_0'); 
-    
-     
-
-    /*pop up form fields*/
-    popBusName = $('#calc_BusName'); 
-    popName = $('#calc_name');
-    popEmail = $('#calc_email');
-    popTel = $('#calc_tel');
-
-    /*fill form fields*/
-    nameEl.val(popName.val());
-    emailEl.val(popEmail.val());
-    phoneEl.val(popTel.val());
-    busNameEl.val(popBusName.val());
-    estLoanAmountEl.val(result);
+function formv3(){
     switch (startMonth) {
       case 1:
         m = "January";
@@ -821,10 +789,6 @@ $('input[type=radio][name=customRadio]').change(function() {
       case 12:
         m = "December";
     }
-    startMonthEl.val(m);
-    startYearEl.val(startYear);
-    annualRevEl.val(new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(annualRev.toFixed(0)));  
-    lastMonthDepEl.val(new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(lastMDep.toFixed(0)));
     switch (creditScore) {
       case 1:
         cs = "Excellent (720+)";
@@ -838,32 +802,13 @@ $('input[type=radio][name=customRadio]').change(function() {
       case 4:
         cs = "Poor (639 or less)";
     }
-    creditScoreEl.val(cs);
-    homeBasedEl.val(homeBased);
-    moreMoneyEl.val(  String(  moreMInpVal  ));
-    console.log('cc '+  moreMoneyEl.val() );
-    
-
-
-    /*submit*/
-    formEl.submit();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function formv3(){
     // Create the new request 
+    popBusName = $('#calc_BusName'); 
+    popName = $('#calc_name');
+    popEmail = $('#calc_email');
+    popTel = $('#calc_tel');
+    formEl = $('#ctct_form_0');
+
     var xhr = new XMLHttpRequest();
     var url = 'https://api.hsforms.com/submissions/v3/integration/submit/6601487/427bf776-6f96-44a4-a881-48dc5cf3b9f8'
     
