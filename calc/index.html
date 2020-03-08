@@ -469,9 +469,7 @@ A formal approval should be secured with the independently sourced help of a fin
     $('.currency-inp').on('input', function(){
         $(this).val( new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(
         $(this).val().replace(/\D/g,'')
-        ) );
-        var calcEl = $('#CALCCLREPAY_7b24d123146f4bde8b1c32a3431cd378'); 
-        
+        ) );        
     });
 
     var annualRevValid = false;
@@ -731,17 +729,6 @@ $('input[type=radio][name=customRadio]').change(function() {
 
 </script>
 
-
-<!-- Begin Constant Contact Active Forms -->
-<script> var _ctct_m = "082309169dd205e18df343ed104dc4ad"; </script>
-<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
-<!-- End Constant Contact Active Forms -->
-
-<!-- Begin Constant Contact Inline Form Code -->
-<div class="ctct-inline-form" data-form-id="3c026bec-a1a1-4a1d-8b81-8c6fdc6ac3d3"style="display: none;"></div>
-<!-- End Constant Contact Inline Form Code -->
-
-
 <script type="text/javascript">
     var cs;
     var m;
@@ -749,7 +736,6 @@ $('input[type=radio][name=customRadio]').change(function() {
     var popName ;
     var popEmail ;
     var popTel ;
-    var formEl ;
 
 function formv3(){
     switch (startMonth) {
@@ -807,7 +793,6 @@ function formv3(){
     popName = $('#calc_name');
     popEmail = $('#calc_email');
     popTel = $('#calc_tel');
-    formEl = $('#ctct_form_0');
 
     var xhr = new XMLHttpRequest();
     var url = 'https://api.hsforms.com/submissions/v3/integration/submit/6601487/427bf776-6f96-44a4-a881-48dc5cf3b9f8'
