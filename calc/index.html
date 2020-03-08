@@ -593,15 +593,16 @@ $("#button-modal").click(function(){
                 }            
         });
     var isFormOk = false;
+    var respText;
     function formOk(){
         formOkCalled = true;
         if(isNameValid && isEmailValid && isTelValid && isBNameValid && !isFormOk){
             $("#button-modal").click(function(){
                 moreMInpVal = $('#extraAmout').find('input').val();
-                $("#get_result").hide(500).html('Thanks for your enquiry. A member of our team will be in touch with you shortly').css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
                 formv3();
                 $(".close-cross").click();
                 isFormOk = true;
+                $("#get_result").hide(500).html(respText).css({"font-size":"25px","color":"#ffffff" , "line-height" : "23px"}).show(500);
             });
                 
         }else{
@@ -856,7 +857,6 @@ function formv3(){
     console.log(data.fields[11].value);
 
     var final_data = JSON.stringify(data);
-    console.log(final_data);
 
     xhr.open('POST', url);
     // Sets the value of the 'Content-Type' HTTP request headers to 'application/json'
@@ -864,13 +864,17 @@ function formv3(){
 
     xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) { 
-            console.log(xhr.responseText); // Returns a 200 response if the submission is successful.
+            //console.log(xhr.responseText); // Returns a 200 response if the submission is successful.
+            respText ='Thanks for your enquiry. A member of our team will be in touch with you shortly';
         } else if (xhr.readyState == 4 && xhr.status == 400){ 
-            console.log(xhr.responseText); // Returns a 400 error the submission is rejected.          
+            respText = xhr.responseText;
+            //console.log(xhr.responseText); // Returns a 400 error the submission is rejected.          
         } else if (xhr.readyState == 4 && xhr.status == 403){ 
-            console.log(xhr.responseText); // Returns a 403 error if the portal isn't allowed to post submissions.           
+           // console.log(xhr.responseText); // Returns a 403 error if the portal isn't allowed to post submissions.
+            respText = xhr.responseText;
         } else if (xhr.readyState == 4 && xhr.status == 404){ 
-            console.log(xhr.responseText); //Returns a 404 error if the formGuid isn't found     
+            //console.log(xhr.responseText); //Returns a 404 error if the formGuid isn't found 
+            respText = xhr.responseText;
         }
        }
 
