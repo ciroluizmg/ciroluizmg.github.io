@@ -602,7 +602,7 @@ $("#button-modal").click(function(){
                 formv3();
                 $(".close-cross").click();
                 isFormOk = true;
-                
+                redirect();
             });
                 
         }else{
@@ -653,6 +653,8 @@ $("#button-modal").click(function(){
     var creditScore;
     var homeBased;            
     var result;
+    var loanMin;
+    var loanMax;
     function calcBloan(){   
         calcEl = $('#CALCCLREPAY_7b24d123146f4bde8b1c32a3431cd378');
 
@@ -684,9 +686,9 @@ $("#button-modal").click(function(){
         add -= ( homeBased == 'yes' )? t*0.025 : 0 ;
         var standard = 0.1*t;
 
-        var loanMin = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format((0.8*(standard + add)).toFixed(0));
+        loanMin = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format((0.8*(standard + add)).toFixed(0));
         
-        var loanMax = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format((1.2*(standard + add)).toFixed(0));
+        loanMax = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format((1.2*(standard + add)).toFixed(0));
 
         
         $('.ps2').html('$'+loanMin + ' and ' + '$'+loanMax);
@@ -884,9 +886,23 @@ function formv3(){
 
     // Sends the request 
     
-   xhr.send(final_data)
+   //xhr.send(final_data)
  }
 
+
+
+
+function redirect() {
+    setTimeout(function () {
+        var Max = Number(loanMax.replace(/\D/g,''));
+        var extra = Number(moreMInpVal.replace(/\D/g,''));
+        
+        if(Max<100000 && extra<100000){
+
+            window.location.href = "https://link.andersonkentfsi.com/go/45015f29-1936-4b0e-821e-0c932e329857";
+    }
+    }, 3000);
+}
 
 
 
