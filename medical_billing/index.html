@@ -496,7 +496,7 @@ $(function () {
 </script>
 
 
-<form action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post" style="display:none">
+<form id="my-form" action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post" style="display:none">
     <!-- Name -->
     name: <input id="name" type="text" name="name"/><br/>
     <!-- Email field (required) -->
@@ -534,7 +534,7 @@ function asd_SubmitForm(){
     var monthly_incomeEl = formEl.find('#mInc');
     var number_of_doctorsEl = formEl.find('#nDoc');
     var patients_per_dayEl = formEl.find('#nPat');
-    var yearly_incomeEl = formEl.find('#asd-pers-bus');
+    var yearly_incomeEl = formEl.find('#yInc');
 
 
     /*pop up form fields*/
