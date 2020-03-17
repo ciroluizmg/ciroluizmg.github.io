@@ -395,11 +395,11 @@ $("#button-modal").click(function(){
             $("#button-modal").click(function(){
                 
                 calcPayments();
-                //asd_SubmitForm();
                 $(".close-cross").click();
                 $(".result-box").show(500, function() {
                     $("#get_result").hide(500);
                 });
+                asd_SubmitForm();
 
             });
                 
@@ -430,6 +430,8 @@ $("#button-modal").click(function(){
     var loanTerm;
     var nDays;
     var charge;
+    var mIncome;
+    var yIncome;
 
    
     /*Calculate payments*/
@@ -463,8 +465,8 @@ $("#button-modal").click(function(){
             charge = 0;
         }
 
-        var mIncome = 4.33333 *  nDays   *   nDoc   *   nPat   *   claimAm   *   charge/100;
-        var yIncome = mIncome  *  12;
+        mIncome = 4.33333 *  nDays   *   nDoc   *   nPat   *   claimAm   *   charge/100;
+        yIncome = mIncome  *  12;
 
        
         
@@ -939,44 +941,67 @@ window._load_script = function(url, callback) {
 
 -->
 
+<form id="my-form" action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+    <!-- Name -->
+    name: <input id="name" type="text" name="name"/><br/>
+    <!-- Email field (required) -->
+    email: <input id="leademail" type="text" name="email"/><br/>
+    avg_claim: <input id = "claimAm" name="custom_avg_claim" type="text" value="" /><br/>
+    charge: <input id="charge" name="custom_charge" type="text" value="" /><br/>
+    days_per_week: <input id="days" name="custom_days_per_week" type="text" value="" /><br/>
+    monthly_income: <input id="mInc" name="custom_monthly_income" type="text" value="" /><br/>
+    number_of_doctors: <input id="nDoc" name="custom_number_of_doctors" type="text" value="" /><br/>
+    patients_per_day: <input id="nPat" name="custom_patients_per_day" type="text" value="" /><br/>
+    yearly_income: <input id="yInc" name="custom_yearly_income" type="text" value="" /><br/>
+    <!-- List token -->
+    <!-- Get the token at: https://app.getresponse.com/campaign_list.html -->
+    <input type="hidden" name="campaign_token" value="o5Xdm" />
+    <!-- Add subscriber to the follow-up sequence with a specified day (optional) -->
+    <input type="hidden" name="start_day" value="0" />
+    <!-- Subscriber button -->
+    <input type="submit" value="Subscribe"/>
+</form>
+
+
+
+
 <script type="text/javascript">
     /*fill and submit form*/
 
 function asd_SubmitForm(){
     /*auto responder form filds*/
-    var formEl = $('#_form_3_');
-    var nameEl = formEl.find('#asd-name');
-    var emailEl = formEl.find('#asd-email');
-    var phoneEl = formEl.find('#asd-phone');
-    var loanAmountEl = formEl.find('#asd-loan-amount');
-    var priceEl = formEl.find('#asd-price');
-    var termEl = formEl.find('#asd-term');
-    var interestEl = formEl.find('#asd-interest');
-    var balloonEl = formEl.find('#asd-balloon');
-    var persBusEl = formEl.find('#asd-pers-bus');
-    var freqEl = formEl.find('#asd-freq'); 
-    var repaymentsEl = formEl.find('#asd-repayments'); 
+    var formEl = $('#my-form');
+
+    var nameEl = formEl.find('#name');
+    var emailEl = formEl.find('#leademail');
+    var avg_claimEl = formEl.find('#claimAm');
+    var chargeEl = formEl.find('#charge');
+    var days_per_weekEl = formEl.find('#days');
+    var monthly_incomeEl = formEl.find('#mInc');
+    var number_of_doctorsEl = formEl.find('#nDoc');
+    var patients_per_dayEl = formEl.find('#nPat');
+    var yearly_incomeEl = formEl.find('#asd-pers-bus');
+
 
     /*pop up form fields*/
     var popName = $('#calc_BusName');
     var popEmail = $('#calc_email');
-    var popTel = $('#calc_tel');
 
     /*fill form fields*/
     nameEl.val(popName.val());
     emailEl.val(popEmail.val());
-    phoneEl.val(popTel.val());
-    loanAmountEl.val(loanAmount);
-    priceEl.val(vehiclePrice);
-    termEl.val(loanTerm);
-    interestEl.val(interestRate);
-    balloonEl.val(balloonRep);
-    persBusEl.val(personalBusiness);
-    freqEl.val(repayFrequency);
-    repaymentsEl.val(repayment);
+
+    avg_claimEl.val(claimAm);
+    chargeEl.val(charge);
+    days_per_weekEl.val(nDays);
+    monthly_incomeEl.val(mIncome);
+    number_of_doctorsEl.val(nDoc);
+    patients_per_dayEl.val(nPat);
+    yearly_incomeEl.val(yIncome);
+    
 
     /*submit*/
-    $("#_form_3_").submit();
+    formEl.submit();
 }
 
 
