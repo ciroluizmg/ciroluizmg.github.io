@@ -4,7 +4,7 @@
 
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no,shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="calc_files/style.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./calc_files/all.min.css">
@@ -544,11 +544,10 @@ The amounts must be included in Box 1 of the W-2, but are NOT included in Boxes 
                         enableScrolling();
                     });
                     });
-                    //asd_SubmitForm();
+                    SubmitForm();
                     $(".close-cross").click();
                 });
-
-            } else {
+            }else {
                 //remove all click events
                 $('#button-modal').off('click');
                 //re-add click event that checks invalid fields on submit
@@ -578,21 +577,19 @@ The amounts must be included in Box 1 of the W-2, but are NOT included in Boxes 
 
             $(this).addClass("btn-selected");
             $('.sub-s-select').val($(this).attr('data-val'));
-            calcPayments();
+            calcSavings();
 
         });
     </script>
 
     <script type="text/javascript">
         var calcEl;
-
         var mo_prem;
         var an_exp;
         var f_tax;
         var s_tax;
         var self_tax;
         var sub_s;
-
         var health_i_st;
         var health_i_hra;
         var out_pocket_st;
@@ -615,7 +612,7 @@ The amounts must be included in Box 1 of the W-2, but are NOT included in Boxes 
 
         /*Calculate payments*/
         /*get values from inputs*/
-        function calcPayments() {
+        function calcSavings() {
 
             function formatCurrency (number){
                 var aaa = number;
@@ -623,8 +620,6 @@ The amounts must be included in Box 1 of the W-2, but are NOT included in Boxes 
                     maximumSignificantDigits: 8
                 }).format(aaa);
             }
-
-
             calcEl = $('#calcSavings');
 
             mo_prem = parseInt(calcEl.find('.fg-mon-prem').find('input').val().replace(/\D/g, ''));
@@ -740,13 +735,13 @@ The amounts must be included in Box 1 of the W-2, but are NOT included in Boxes 
 
     <script type="text/javascript">
         $('.form-control').on('input', function() {
-            calcPayments();
+            calcSavings();
         });
 
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
         })
-        calcPayments();
+        calcSavings();
     </script>
 
 
@@ -755,7 +750,7 @@ The amounts must be included in Box 1 of the W-2, but are NOT included in Boxes 
     <script type="text/javascript">
         /*fill and submit form*/
 
-        function asd_SubmitForm() {
+        function SubmitForm() {
             /*auto responder form filds*/
             
         }
