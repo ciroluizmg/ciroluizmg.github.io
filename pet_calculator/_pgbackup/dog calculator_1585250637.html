@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title></title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/202ba80af4.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="dosagCalc" style="border-radius: 0px; border: 1px none #816305;">
+            <!--fase 1
+        ==================================-->
+            <div class="container fase1 calcframe" style="background-color: #f9f7f0; text-align: center; padding-top: 30px; padding-bottom: 30px; border-radius: 1px; border: 1px solid #816305;">
+                <div class="container" style="padding-left:0; padding-right:0;">
+                    <div class="row content-centered" style="text-align: center;">
+                        <div class="center" style=" margin-left: auto; margin-right: auto; display: inline-block;">
+                            <div class="bullets bulletsActive">
+                                <p class="nFase">1</p>
+                            </div>
+                            <div class="bullets"></div>
+                            <div class="bullets"></div>
+                        </div>
+                    </div>                     
+                </div>
+                <div class="container">
+                    <h3 style="font-size: 50px; text-align: center; padding-bottom: 22px;">Choose Pet</h3>
+                </div>                 
+                <div class="container" style="width: auto; height: auto; margin-left: auto; margin-right: auto; display: inline-block;">
+                    <div class="petThumb" style="background-color: #360e0e; float: left; width: 200px; height: 200px; border-radius: 200px 0px 0px 200px;">
+                        <img src="assets/img/dog.png" style="margin-top: 30px; margin-left: 26px;" class="zoom">
+                    </div>
+                    <div class="petThumb" style="background-color: #de2a2a; float: left; width: 200px; height: 200px; border-radius: 0px 200px 200px 0px;">
+                        <img src="assets/img/cat.png" style="margin-top: 32px; margin-left: -20px;" class="zoom">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!--fase 2
+       =============================-->
+            <div class="container fase2 calcframe" style="background-color: #F9F7F0; text-align: center; border: 1px solid #816305;">
+                <div class="container">
+                    <div class="row content-centered" style="text-align: center; border-right: 3px solid #ffffff;">
+                        <div class="center" style="margin-left: auto; margin-right: auto; display: inline-block; margin-bottom: 27px;">
+                            <div class="bullets"></div>
+                            <div class="bullets bulletsActive">
+                                <p class="nFase">2</p>
+                            </div>
+                            <div class="bullets"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="container b45e2" style="height: 300px; float: left; width: 45%; center-align: center;">
+                        <div style="transform: rotate(-90deg); width: 300px; float: left; margin-top: 150px; margin-left: -88px;" class="rangeCont">
+                            <input type="range" class="custom-range" min="0" max="250" step="1" id="customRange3" style="width: 300px;" value="40"> 
+                        </div>
+                        <div class="container weightblock" style="display: inline-block; height: 200px; width: auto; text-align: center; margin-top: 7px; margin-left: -188px;">
+                            <label style="font-size: 45px; color: #39437f;">Pet's Weight</label>
+                            <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px;">
+                                <div class="bullets weightdiv" style="display: block; padding: 0px; margin: 0px auto 0px 72px; border-radius: 100% 100% 0 0; background-color: rgba(0, 0, 0, 0); border: 1px solid;">
+                                    <i class="fas fa-balance-scale-right" style="font-size: 60px; margin-top: 16px; color: #816305;"></i>
+                                </div>
+                            </div>
+                            <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px;">
+                                <div class="bullets weightdiv" style="display: block; padding: 0px; margin: 0px 0px 0px 72px; border-radius: 0px 0px 100% 100%; background-color: rgba(0, 0, 0, 0); border: 1px solid;">
+                                    <input type="text" id="weightInp" name="weight" style="width: 60px; height: 60px; border-radius: 100%; margin-top: 17px; text-align: center; font-size: 27px;" value="30">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container b45e2" style="height: 300px; float: left; width: 45%; text-align: center; border-style: none;">
+                        <div class="container emailblock" style="height: 200px; width: auto; text-align: center; display: inline-block; margin: 4px;">
+                            <label style="font-size: 45px; color: #39437F; margin-bottom: 30px;">Email Adress</label>
+                            <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px;">
+</div>
+                            <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px;">
+</div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2" style="background-color: #ffffff; border-style: none; border-top-left-radius: 100%; border-bottom-left-radius: 100%; margin-right: -3px; width: 20px; height: 38px; margin-top: 0;"></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Enter your email adress" aria-label="Enter your email adress" aria-describedby="basic-addon2" style="border-style: none;"/>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2" style="width: 20px; border-top-right-radius: 100%; border-bottom-right-radius: 100%; border-right-color: #000000; border-style: none;">@</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                 
+                <div class="container" style="width: auto; height: auto; display: inline-block; margin: 0 auto -68px;">
+                    <div style="float: left; width: 120px; height: 120px; border-radius: 200px 0px 0px 200px; border: 1px solid; background-color: #f9f7f0;" class="hoverexpand">
+                        <p class="expand" style="color: #39437f; font-size: 22px; margin-top: 40px;">Previous</p>
+                    </div>
+                    <div style="background-color: #816305; float: left; width: 120px; height: 120px; border-radius: 0 100px 100px 0; border: 1px solid #816305;" class="hoverexpand">
+                        <p class="expand" style="color: #ffffff; font-size: 22px; padding-top: 40px;">Next</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <hr>
+            <hr>
+            <!--fase 3
+        ==========================-->
+            <div class="container fase3 calcframe" style="background-color: #F9F7F0; text-align: center; border: 1px solid #816305; padding-bottom: 220px;">
+                <div class="container" style="padding: 0;">
+                    <div class="row content-centered" style="text-align: center; padding: 0;">
+                        <div class="center" style="margin-left: auto; margin-right: auto; display: inline-block; padding-bottom: 60px;">
+                            <div class="bullets"></div>
+                            <div class="bullets"></div>
+                            <div class="bullets bulletsActive">
+                                <p class="nFase">3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: inline-block;
+        padding-left: 3%;">
+                    <div class="container b45e3" style="height: 300px; float: left; width: 45%; text-align: center;">
+                        <div class="container b45i3" style="background-color: #f9f7f0; display: inline-block; width: auto; text-align: center; margin-top: 4px; height: 401px; border: 1px solid #816305;">
+                            <label style="font-size: 45px; color: #39437f;">I already have a bottle</label>
+                            <div class="input-group mb-3">
+                                <label style="display:block; width: 100%;">Total Liquid in Bottle</label>
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" style="border-style: none; font-size: 23px;"/>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" style="border-style: none;">ML</span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <label style="display:block; width: 100%;">Total CBD in Bottle</label>
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" style="border-style: none; font-size: 23px;"/>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" style="border-style: none;">Mg</span>
+                                </div>
+                            </div>
+                            <div class="hoverexpand next3a" style="background-color: #816305; width: 120px; height: 120px; border-radius: 100px; margin-left: auto; margin-right: auto; margin-top: -10px;">
+                                <p class="expand" style="color: #ffffff; font-size: 22px; padding-top: 40px;">Next</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container b45e3" style="height: 300px; float: left; width: 45%; text-align: center; border-style: none;">
+                        <div class="container b45i3" style="background-color: #f9f7f0; height: 401px; width: auto; text-align: center; display: inline-block; margin: 4px; border: 1px solid #816305;">
+                            <label style="font-size: 45px; color: #39437f;">I don't have a bottle yet</label>
+                            <div style="width: 180px; height: 120px; border-radius: 100px; margin-left: auto; margin-right: auto; margin-top: 23px;">
+                                <img src="assets/img/125-mg-CBD.png" style="width:180px;" class="zoom">
+                            </div>
+                            <div class="hoverexpand next3b" style="background-color: #816305; width: 120px; height: 120px; border-radius: 100px; margin-left: auto; margin-right: auto; margin-top: 61px;">
+                                <p class="expand" style="color: #ffffff; font-size: 22px; padding-top: 40px;">Next</p>
+                            </div>
+                            <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px;">
+</div>
+                            <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px;">
+</div>
+                        </div>
+                    </div>
+                </div>                 
+                <div class="container" style="width: auto; height: auto; margin-left: auto; margin-right: auto; display: inline-block; margin-bottom: -288px;">
+                    <div class="hoverexpand" style="background-color: #f9f7f0; float: left; width: 120px; height: 120px; border-radius: 100px; border: 1px solid #816305;">
+                        <p class="expand" style="color: #39437f; font-size: 22px; padding-top: 40px;">Previous</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <hr>
+            <hr>
+            <!--resltados
+            ============================================================-->
+            <div class="container fase3 calcframe" style="background-color: #F9F7F0; text-align: center; border: 1px solid #816305; padding-bottom: 60px;">
+                <h3 style="font-size: 50px; text-align: center; padding-bottom: 22px; margin-top: 30px;">Based on your Pet's weight, we recommend:</h3>
+                <div class="">
+                    <a class="" href=""> <div class="hoverexpand" style=" width: 40%; display:inline-block;">
+                            <p style="margin: 0; padding: 0; display: inline-block;" class="expand" id="recomendation"> <img src="assets/img/125-mg-CBD.png" class="img-fluid" alt="Responsive image"> </p> 
+                            <h3 style="font-size: 50px; text-align: center; padding-bottom: 22px; margin-top: 0px;">
+                                    125 MG CBD Oil    </h3> 
+                        </div> </a>
+                    <p> <button style="margin: 0 auto; width: 50%; color: #816305; border-color: #816305;" type="button" class="btn btn-outline-warning btn-block btn-lg">Email me results</button> </p>
+                    <div class="" style="">
+                        <div class="container-fluid" style="width:auto;">
+                            <div class="row">
+                                <div class="col extpadding coltitle left">
+                                    Amount of CBD in Standard Eye Dropper
+</div>
+                                <div class="col extpadding coltitle">
+                                    Amount of CBD in 1 Drop
+</div>
+                            </div>
+                            <div class="row">
+                                <div class="col extpadding bnone tableres">
+                                    <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
+                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                    </div>
+                                </div>
+                                <div class="col extpadding bnone tableres">
+                                    <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
+                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr> 
+                            <!--2 item
+=========================================================================
+                                -->
+                            <div class="row">
+                                <div class="col extpadding coltitle left">
+                                    Suggested Low Dosage of CBD (mg)
+</div>
+                                <div class="col extpadding coltitle ">
+                                    # of Drops for Low Dosage
+</div>
+                            </div>
+                            <div class="row">
+                                <div class="col extpadding bnone tableres">
+                                    <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
+                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                    </div>
+                                </div>
+                                <div class="col extpadding bnone tableres">
+                                    <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
+                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <!--3 item
+=========================================================================
+                                -->
+                            <div class="row">
+                                <div class="col extpadding coltitle left">
+                                    Suggested High Dosage of CBD (mg)
+</div>
+                                <div class="col extpadding coltitle ">
+                                    # of Drops for High Dosage
+</div>
+                            </div>
+                            <div class="row">
+                                <div class="col extpadding bnone tableres">
+                                    <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
+                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                    </div>
+                                </div>
+                                <div class="col extpadding bnone tableres">
+                                    <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
+                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="width: auto; height: auto; display: inline-block; margin-left: auto; margin-right: auto; margin-bottom: -130px;">
+                    <div class="hoverexpand" style="background-color: #f9f7f0; float: left; width: 120px; height: 120px; border-radius: 100px; border: 1px solid #816305;">
+                        <p class="expand" style="color: #39437f; font-size: 22px; padding-top: 40px;">Previous</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript">
+                var sliderInput = $('.custom-range');
+                var weightInp = $('#weightInp');
+                weightInp.val(sliderInput.val())
+            sliderInput.on('input' , function (){weightInp.val(sliderInput.val())});
+            weightInp.on('input' , function (){sliderInput.val(weightInp.val())});
+
+        
+        
+        </script>
+    </body>
