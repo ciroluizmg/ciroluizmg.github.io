@@ -86,7 +86,7 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text" id="basic-addon2" style="background-color: #ffffff; border-style: none; border-top-left-radius: 100%; border-bottom-left-radius: 100%; margin-right: -3px; width: 20px; height: 38px; margin-top: 0;"></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Enter your email adress" aria-label="Enter your email adress" aria-describedby="basic-addon2" style="border-style: none;"/>
+                                <input type="text" id ="emailinput" class="form-control" placeholder="Enter your email adress" aria-label="Enter your email adress" aria-describedby="basic-addon2" style="border-style: none;"/>
                                 <div class="input-group-append">
                                     <span class="input-group-text" id="basic-addon2" style="width: 20px; border-top-right-radius: 100%; border-bottom-right-radius: 100%; border-right-color: #000000; border-style: none;">@</span>
                                 </div>
@@ -125,14 +125,14 @@
                             <label style="font-size: 45px; color: #39437f;">I already have a bottle</label>
                             <div class="input-group mb-3">
                                 <label style="display:block; width: 100%;">Total Liquid in Bottle</label>
-                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" style="border-style: none; font-size: 23px;"/>
+                                <input id="totalliquid" type="number" class="form-control" aria-label="Amount (to the nearest dollar)" style="border-style: none; font-size: 23px;"/>
                                 <div class="input-group-append">
                                     <span class="input-group-text" style="border-style: none;">ML</span>
                                 </div>
                             </div>
                             <div class="input-group mb-3">
                                 <label style="display:block; width: 100%;">Total CBD in Bottle</label>
-                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" style="border-style: none; font-size: 23px;"/>
+                                <input id="cdbinbottle" type="number" class="form-control" aria-label="Amount (to the nearest dollar)" style="border-style: none; font-size: 23px;"/>
                                 <div class="input-group-append">
                                     <span class="input-group-text" style="border-style: none;">Mg</span>
                                 </div>
@@ -170,7 +170,7 @@
             <div class="container fase4 calcframe" style="background-color: #F9F7F0; text-align: center; border: 1px solid #816305; padding-bottom: 60px;">
                 <h3 class="h3res" style="font-size: 3rem; text-align: center; padding-bottom: 22px; margin-top: 30px;">Based on your Pet's weight, we recommend:</h3>
                 <div class="">
-                    <a class="" href=""> <div class="hoverexpand" style=" width: 40%; display:inline-block;">
+                    <a class="suggestion" href=""> <div class="hoverexpand" style=" width: 40%; display:inline-block;">
                             <p style="margin: 0; padding: 0; display: inline-block;" class="expand" id="recomendation"> <img src="assets/img/125-mg-CBD.png" class="img-fluid" alt="Responsive image"> </p> 
                             <h3 style="font-size: 2rem; text-align: center; padding-bottom: 22px; margin-top: 0px;">
                                     125 MG CBD Oil    </h3> 
@@ -179,22 +179,22 @@
                     <div class="" style="">
                         <div class="container-fluid" style="width:auto;">
                             <div class="row">
-                                <div class="col extpadding coltitle left">
-                                    Amount of CBD in Standard Eye Dropper
+                                <div  class="col extpadding coltitle left">
+                                    Amount of CBD in 1 ML
 </div>
                                 <div class="col extpadding coltitle">
-                                    Amount of CBD in 1 Drop
+                                    Amount of CBD in 1 Drop (40 drops = 1 ML)
 </div>
                             </div>
                             <div class="row">
                                 <div class="col extpadding bnone tableres">
                                     <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
-                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                        <span id="cbd1mlres" class="restext" style="padding-top: 22px;">10</span>
                                     </div>
                                 </div>
                                 <div class="col extpadding bnone tableres">
                                     <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
-                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                        <span id="cbd1dropres" class="restext" style="padding-top: 22px;">10</span>
                                     </div>
                                 </div>
                             </div>
@@ -213,12 +213,12 @@
                             <div class="row">
                                 <div class="col extpadding bnone tableres">
                                     <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
-                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                        <span id="lowmgres" class="restext" style="padding-top: 22px;">10</span>
                                     </div>
                                 </div>
                                 <div class="col extpadding bnone tableres">
                                     <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
-                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                        <span id="lowdropres" class="restext" style="padding-top: 22px;">10</span>
                                     </div>
                                 </div>
                             </div>
@@ -226,6 +226,33 @@
                             <!--3 item
 =========================================================================
                                 -->
+
+<div class="row">
+                                <div class="col extpadding coltitle left">
+                                    Suggested Medium Dosage of CBD (mg)
+</div>
+                                <div class="col extpadding coltitle ">
+                                    # of Drops for Medium Dosage
+</div>
+                            </div>
+                            <div class="row">
+                                <div class="col extpadding bnone tableres">
+                                    <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
+                                        <span id="medmgres" class="restext" style="padding-top: 22px;">10</span>
+                                    </div>
+                                </div>
+                                <div class="col extpadding bnone tableres">
+                                    <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
+                                        <span id="meddropres" class="restext" style="padding-top: 22px;">10</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <!--4 item
+=========================================================================
+                                -->
+
+
                             <div class="row">
                                 <div class="col extpadding coltitle left">
                                     Suggested High Dosage of CBD (mg)
@@ -237,12 +264,12 @@
                             <div class="row">
                                 <div class="col extpadding bnone tableres">
                                     <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
-                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                        <span id="highmgres" class="restext" style="padding-top: 22px;">10</span>
                                     </div>
                                 </div>
                                 <div class="col extpadding bnone tableres">
                                     <div class="rescircle" style="border: 2px solid #39437f; border-radius: 100%;">
-                                        <span class="restext" style="padding-top: 22px;">10</span>
+                                        <span id="highdropres" class="restext" style="padding-top: 22px;">10</span>
                                     </div>
                                 </div>
                             </div>
@@ -296,11 +323,140 @@
             previous4.on('click' , function(){fase4.hide("slow", function(){fase3.show("slow");});});
 
 
+            var weight;
+            var email;
+            var tliquid;
+            var cdbbottle;
+            var species;
+            $('.dogbutton').click(function(){
+                species = 'dog';  
+            });
+            $('.catbutton').click(function(){
+                species = 'cat';  
+            });
+
+            function calculateyes(){
+                weight = $('#weightInp').val();
+                email = $('#emailinput').val();
+                tliquid = $('#totalliquid').val();
+                cdbbottle = $('#cdbinbottle').val();
+
+                var cdbinoneml = cdbbottle / tliquid;
+                var cdbinonedrop = cdbinoneml / 40;
+                
+                var lowdosemg = 0.05 * weight;
+                var meddosemg = 0.125 * weight;
+                var highdosemg = 0.25 * weight;
+
+                var lowdosedrop = lowdosemg / cdbinonedrop;
+                var meddosedrop = meddosemg / cdbinonedrop;
+                var highdosedrop = highdosemg / cdbinonedrop;
+
+                $('#cbd1mlres').html(cdbinoneml.toFixed(0));
+
+                $('#cbd1dropres').html(cdbinonedrop.toFixed(2));
+
+                $('#lowmgres').html(lowdosemg.toFixed(0));
+                $('#lowdropres').html(lowdosedrop.toFixed(0));
+                $('#medmgres').html(meddosemg.toFixed(0));
+                $('#meddropres').html(meddosedrop.toFixed(0));
+                $('#highmgres').html(highdosemg.toFixed(0));
+                $('#highdropres').html(highdosedrop.toFixed(0));
+
+            }
+
+            function calculateno(){
+                weight = $('#weightInp').val();
+                email = $('#emailinput').val();
+                tliquid = 30;
+                if(weight <= 20){
+                    
+                    $('.suggestion').find('img').attr('src', 'assets/img/125-mg-CBD.png');
+                    $('.suggestion').find('h3').html('125 MG CBD Oil');
+                    cdbbottle = 125;
+                }
+                if(weight > 20 && weight <= 45){
+                    
+                    $('.suggestion').find('img').attr('src', 'assets/img/MileHigh-Product-250mg.png');
+                    $('.suggestion').find('h3').html('250 MG CBD Oil');
+                    cdbbottle = 250;
+                }
+                if(weight > 45 && weight <= 80){
+                    
+                    $('.suggestion').find('img').attr('src', 'assets/img/MileHigh-Product-500mg.png');
+                    $('.suggestion').find('h3').html('500 MG CBD Oil');
+                    cdbbottle = 500;
+                }
+                if(weight > 80){
+                    
+                    $('.suggestion').find('img').attr('src', 'assets/img/MileHigh-Product-Mockup-1024x791.png');
+                    $('.suggestion').find('h3').html('1000 MG CBD Oil');
+                    cdbbottle = 1000;
+                }
+                $('.suggestion').show();
+                var cdbinoneml = cdbbottle / tliquid;
+                var cdbinonedrop = cdbinoneml / 40;
+                
+                var lowdosemg = 0.05 * weight;
+                var meddosemg = 0.125 * weight;
+                var highdosemg = 0.25 * weight;
+
+                var lowdosedrop = lowdosemg / cdbinonedrop;
+                var meddosedrop = meddosemg / cdbinonedrop;
+                var highdosedrop = highdosemg / cdbinonedrop;
+
+                $('#cbd1mlres').html(cdbinoneml.toFixed(0));
+
+                $('#cbd1dropres').html(cdbinonedrop.toFixed(2));
+
+                $('#lowmgres').html(lowdosemg.toFixed(0));
+                $('#lowdropres').html(lowdosedrop.toFixed(0));
+                $('#medmgres').html(meddosemg.toFixed(0));
+                $('#meddropres').html(meddosedrop.toFixed(0));
+                $('#highmgres').html(highdosemg.toFixed(0));
+                $('#highdropres').html(highdosedrop.toFixed(0));
+
+            }
+            //Math.round(number here); 
+
+            $('.next3b').click(function(){
+                calculateno();  
+            });
 
 
+            $('.next3a').click(function(){
+                $('.suggestion').hide();
+                calculateyes();
+                addsubscriber();
+            });
 
 
-        
+            function addsubscriber(){
+                /*$.ajaxSetup({
+                    beforeSend: function(request) {
+                    request.setRequestHeader("Content-Type","application/json");
+                    request.setRequestHeader("X-MailerLite-ApiKey","f6d9a708c72795df73c5115a6c23e17d");
+                    }
+                });*/
+                $.ajaxSetup({
+                    url: "ping.php"
+                });
+                $.ajax({
+                    method: "POST",
+                    url: "https://api.mailerlite.com/api/v2/groups/54377488/subscribers",
+                    data: { email: "john@example.com" }
+                }).done(function( msg ) {
+                    alert( "Data Saved: " + msg );
+                });
+            }    
         
         </script>
     </body>
+
+
+
+
+
+
+
+
