@@ -200,7 +200,7 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .widget_calculator .input .btn-group .btn:last-child{border-top-right-radius:4px;border-bottom-right-radius:4px;border-right:none;}
 .widget_calculator .input .btn-group .btn-selected{background-color:rgb(234, 23, 119);border-color:rgb(234, 23, 119);color:rgb(255, 255, 255);}
 @media (max-width: 991px){
-.widget_calculator .input{width:40%;}
+.widget_calculator .input{//width:40%;}
 }
 @media (max-width: 767px){
 .widget_calculator .input{width:100%;margin:0;margin-bottom:15px;}
@@ -217,8 +217,22 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .widget_calculator .results{width:60%;}
 .widget_calculator .results p.p2{font-size:30px;line-height:normal;}
 .widget_calculator .results p.p2 .ps1,.widget_calculator .results p.p2 .ps2{font-size:41px;}
+.texttitle {
+    background-color: gray !important;
+    width: 86% !important;
+    color: white !important;
+}
+.othermet{
+    width: 100% !important;
+}
+.incstate{
+	padding-top: 3px !important;
+}
 }
 @media (max-width: 767px){
+	.incstate{
+	padding-top: 9px !important;
+}
 .widget_calculator .results{width:100%;margin:0;}
 .widget_calculator .results p{font-size:16px;text-align:center;}
 .widget_calculator .results p.p2{font-size:30px;line-height:normal;}
@@ -231,11 +245,23 @@ section{padding-bottom:30px;margin-bottom:30px;}
 	margin-top: 30px;
 	margin-bottom: 20px;
 }
+.texttitle {
+    width: 90% !important;
+}
+.othermet{
+    width: 100% !important;
+}
 }
 @media (max-width: 575px){
+.input-group{    padding-right: 25px !important;}	
 .widget_calculator .results{padding:25px 10px;}
 .widget_calculator .results p.p2{font-size:23px;}
 .widget_calculator .results p.p2 .ps1,.widget_calculator .results p.p2 .ps2{font-size:34px;}
+}
+@media (max-width: 362px){
+.texttitle {
+    width: 88% !important;
+}
 }
 .widget_calculator .footer a,.widget_calculator .footer a:link,.widget_calculator .footer a:visited,.widget_calculator .footer a:hover{color:rgb(38, 38, 41);text-decoration:underline;}
 /*! CSS Used from: Embedded */
