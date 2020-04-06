@@ -262,6 +262,9 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .texttitle {
     width: 88% !important;
 }
+.othermet{
+    width: 100% !important;
+}
 }
 .widget_calculator .footer a,.widget_calculator .footer a:link,.widget_calculator .footer a:visited,.widget_calculator .footer a:hover{color:rgb(38, 38, 41);text-decoration:underline;}
 /*! CSS Used from: Embedded */
