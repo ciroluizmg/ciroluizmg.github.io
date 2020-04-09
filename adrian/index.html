@@ -78,14 +78,27 @@
 
                         
                         <div class="fg-loan-amount util-width-50">
-                            <div class="form-group"><label>Loan amount<span class="spanval"></span></label> 
+                            <div class="form-group"><label>Loan amount</label> 
+                                <div class="input-group">
+                                    
+                                    <span class="input-group-prepend">$</span> 
+                                    <input type="tel" class="form-control" value="12,000">
+
+                                </div>
+                            </div>
+                        </div> 
+
+
+
+                        <div class="fg-loan-amount-range util-width-50">
+                            <div  class="form-group"><label style="color: #E5E5E5;">Loan amount</label> 
                                 <div class="input-group">
                                     
                                     <!--<span class="input-group-prepend">$</span> 
                                     <input type="tel" class="form-control" value="30,000">-->
 
 
-                                    <input style="margin-top: 8px" type="range" class="custom-range form-control inpdollar" min="0" max="300000" step="1000" id="customRange3" style="width: 300px;" value="30000">
+                                    <input style="margin-top: 8px" type="range" class="custom-range form-control inpdollar" min="2000" max="50000" step="1000" id="customRange3" style="width: 300px;" value="12000">
 
 
                                 </div>
@@ -98,11 +111,11 @@
 
                         <div class="fg-interest-rate util-width-50">
                             <div class="form-group">
-                                <label>Interest rate<span class="spanval"></span></label> 
+                                <label>Interest rate<span class="spanval"> - 12%</span></label> 
                                 <div class="input-group">
 
 
-                                    <input style="margin-top: 8px" type="range" class="custom-range form-control inpperc" min="0" max="25" step="0.5" id="customRange3" style="width: 300px;" value="3.75">
+                                    <input style="margin-top: 8px" type="range" class="custom-range form-control inpperc" min="7" max="25" step="0.5" id="customRange3" style="width: 300px;" value="12">
 
 
                                     <!--<input type="number" maxlength="5" class="form-control" id ="int-rate" value="3.75"> 
@@ -113,15 +126,7 @@
                         </div> 
 
 
-    <div class="fg-initial-deposit util-width-50">
-        <div class="form-group">
-            <label>Initial deposit</label> 
-            <div class="input-group">
-                <span class="input-group-prepend" >$</span> 
-                <input type="tel" class="form-control"  value="0">
-            </div> <!---->
-        </div>
-    </div> 
+  
 
 
 <!--<div class="fg-initial-deposit util-width-50">
@@ -169,20 +174,22 @@
                                         7 years
                                     </option>
 
-                                </select> <!----></div></div> 
+                                </select>
+                            </div>
+                        </div> 
                                 
                               
 
-                                
-                      <div class="fg-broker-cost util-width-50">
+    <div class="fg-initial-deposit util-width-50">
         <div class="form-group">
-            <label>Broker Cost</label> 
+            <label>Initial deposit</label> 
             <div class="input-group">
-                <span class="input-group-prepend" style="background-color: #ECECEC">$</span> 
-                <input disabled type="tel" class="form-control" value="800" style="background-color: #ECECEC">
+                <span class="input-group-prepend" >$</span> 
+                <input type="tel" class="form-control"  value="0">
             </div> <!---->
         </div>
-    </div> 
+    </div>                   
+                     
 
 
                                 <div class="fg-adtional-costs util-width-50">
@@ -409,21 +416,63 @@
 
     /* max loan amount*/
 
-    /*$('.fg-loan-amount').find("input").on('input', function(){
-        if (   parseInt($(this).val().replace(/\D/g,'')) > 200000){
+    $('.fg-loan-amount').find("input").on('input', function(){
+        if (   parseInt($(this).val().replace(/\D/g,'')) > 50000){
             loanAmountValid = false;
 
             if( ! $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is $200,000.</div>");
-            }        
-           
-        }else{
-            loanAmountValid = true;
-            if( $(this).parent().parent().find(".alert").length  ){
+                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is $50,000.</div>");
+            }else{
                 $(this).parent().parent().find(".alert").remove();
-            }       
+                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is $50,000.</div>");
+            }
+
+
+        }else{
+            if(parseInt($(this).val().replace(/\D/g,'')) > 2000){
+                loanAmountValid = true;
+                if( $(this).parent().parent().find(".alert").length  ){
+                    $(this).parent().parent().find(".alert").remove();
+                }
+            } 
+
+                   
         }
-    });*/
+
+
+
+        if (   parseInt($(this).val().replace(/\D/g,'')) < 2000){
+            loanAmountValid = false;
+
+            if( ! $(this).parent().parent().find(".alert").length  ){
+                $(this).parent().parent().append("<div class='alert alert-danger'>Minimum is $2,000.</div>");
+            }else{
+                $(this).parent().parent().find(".alert").remove();
+                $(this).parent().parent().append("<div class='alert alert-danger'>Minimum is $2,000.</div>");
+            }    
+
+        }else{
+
+
+            if(parseInt($(this).val().replace(/\D/g,'')) < 50000){
+                loanAmountValid = true;
+                if( $(this).parent().parent().find(".alert").length  ){
+                    $(this).parent().parent().find(".alert").remove();
+                }
+            }     
+        }
+
+
+
+
+
+
+    });
+
+
+
+
+
 
 
     
@@ -598,7 +647,7 @@ $("#button-modal").click(function(){
 <script type="text/javascript">
     var calcEl;
     var loanAmount;
-    var brokercost;
+    //var brokercost;
     var initialDeposit;
     var loanTerm;
     var interestRate;
@@ -615,7 +664,6 @@ $("#button-modal").click(function(){
 
         loanAmount = parseInt(calcEl.find('.fg-loan-amount').find('input').val().replace(/\D/g,''));
         
-        brokercost = parseInt(calcEl.find('.fg-broker-cost').find('input').val().replace(/\D/g,''));
         
         initialDeposit = parseInt(calcEl.find('.fg-initial-deposit').find('input').val().replace(/\D/g,''));
 
@@ -655,7 +703,7 @@ $("#button-modal").click(function(){
             calcEl.find('.fg-balloon-repayment').find('input').css('background-color', '#fff');
         }*/
 
-        var totalLoanAmount  = loanAmount + brokercost + adtionalcosts - initialDeposit;
+        var totalLoanAmount  = loanAmount + adtionalcosts - initialDeposit;
         //alert(loanTerm);
 
         var paymentMonth = (r * totalLoanAmount) / (1-   (   1 / ( Math.pow((1+r) , n) )   )   );
@@ -709,8 +757,21 @@ $('.spanval').parent().parent().find('input').on('input' , function(){
 
 
       
+$('.fg-loan-amount-range').find('input').on("input" , function(){
+    var a = $(this).val();
+    $('.fg-loan-amount').find('input').val(
+        new Intl.NumberFormat('en-US', { maximumSignificantDigits: 8 }).format(
+        a.replace(/\D/g,'')
+        )
+        );
+})
 
 
+
+$('.fg-loan-amount').find('input').on("input" , function(){
+    var a = $(this).val().replace(/\D/g,'');
+    $('.fg-loan-amount-range').find('input').val(a);
+})
 
 
 

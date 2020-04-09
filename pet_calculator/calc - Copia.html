@@ -28,15 +28,15 @@
             }
 
         </style>
-            <div class="container fase1 calcframe" style="background-color: #f9f7f0; text-align: center; padding-top: 30px; padding-bottom: 30px; border-radius: 1px; border: 1px solid #816305;">
+            <div class="container fase1 calcframe" style="background-color: #f9f7f0; text-align: center; padding-top: 30px; padding-bottom: 30px; border-radius: 1px; border: 1px solid #816305; display: none">
                 <div class="container" style="padding-left:0; padding-right:0;">
                     <div class="row content-centered" style="text-align: center;">
-                        <div class="center" style=" margin-left: auto; margin-right: auto; display: inline-block;">
-                            <div class="bullets bulletsActive">
-                                <p class="nFase">1</p>
+                        <div class="center" style="overflow: visible; margin-left: auto; margin-right: auto; display: inline-block; margin-bottom: 27px;">
+                            
+                            <div class="bullets steps bulletsActive">
+                                <p class="nFase">Step 1</p>
                             </div>
-                            <div class="bullets"></div>
-                            <div class="bullets"></div>
+                            
                         </div>
                     </div>                     
                 </div>
@@ -55,15 +55,15 @@
             
             <!--fase 2
        =============================-->
-            <div class="container fase2 calcframe" style="background-color: #F9F7F0; text-align: center; border: 1px solid #816305;">
+            <div class="container fase2 calcframe" style="background-color: #F9F7F0; text-align: center; border: 1px solid #816305; display: block;">
                 <div class="container" style="padding: 0;">
                     <div class="row content-centered" style="text-align: center; border-right: 3px solid #ffffff; margin: 0;">
-                        <div class="center" style="margin-left: auto; margin-right: auto; display: inline-block; margin-bottom: 27px;">
-                            <div class="bullets"></div>
-                            <div class="bullets bulletsActive">
-                                <p class="nFase">2</p>
+                        <div class="center" style="overflow: visible; margin-left: auto; margin-right: auto; display: inline-block; margin-bottom: 27px;">
+                            
+                            <div class="bullets steps bulletsActive">
+                                <p class="nFase">Step 2</p>
                             </div>
-                            <div class="bullets"></div>
+                            
                         </div>
                     </div>
                 </div>
@@ -72,21 +72,32 @@
                         <div style="transform: rotate(-90deg); width: 300px; float: left; margin-top: 150px; margin-left: -88px;" class="rangeCont">
                             <input type="range" class="custom-range" min="0" max="250" step="1" id="customRange3" style="width: 300px;" value="40"> 
                         </div>
-                        <div class="container weightblock" style="display: inline-block; height: 200px; width: auto; text-align: center; margin-top: 7px; margin-left: -188px;">
+                        <div class="container weightblock group" style="display: inline-block; height: 200px; width: auto; text-align: center; margin-top: 7px; margin-left: -188px;">
                             <label style="font-size: 45px; color: #39437f;">Pet's Weight</label>
-                            <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px;">
-                                <div class="bullets weightdiv" style="display: block; padding: 0px; margin: 0px auto 0px 72px; border-radius: 100% 100% 0 0; background-color: rgba(0, 0, 0, 0); border: 1px solid;">
+                            <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px; padding-left: 41px">
+
+                                <div style = "float: left; padding-top: 41px; margin-right: 10px;">
+                                    <i class="fas fa-minus" style="width: 30px; height: 30px; font-size: 25px; color: #816305;"></i>
+                                </div>
+
+                                <div class="bullets weightdiv" style="float: left; display: block; padding: 0px; margin: 0px auto; border-radius: 100% 100% 0 0; background-color: rgba(0, 0, 0, 0); border: 1px solid;">
                                     <i class="fas fa-balance-scale-right" style="font-size: 60px; margin-top: 16px; color: #816305;"></i>
                                 </div>
+
+                                <div style = "float: left; padding-top: 41px; margin-left: 10px;">
+                                    <i class="fas fa-plus" style="font-size: 25px; color: #816305;"></i>
+                                </div>
+
+
                             </div>
                             <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px;">
-                                <div class="bullets weightdiv" style="display: block; padding: 0px; margin: 0px 0px 0px 72px; border-radius: 0px 0px 100% 100%; background-color: rgba(0, 0, 0, 0); border: 1px solid;">
+                                <div class="bullets weightdiv" style="display: block; padding: 0px; margin: 0px 0px 0px 81px; border-radius: 0px 0px 100% 100%; background-color: rgba(0, 0, 0, 0); border: 1px solid;">
                                     <input type="text" id="weightInp" name="weight" style="width: 60px; height: 60px; border-radius: 100%; margin-top: 17px; text-align: center; font-size: 27px;" value="30">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="container b45e2" style="height: 300px; float: left; width: 45%; text-align: center; border-style: none;">
+                    <div class="container b45e2 contmail" style="height: 300px; float: left; width: 45%; text-align: center; border-style: none;">
                         <div class="container emailblock" style="height: 200px; width: auto; text-align: center; display: inline-block; margin: 4px;">
                             <label style="font-size: 45px; color: #39437F; margin-bottom: 30px;">Email Adress</label>
                             <div class="center" style="margin-left: auto; margin-right: auto; display: block; padding: 0px;">
@@ -120,12 +131,12 @@
             <div class="container fase3 calcframe" style="background-color: #F9F7F0; text-align: center; border: 1px solid #816305; padding-bottom: 220px;">
                 <div class="container" style="padding: 0;">
                     <div class="row content-centered" style="text-align: center; padding: 0;">
-                        <div class="center" style="margin-left: auto; margin-right: auto; display: inline-block; padding-bottom: 60px;">
-                            <div class="bullets"></div>
-                            <div class="bullets"></div>
-                            <div class="bullets bulletsActive">
-                                <p class="nFase">3</p>
+                        <div class="center" style="overflow: visible; margin-left: auto; margin-right: auto; display: inline-block; margin-bottom: 27px;">
+                            
+                            <div class="bullets steps bulletsActive">
+                                <p class="nFase">Step 3</p>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

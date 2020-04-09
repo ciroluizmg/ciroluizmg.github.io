@@ -557,6 +557,11 @@ h3 {
     border-radius: 50px;
 }
 
+.steps {
+    width: 200px;
+    height: 50px;
+}
+
 .content-centered {
     text-align: center;
 }
@@ -776,15 +781,47 @@ h3 {
     }
     .rangeCont{
         margin-right: 30px !important;
-        margin-left: -100px !important;
-        margin-top: 167px !important;
+        margin-left: -140px !important;
+        margin-top: 115px !important;
     }
     .h3res{
         font-size: 2.6rem !important;
     }
+
+    .weightblock {
+    margin-left: -304px !important;
+    zoom: 81%;
+    }
+
+    .contmail{
+        height: 230px !important;
+
+    }
+
+    .emailblock {
+        margin-left: -52px !important;
+        margin-top: 30px !important;
+        zoom: 80%;
+    }
+    .b45e3 {
+        zoom: 60%;
+    }
+
+    .duplo3{
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
     
 
 }
+
+ @media (max-width: 380px) {
+
+      .b45e3 {
+        zoom: 55%;
+    }
+ }
 
 .fase2, 
     .fase3, 
@@ -794,4 +831,10 @@ h3 {
 
 .dogbutton, .catbutton, .previous2, .next2, .previous3, .next3a, .next3b, .previous4{
     cursor: pointer; 
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
