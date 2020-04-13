@@ -3,8 +3,10 @@
 <head>
 
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no,shrink-to-fit=no">
+    <meta charset="utf-8">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
     <link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all" rel="stylesheet" id="font-awesome-5-kit-css">
@@ -134,8 +136,8 @@
 .btn-brand-secondary:not(:disabled):not(.disabled).active,
 .show>.btn-brand-secondary.dropdown-toggle {
   color: rgb(255, 255, 255);
-  background: linear-gradient(103.26deg, rgb(23, 163, 6) 0%, rgb(23, 163, 6) 94.93%);
-  border-color: rgb(23, 163, 6);
+  background: #EDD401;
+  border-color: #EDD401;
 }
 
 .btn-brand-secondary:not(:disabled):not(.disabled):active:focus,
@@ -706,7 +708,7 @@ hr{margin-top:1rem;margin-bottom:1rem;border:0;border-top:1px solid rgba(0,0,0,.
 button.close{padding:0;background-color:transparent;border:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;}
 .modal{position:fixed;top:0;left:0;z-index:1050;display:none;width:100%;height:100%;overflow:hidden;outline:0;}
 .modal-dialog{position:relative;width:auto;margin:.5rem;pointer-events:none;}
-.modal.fade .modal-dialog{transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out;transition:transform .3s ease-out,-webkit-transform .3s ease-out;-webkit-transform:translate(0,-50px);transform:translate(0,-50px);}
+.modal.fade .modal-dialog{transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out;transition:transform .3s ease-out,-webkit-transform .3s ease-out;-webkit-transform:translate(0,-50px);transform:translate(0, 50px);}
 @media (prefers-reduced-motion:reduce){
 .modal.fade .modal-dialog{transition:none;}
 }
@@ -757,8 +759,8 @@ section{padding-bottom:30px;margin-bottom:30px;}
 @media (max-width: 767px){
 .btn{font-size:14px;line-height:20px;}
 }
-.btn-brand-secondary{color:rgb(255, 255, 255);background:linear-gradient(103.26deg, rgb(114, 187, 25) 0%, rgb(23, 163, 6) 94.93%);border-color:rgb(23, 163, 6);}
-.btn-brand-secondary:hover{color:rgb(255, 255, 255);background:linear-gradient(103.26deg, rgb(23, 163, 6) 0%, rgb(23, 163, 6) 94.93%);border-color:rgb(23, 163, 6);}
+.btn-brand-secondary{color:black;background: #EDD401;border-color:#EDD401;}
+.btn-brand-secondary:hover{color:black;background:#EDD401;border-color:#EDD401;}
 .btn-brand-secondary:focus{box-shadow:0 0 0 0.2rem rgba(23, 163, 6, 0.2);}
 .btn-brand-secondary:disabled{color:rgb(255, 255, 255);background:linear-gradient(103.26deg, rgb(114, 187, 25) 0%, rgb(23, 163, 6) 94.93%);border-color:rgb(23, 163, 6);}
 /*! CSS Used from: https://ciroluizmg.github.io/calc_files/widget_calculator.css */
@@ -871,7 +873,7 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .modal-content{border-radius:1.2rem;}
 .modal_inputs_div{display:block;width:80%;margin:0px auto;}
 .modal-body{background-color:#E5E5E5;}
-.modal-footer{background-color:#D34654;border-bottom-left-radius:1.2rem;border-bottom-right-radius:1.2rem;}
+.modal-footer{background-color:#A3B59A;border-bottom-left-radius:1.2rem;border-bottom-right-radius:1.2rem;}
 .modal-title{font-size:24px;}
 .modal_input{width:100%;padding:.375rem .75rem;border:0 none;box-shadow:none;font-size:16px;font-weight:300;color:rgb(38, 38, 41);}
 .modal-footer button{margin:10px auto;font-size:1.2rem;}
@@ -1042,7 +1044,9 @@ border-radius: 7px 0px 0px 7px;
   background-color:#ececec !important; 
 }
 
-
+td{
+  padding: 15px !important;
+}
 
     </style>
 
@@ -1051,13 +1055,7 @@ border-radius: 7px 0px 0px 7px;
 
 
 
-    <script src="https://kit.fontawesome.com/4c0e8abbff.js" crossorigin="anonymous"></script>
     
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
   
 
   
@@ -1080,333 +1078,518 @@ border-radius: 7px 0px 0px 7px;
 
                           <div class ="steptitle">
                             <div class="steptitle-n">STEP<span>1</span></div>
-                            <div class="steptitle-t">Input Your Procuct Assumptions Below</div>
+                            <div class="steptitle-t" style="padding-top: 20px">Input Your Utility Assumptions Below</div>
                           </div>
 
                           <div class="titleinputs" style="margin-top: 0px;">
                             <div class="numbertitle">1</div>
-                            <div class="texttitle">Amazon Sales</div>
+                            <div class="texttitle">Energy Bill</div>
                           </div>
 
 
                             <!--=========================-->
                             <div class="fg-sales-price ">
                                 <div class="form-group row" >
-                                    <label class="col-sm-5 col-form-label">Average Sale Price:
-                                      <a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the price that you expect to be able to charge for your product before a coupon is offered." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <label class="col-sm-5 col-form-label">Averaged NVE Payment:
+                                      
                                     </label>
                                     <div class="input-group col-sm-7"><span class="input-group-prepend">$</span>
-                                      <input type="tel" class="form-control" value="39.99">
+                                      <input type="tel" class="form-control" value="90.00">
                                     </div>
                                 </div>
                             </div>    
                             <!--===========================-->
 
-                            
-
-                            <div class="fg-units-sold ">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">Units Sold:
-                                      <a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the number of units you hope to sell during your launch period.  You can increase and decrease this number to see the impact on your results." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                             <div class="fg-sales-price ">
+                                <div class="form-group row" >
+                                    <label class="col-sm-5 col-form-label">Effective Price Per Watt:
+                                      
                                     </label>
-                                    <div class="input-group col-sm-7">
-                                       
-                                        <input type="tel" class="form-control" value="200">
+                                    <div class="input-group col-sm-7"><span class="input-group-prepend">$</span>
+                                      <input type="tel" class="form-control" value="2.85">
                                     </div>
-                                    <!---->
                                 </div>
-                            </div>
+                            </div>    
+                            <!--===========================-->
 
 
                             <div class="fg-coupom">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">Coupon %
-                              <a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="Enter the % off coupon amount you expect to provide customers during your launch" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                              <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Wipe-out %
+                             
                                     </label>
                                     <div class="input-group col-sm-7">
-                                        <input type="number" maxlength="5" class="form-control" id="int-rate" value="0"> <span class="input-group-append">%</span>
+                                        <input type="number" maxlength="5" class="form-control" id="int-rate" value="100"> <span class="input-group-append">%</span>
                                     </div>
                                 </div>
                             </div>
+                            
 
 
 
-                          <div class="titleinputs">
+
+
+
+                          <div class="titleinputs" style="margin-top: 0px;">
                             <div class="numbertitle">2</div>
-                            <div class="texttitle">Amazon Returns</div>
+                            <div class="texttitle">Solar Power System</div>
                           </div>
 
-                             <div class="fg-amz-returns">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">Amazon Returns
-                                <a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="Enter the percent of returns you expect.  This can range from just 1-2% for some categories and up to 20% or more for categories such as apparel" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                    </label>
-                                    <div class="input-group col-sm-7">
-                                        <input type="number" maxlength="5" class="form-control" id="int-rate" value="5"> <span class="input-group-append">%</span>
-                                    </div>
+                            <div class="fg-loan-term util-width-50">
+                              <div class="form-group">
+                                <label>Production Factor</label> 
+                                <select class="form-control">
+                                    <option value="1">
+                                        SOUTH
+                                    </option>
+                                    <option value="2">
+                                        SW / SE
+                                    </option>
+                                    <option value="3">
+                                        E / W
+                                    </option>
+                                    <option value="4">
+                                        NW / NE
+                                    </option>
+                                    <option value="4">
+                                        NORTH
+                                    </option>
+                                </select> <!---->
+                              </div>
+                            </div> 
+
+
+                            <div class="fg-initial-deposit util-width-50">
+        <div class="form-group" ><label style= "color: #E5E5E5;">Production Factor: </label> <p class="static-form-control">1.85</p></div>
+    </div> 
+
+
+
+<div class="fg-loan-term util-width-50">
+                              <div class="form-group">
+                                <label>Panel Size (watts):</label> 
+                                <select class="form-control">
+                                    <option value="1">
+                                        QCELL 325
+                                    </option>
+                                    <option value="2">
+                                        SILFAB 320
+                                    </option>
+                                    <option value="3">
+                                        SOLARA 360
+                                    </option>
+                                    <option value="4">
+                                        QCELL 315
+                                    </option>
+                                </select> <!---->
+                              </div>
+                            </div> 
+
+
+                            <div class="fg-initial-deposit util-width-50">
+        <div class="form-group" ><label style= "">Watts: </label> <p class="static-form-control">325</p></div>
+    </div> 
+
+
+
+
+    <div class="fg-initial-deposit util-width-50">
+        <div class="form-group" ><label style= "">Upgrade: </label> <p class="static-form-control">0</p></div>
+    </div> 
+
+
+
+
+    <div class="fg-initial-deposit util-width-50">
+        <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
+    </div> 
+
+
+
+
+    <div class="titleinputs">
+      <div class="numbertitle">3</div>
+      <div class="texttitle">Square Feet Adders:</div>
+    </div>
+
+    <div style= "display: none;"    class="">
+      <div class="form-group" ><label style= "">Total: </label> <p class=""></p></div>
+    </div> 
+
+    <div class="fg-loan-term util-width-50">
+                              <div class="form-group">
+                                <label>Adder 1:</label> 
+                                <select class="form-control">
+                                    <option value="1">
+                                        NONE
+                                    </option>
+                                    <option value="2">
+                                        GIFT CARD
+                                    </option>
+                                    <option value="3">
+                                        COMP OVER
+                                    </option><option value="4">
+                                        OVER W/2TEAR
+                                    </option><option value="5">
+                                        TILE-PAPER
+                                    </option>
+                                    <option value="6">
+                                        INSULATION
+                                    </option>
+                                </select> <!---->
+                              </div>
+                            </div> 
+
+
+
+          
+                        <div class="fg-loan-amount util-width-50">
+                            <div class="form-group"><label>Square feet:</label> 
+                                <div class="input-group">
+                                    <input type="tel" class="form-control" value="0">
+
                                 </div>
                             </div>
+                        </div> 
+
+
+    <div class="fg-initial-deposit util-width-50">
+      <div class="form-group" ><label style= "">$ value: </label> <p class="static-form-control">0</p></div>
+    </div> 
+
+
+    <div class="fg-initial-deposit util-width-50">
+      <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
+    </div> 
+
+
+
+    <div class="fg-loan-term util-width-50">
+                              <div class="form-group">
+                                <label>Adder 2:</label> 
+                                <select class="form-control">
+                                   <option value="1">
+                                        NONE
+                                    </option>
+                                    <option value="2">
+                                        GIFT CARD
+                                    </option>
+                                    <option value="3">
+                                        COMP OVER
+                                    </option><option value="4">
+                                        OVER W/2TEAR
+                                    </option><option value="5">
+                                        TILE-PAPER
+                                    </option>
+                                    <option value="6">
+                                        INSULATION
+                                    </option>
+                                </select> <!---->
+                              </div>
+                            </div> 
+
+
+
+          
+                        <div class="fg-loan-amount util-width-50">
+                            <div class="form-group"><label>Square feet:</label> 
+                                <div class="input-group">
+                                    <input type="tel" class="form-control" value="0">
+
+                                </div>
+                            </div>
+                        </div> 
+
+
+    <div class="fg-initial-deposit util-width-50">
+      <div class="form-group" ><label style= "">$ value: </label> <p class="static-form-control">0</p></div>
+    </div> 
+
+
+    <div class="fg-initial-deposit util-width-50">
+      <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
+    </div> 
+
+
+
+
+
+
+<div style="display: none;" class="">
+      <div class="form-group" ><label style= ""></label> <p class=""></p>
+      </div>
+</div> 
+
+
+
+
+  <div class="titleinputs">
+    <div class="numbertitle">4</div>
+    <div class="texttitle">Flat Adders</div>
+  </div>
+
+
+
+
+<div class="fg-loan-term util-width-50">
+                              <div class="form-group">
+                                <label>Adder 1:</label> 
+                                <select class="form-control">
+                                    <option value="1">
+                                        NONE
+                                    </option>
+                                    <option value="2">
+                                        MPU 100-225
+                                    </option>
+                                    <option value="3">
+                                       CENTER FED MAIN
+                                    </option><option value="4">
+                                        DERATE MAIN
+                                    </option><option value="5" >
+                                        LG 10KW BATT
+                                    </option>
+                                    <option value="6">
+                                        TRENCH DRT
+                                    </option>
+                                    <option value="7">
+                                       TRENCH CCRET
+                                    </option>
+                                    <option value="5" >
+                                        OVER 2 PLANES
+                                    </option>
+                                    <option value="6">
+                                        AEROSEAL
+                                    </option>
+                                </select> <!---->
+                              </div>
+                            </div> 
+
+
+
+          
+                        <div class="fg-loan-amount util-width-50">
+                            <div class="form-group"><label>Number:</label> 
+                                <div class="input-group">
+                                    <input type="tel" class="form-control" value="0">
+
+                                </div>
+                            </div>
+                        </div> 
+
+
+
+<div style="display: none;" class="">
+      <div class="form-group" ><label style= ""></label> <p class=""></p>
+      </div>
+</div> 
+
+
+
+                        <div class="fg-initial-deposit ">
+                          <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
+                        </div> 
+
+<div class="fg-loan-term util-width-50">
+                              <div class="form-group">
+                                <label>Adder 2:</label> 
+                                <select class="form-control">
+                                    <option value="1">
+                                        NONE
+                                    </option>
+                                    <option value="2">
+                                        MPU 100-225
+                                    </option>
+                                    <option value="3">
+                                       CENTER FED MAIN
+                                    </option><option value="4">
+                                        DERATE MAIN
+                                    </option><option value="5" >
+                                        LG 10KW BATT
+                                    </option>
+                                    <option value="6">
+                                        TRENCH DRT
+                                    </option>
+                                    <option value="7">
+                                       TRENCH CCRET
+                                    </option>
+                                    <option value="5" >
+                                        OVER 2 PLANES
+                                    </option>
+                                    <option value="6">
+                                        AEROSEAL
+                                    </option>
+                                </select> <!---->
+                              </div>
+                            </div> 
+
+
+
+          
+                        <div class="fg-loan-amount util-width-50">
+                            <div class="form-group"><label>Number:</label> 
+                                <div class="input-group">
+                                    <input type="tel" class="form-control" value="0">
+
+                                </div>
+                            </div>
+                        </div> 
+
+                          
+
+                        <div class="fg-initial-deposit ">
+                          <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
+                        </div> 
+
+                             
+
+
+
+
+
+
+
+
+  <div class="titleinputs">
+    <div class="numbertitle">5</div>
+    <div class="texttitle">Per Watt Adder</div>
+  </div>
+
+
+<div class="fg-loan-term util-width-50">
+                              <div class="form-group">
+                                <label>Adder:</label> 
+                                <select class="form-control">
+                                    <option value="1">
+                                        NONE
+                                    </option>
+                                    <option value="2">
+                                       BIRD BARRIER
+                                    </option>
+                                    <option value="3">
+                                        FLAT ROOF
+                                    </option><option value="4">
+                                        GROUND MNT
+                                    </option><option value="5" >
+                                        CLAY/LT WT TILE
+                                    </option>
+                                    <option value="6">
+                                       STEEP ROOF
+                                    </option>
+                              
+                                </select> <!---->
+                              </div>
+                            </div> 
+
+
+                            <div class="fg-initial-deposit util-width-50">
+        <div class="form-group" ><label style= "color: #E5E5E5;">per watt adder: </label> <p class="static-form-control">$ 0</p></div>
+    </div> 
+
+
+
+
+
+
+
+<div style="display: none;" class="">
+      <div class="form-group" ><label style= ""></label> <p class=""></p>
+      </div>
+</div> 
+
+
+
 
 
 
  <div class="titleinputs">
-                            <div class="numbertitle">3</div>
-                            <div class="texttitle">Amazon Fees</div>
-                          </div>
+    <div class="numbertitle">6</div>
+    <div class="texttitle">Financing</div>
+  </div>
 
 
-                           <div class="fg-fba-fee ">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">FBA Fee:
-                                      
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="You will need to look up fee.  It will depend on the weight and size of your product.
-
-FBA Fees can be found here:
-
-https://sell.amazon.com/pricing.html?ref_=asus_soa_rd&#fulfillment-fees" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-
-                                    </label>
-                                    <div class="input-group col-sm-7">
-                                        <span class="input-group-prepend">$</span>
-                                        <input type="tel" class="form-control" value="5.5">
-                                    </div>
-                                    <!---->
-                                </div>
-                            </div>
-
-
-
-                             <div class="fg-ref-fee">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">Referral Fee:
-
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is 15% for a majority of categories, but it can range from 8% to as high as 45%. 
-
-You can look it up here for your product category: 
-
-https://sellercentral.amazon.com/gp/help/external/200336920" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-
-
-
-                                    </label>
-                                    <div class="input-group col-sm-7">
-                                        <input type="number" maxlength="5" class="form-control" id="int-rate" value="15"> <span class="input-group-append">%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="fg-coupom-fee ">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">Coupon Fee:
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the amount Amazon charges to use a coupon." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                
-
-                                    </label>
-                                    <div class="input-group col-sm-7">
-                                        <span class="input-group-prepend">$</span>
-                                        <input type="tel" class="form-control" value="0.60">
-                                    </div>
-                                    <!---->
-                                </div>
-                            </div>
-
-
-
-                             <div class="fg-using-coupon">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">% Using Coupon
-
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the % of customers that will use your coupon.  Typically not all customers see and use the coupon even though it is on the product page.   You can expect that between 50-90% of customers will use the coupon." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-
-                                    </label>
-                                    <div class="input-group col-sm-7">
-                                        <input type="number" maxlength="5" class="form-control" id="int-rate" value="90"> <span class="input-group-append">%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-<div class="titleinputs">
-                            <div class="numbertitle">4</div>
-                            <div class="texttitle">Cost of Goods</div>
-                          </div>
-
-
-
-                            <div class="fg-cogs ">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Cost of Goods Sold (COGS):
-                                        <a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the cost you pay your supplier for your product.  This should include all costs including packaging, shipping, duties and taxes." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="11.50">
-                                      </div>
-                                      <!---->
-                                  </div>
+<div class="fg-loan-term util-width-50">
+                              <div class="form-group">
+                                <label>Financing Factor:</label> 
+                                <select class="form-control">
+                                    <option value="1">
+                                        LP 25YR-2.99
+                                    </option>
+                                    <option value="2">
+                                        LP 25YR-3.99
+                                    </option>
+                                    <option value="3">
+                                        LP 20YR-2.99
+                                    </option><option value="4">
+                                        LP 20YR-3.99
+                                    </option><option value="5" >
+                                        LP 20YR-4.99
+                                    </option>
+                                    <option value="6">
+                                        LP 15YR-3.99
+                                    </option>
+                                    <option value="7">
+                                        LP 12YR-2.99
+                                    </option>
+                                    <option value="1">
+                                        LP 10YR-2.99
+                                    </option>
+                                    <option value="2">
+                                        SL 25YR-4.99
+                                    </option>
+                                    <option value="3">
+                                        SL 20YR-2.99
+                                    </option><option value="4">
+                                        SL 20YR-3.99
+                                    </option><option value="5" >
+                                        SL 15YR-2.99
+                                    </option>
+                                    <option value="6">
+                                        SL 12YR-2.99
+                                    </option>
+                                    <option value="7">
+                                        SL 10YR-2.49
+                                    </option>
+                                    <option value="1">
+                                        DF 20YR-3.99
+                                    </option>
+                                    <option value="2">
+                                        DF 20YR-4.99
+                                    </option>
+                                    <option value="3">
+                                        DF 12YR-2.99
+                                    </option><option value="4">
+                                        SF 20YR-2.99
+                                    </option><option value="5" >
+                                        SF 20YR 3.79
+                                    </option>
+                                    <option value="6">
+                                        SF 20YR-4.79
+                                    </option>
+                                    <option value="7">
+                                        SF 20YR-5.79
+                                    </option>
+                                    <option value="7">
+                                        SF 15YR-3.79
+                                    </option>
+                                </select> <!---->
                               </div>
+                            </div> 
 
 
-                          <div class="titleinputs">
-                            <div class="numbertitle">5</div>
-                            <div class="texttitle">Advertising Expenses</div>
-                          </div>
+                            <div class="fg-initial-deposit util-width-50">
+        <div class="form-group" ><label style= "color: #E5E5E5;">Financing Factor:</label> <p class="static-form-control">0</p></div>
+    </div> 
 
 
-                              <div class="fg-ppc-cpu ">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Amazon PPC Ads Cost Per Unit:
-                                        <a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the amount spent on PPC ads on Amazon.  Usually this will be at least $5-10 per day ($150-300 for a month) when launching.  But this expense could be much higher depending on your available budget." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="2">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-
-                              <div class="fg-fb-ads ">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Facebook Ads:
-                                        <a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="It is a common strategy to use Facebook to try and drive traffic to your product listing in an effort to improve your ranking on Amazon.  
-
-This budget could be $0 if you don't use Facebook.  If you do use Facebook it's typically at least $5-10 per day ($150-300) per month during launch." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="1">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-
-                              <div class="fg-giveaways ">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Product Giveaways:
-                                        <a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="Many Amazon 'Gurus' talk about doing giveaways as part of your launch.  What they are usually referring to is coupons which we've already include above.  So this section is reserved more for things like actual product giveaways on Facebook or Instagram in order to gain followers." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="0">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
+<div class="fg-initial-deposit ">
+        <div class="form-group" ><label style= "">Payment Factor:</label> <p class="static-form-control">0</p></div>
+    </div> 
+                        
 
 
 
 
-                      <div id="step3wide">
-                        <div class ="steptitle" style="overflow: auto;">
-                            <div class="steptitle-n">STEP<span>3</span></div>
-                            <div class="steptitle-t" style="padding-top: 17px;">Evaluate
-                              Other Metrics
-                            </div>
-                        </div>
-
-                              
-                        <div class="titleinputs " style="overflow: auto;">
-                          <div class="texttitle othermet" style="width: 100%; margin-bottom: 10px">Other Metrics</div>
-                        </div>
-
-
-                              <div class="fg-unit-selling-price disab">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Unit Selling Price:
-                                        
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input disabled type="tel" class="form-control" value="">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-
-                               <div class="fg-margin-per-unit disab">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Gross Margin Per Unit:
-                                        
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input disabled type="tel" class="form-control" value="">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-
-
-                            <div class="fg-margin-perc-unit disab">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">Gross Margin % Per Unit
-                                      
-                                    </label>
-                                    <div class="input-group col-sm-7">
-                                        <input disabled type="number" maxlength="5" class="form-control" id="int-rate" value=""> <span class="input-group-append">%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                             <div class="fg-cont-per-unit disab">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Contribution Per Unit:
-                                        
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input disabled type="tel" class="form-control" value="">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                                <div class="fg-cont-perc disab">
-                                <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">Contribution Margin %:
-                                      
-                                    </label>
-                                    <div class="input-group col-sm-7">
-                                        <input disabled type="number" maxlength="5" class="form-control" id="int-rate" value=""> <span class="input-group-append">%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="fg-breakeven disab">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Breakeven Point:
-                                        
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input disabled type="tel" class="form-control" value="">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-
-                              <div class="fg-breakeven-unit disab">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Units to Breakeven:
-                                        
-                                      </label>
-                                      <div class="input-group col-sm-7">                                         
-                                          <input disabled type="tel" class="form-control" value="">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-                            </div>
-                            <!---end step 3-->
+                     
                    
                         </div>
                         <!--div class="input flex-input-->
@@ -1423,103 +1606,151 @@ This budget could be $0 if you don't use Facebook.  If you do use Facebook it's 
                         <div class="results input">
 
 
-                          <div class ="steptitle">
+
+ <div style="margin-top: 0px" id="step3wide">
+                        <div class ="steptitle" style="overflow: auto;">
                             <div class="steptitle-n">STEP<span>2</span></div>
-                            <div class="steptitle-t incstate">Review Your Product
-INCOME STATEMENT Results</div>
+                            <div class="steptitle-t" style="padding-top: 17px;">Your Savings Over Time
+                            </div>
+                        </div>
+
+                              
+                      
+
+
+                              <div class="fg-unit-selling-price disab">
+                                  <div class="form-group row">
+                                      <label class="col-sm-5 col-form-label">1ST YR kWh's:
+                                        
+                                      </label>
+                                      <div class="input-group col-sm-7">
+                                          
+                                          <input disabled type="tel" class="form-control" value="7,576">
+                                      </div>
+                                      <!---->
+                                  </div>
+                              </div>
+
+
+                               <div class="fg-margin-per-unit disab">
+                                  <div class="form-group row">
+                                      <label class="col-sm-5 col-form-label">SAVINGS- 10 YRS:
+                                        
+                                      </label>
+                                      <div class="input-group col-sm-7">
+                                          <span class="input-group-prepend">$</span>
+                                          <input disabled type="tel" class="form-control" value="$ 4,000">
+                                      </div>
+                                      <!---->
+                                  </div>
+                              </div>
+
+
+
+                            <div class="fg-margin-perc-unit disab">
+                                <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">SAVINGS- 25 YRS:
+                                      
+                                    </label>
+                                    <div class="input-group col-sm-7">
+                                          <span class="input-group-prepend">$</span>
+                                          <input disabled type="tel" class="form-control" value="$ 10,000">
+                                    </div>
+                                </div>
+                            </div>
                           </div>
+                            <!---end step 3-->
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          <div class ="steptitle" style="margin-top: 50px">
+                            <div class="steptitle-n">STEP<span>3</span></div>
+                            <div style="padding-top: 20px" class="steptitle-t incstate">Result Details</div>
+                          </div>
 
 
                             <div class="result-box"  style="">
                                 
                                 <table class="tg" id="result-table" style="width: 100%;">
                                   <tr>
-                                    <th class="tg-73oq"><p class="p1">Revenue:</p></th>
+                                    <th class="tg-73oq"><p class="p1">Solar Power Cost:</p></th>
                                   </tr>
                                   <tr>
-                                    <td class="tg-73oq ctl">Sales
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is your average selling price x your total units sold" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <td class="tg-73oq ctl">ANNUAL USAGE
                                     </td>
-                                    <td id="t1" class="tg-3z1b ctr"></td>
+                                    <td id="t1" class="tg-3z1b ctr">0</td>
                                   </tr>
                                   <tr>
-                                    <td class="tg-73oq">Amazon Promotions
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="When you run coupons, it reduces the amount of your total sales.  That said, even when you have a coupon avaialble on your product page, not every customer uses the coupon.  
-
-This is the amount your sales are reduced based on the % of customers who use your coupon.  " title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <td class="tg-73oq">WATTS
                                     </td>
-                                    <td id="t2" class="tg-3z1b"></td>
+                                    <td id="t2" class="tg-3z1b">0</td>
                                     
                                   </tr>
                                   <tr>
-                                    <td class="tg-73oq">Sales Return
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is based on the % of orders that your Amazon customers return and is the refund to your customer from their initial purchase price." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <td class="tg-73oq"># OF PANELS
                                     </td>
 
-                                    <td id="t3" class="tg-3z1b"></td>
+                                    <td id="t3" class="tg-3z1b">0</td>
                                     
                                   </tr>
                                   <tr>
-                                    <td class="tg-73oq">Amazon Reimbursements
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the reimbursement Amazon gives you on referral fees when an item is returned." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <td class="tg-73oq">SYS SIZE (kW)
                                     </td>
-                                    <td id="t4" class="tg-3z1b"></td>
+                                    <td id="t4" class="tg-3z1b">0</td>
                                     
                                   </tr>
+
+                                  <tr>
+                                    <td class="tg-73oq">ADDERS
+                                    </td>
+                                    <td id="t4" class="tg-3z1b">$ 0</td>
+                                  </tr>
+
+
+
+
                                   <tr class="totalrow">
-                                    <td class="tg-73oq totacell-t cbl">Total Revenue
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the amount of revenue after subtracting promos (coupons), and returns, and adding back reimbursements (referral fees)" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <td class="tg-73oq totacell-t cbl">GROSS PRICE
                                     </td>
-                                    <td id="t5" class="tg-3z1b totacell-val cbr"></td>
+                                    <td id="t5" class="tg-3z1b totacell-val cbr">$ 0</td>
                                   </tr>
+
+
+
 
 
 
                                 <tr>
-                                    <th class="tg-73oq"><p class="p1">Cost of Sales:</p></th>
-                                  </tr>
+                                  <th class="tg-73oq"><p class="p1">Net Price:</p></th>
+                                </tr>
 
 
 
 
                                   <tr>
-                                    <td class="tg-73oq ctl">Amazon FBA Fee
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the total amount Amazon will charge for shipping based on the estimated Units Sold x the estimated FBA Fee per unit" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <td class="tg-73oq ctl">(less) TAX CREDIT
                                     </td>
-                                    <td id="t6" class="tg-3z1b ctr"></td>
-                                    
+                                    <td id="t6" class="tg-3z1b ctr">$ 0</td>
                                   </tr>
-                                  <tr>
-                                    <td class="tg-73oq ">Amazon Referral Fee
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the referral fee % times selling price of the items sold" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                    </td>
-                                    <td id="t7" class="tg-3z1b"></td>
-                                   
-                                  </tr>
-                                  <tr>
-                                    <td class="tg-73oq fbig">Coupon Fee
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the coupon fee of $0.60 x the number of items sold." title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                    </td>
-                                    <td id="t8" class="tg-3z1b"></td>
-                                   
 
-                                  </tr>
-                                  <tr>
-                                    <td class="tg-73oq ">Cost of Goods Sold
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the estimated cost per product x the number of units sold" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                    </td>
-                                    <td id="t9" class="tg-3z1b"></td>
-                                  
-          
-                                  </tr>
+
                                   <tr class="totalrow">
-                                    <td class="tg-73oq totacell-t cbl">Total Cost of Sales
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the sum of all costs of sales" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <td class="tg-73oq totacell-t cbl">NET PRICE
                                     </td>
-                                    <td id="t10" class="tg-3z1b totacell-val cbr"></td>
+                                    <td id="t10" class="tg-3z1b totacell-val cbr">$ 0</td>
                                   </tr>
 
 
@@ -1528,76 +1759,40 @@ This is the amount your sales are reduced based on the % of customers who use yo
 
 
                                   <tr>
-                                    <th class="tg-73oq" ><p class="p1">Gross Margin:
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is your average selling price x your total units sold" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <th class="tg-73oq" ><p class="p1">Payments:
                                     </p></th>
                                   </tr>
 
+                                   <tr>
+                                    <td class="tg-73oq ctl">PMT W/O ITC PAYBACK
+                                    </td>
+                                    <td id="t6" class="tg-3z1b ctr">$ 0</td>
+                                  </tr>
 
+                                  <tr>
+                                    <td class="tg-73oq ">PMT WITH ITC PAYBACK
+                                    </td>
+                                    <td id="t6" class="tg-3z1b ">$ 0</td>
+                                  </tr>
 
 
                                   <tr class="totalrow">
-                                    <td style = "font-weight: normal;" class="tg-73oq fbig totacell-t cleft">Total Gross Margin:
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is Total Revenue - Total Cost of Sales" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <td class="tg-73oq totacell-t cbl">TOTAL COMBINED PAYMENTS
                                     </td>
-                                    <td style = "font-weight: normal;" id="t11" class="tg-3z1b totacell-val cright"></td>
+                                    <td id="t10" class="tg-3z1b totacell-val cbr">$ 0</td>
                                   </tr>
 
-
-
-
-
-                                  <tr>
-                                    <th class="tg-73oq"><p class="p1">Advertising Expenses:</p></th>
-                                  </tr>
+                                  
 
 
 
 
 
-                                  <tr>
-                                    <td class="tg-73oq ctl">Amazon PPC Ads
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the total amount you expect to spend on Amazon PPC ads based on the expense per unit" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                    </td>
-                                    <td id="t12" class="tg-3z1b ctr"></td>
-                                   
-                                  </tr>
-                                  <tr>
-                                    <td class="tg-73oq">Facebook Ads
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the total amount you expect to spend on Facebook ads" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                    </td>
-                                    <td id="t13" class="tg-3z1b"></td>
-                                    
-                                  </tr>
-                                  <tr>
-                                    <td class="tg-73oq">Product Giveaways
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the amount you expect to spend on product that you give away" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                    </td>
-                                    <td id="t14" class="tg-3z1b"></td>
-                          
-                                  </tr>
-                                  <tr class="totalrow">
-                                    <td class="tg-73oq totacell-t cbl">Total Advertising Expense:</td>
-                                    <td id="t15" class="tg-3z1b totacell-val cbr"></td>
-                                  </tr>
+                                  
 
 
 
-
-
-                                  <tr>
-                                    <th class="tg-73oq"><p class="p1">Contribution Margin:</p></th>
-                                  </tr>
-
-
-
-                                  <tr class="totalrow">
-                                    <td style = "font-weight: normal;" class="tg-73oq totacell-t cleft">Total Contribution Margin:
-<a href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the Total Gross Margin - Total Advertising Expense" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-                                    </td>
-                                    <td style = "font-weight: normal;" id="t16" class="tg-3z1b totacell-val cright"></td>
-                                  </tr>
-
+                              
 
                                 </table>
 
@@ -1608,173 +1803,28 @@ This is the amount your sales are reduced based on the % of customers who use yo
 
                           
                             
-                            <div style="width: 100%; padding-top: 17px; font-size: 25px; background-color: #EDD401; margin-bottom: 30px; " class="steptitle-t">Fixed Costs:
-<span>
-<a style="font-size: 14px;" href="#" data-toggle="tooltip" id="tooltip1" data-original-title="The below are monthly costs you might expect to have in order to run your Amazon business" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
-</span>
-                            </div>
+                            
                         
 
                             
-                            <div class="fg-email-prov">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Email Service Provider:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="10">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-website">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Website:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="20">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-acc-software">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Accounting Software:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="70">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-prod-sample ">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Product Samples:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="100">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-scot-viral">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Jungle Scout or Viral Launch:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="70">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-other-1">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Other Expense 1:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="0">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-other-2">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Other Expense 2:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="0">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-other-3">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Other Expense 3:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="0">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-other-4">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Other Expense 4:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="0">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-other-5">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Other Expense 5:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="0">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-                              <div class="fg-other-6 ">
-                                  <div class="form-group row">
-                                      <label class="col-sm-5 col-form-label">Other Expense 6:
-                                      </label>
-                                      <div class="input-group col-sm-7">
-                                          <span class="input-group-prepend">$</span>
-                                          <input type="tel" class="form-control" value="0">
-                                      </div>
-                                      <!---->
-                                  </div>
-                              </div>
-
-
-                              <h3></h3>
-
-                              <h3></h3>
+                            
 
 
                               <table class="tg" id="result-table" style = "width: 100%;" >
-                                 
                                   <tr>
-                                    <td class="tg-73oq ctl">Total Fixed Costs:</td>
-                                    <td id="total_fixed_costs" class="tg-3z1b ctr"></td>
-                                  </tr>
-                                  <tr>
-                                    <td style= "font-size: 30px;" class="tg-73oq cbl">Net Profit:
-<a style="font-size: 14px;" href="#" data-toggle="tooltip" id="tooltip1" data-original-title="This is the Contribution Margin - Total Fixed Expenses.  This is the amount you can expect to have left over after all expenses have been paid" title=""><i class="fas fa-info-circle text-pink" style="display: inline; margin: -10px 0px 0px 5px;" aria-hidden="true"></i></a>
+                                    <td style= "font-size: 25px;" class="tg-73oq cleft">Monthly Savings:
                                     </td>
-                                    <td style= "font-size: 30px;" id="final_res" class="tg-3z1b cbr"></td>
+                                    <td style= "font-size: 30px;" id="final_res" class="tg-3z1b cright">$ 0</td>
                                   </tr>
                               </table>
 
+                              <hr>
 
-
-                            <!--<div id="get_result">
-                                <button type="button" class="btn btn-brand-secondary" data-toggle="modal" data-target="#exampleModal">
-                                Calculate Your Estimated Tax Savings Per Month                                
+                            <div id="get_result" style="margin-top: 30px">
+                                <button type="button" class="btn btn-brand-secondary btn-lg" data-toggle="modal" data-target="#exampleModal">
+                                Email me results                               
                                 </button>
-                            </div>-->
+                            </div>
 
 
                         </div>
@@ -1840,15 +1890,14 @@ This is the amount your sales are reduced based on the % of customers who use yo
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Please fill the fields bellow to see results</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Please fill the fields bellow to get results via email</h5>
                     <button type="button" class="close close-cross" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true"> × </span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="modal_inputs_div">
-                        <label>Occupation</label>
-                        <input id="calc_occup" class="modal_input" type="text" name="name">
+                        
                         <label>First Name</label>
                         <input id="calc_Name" class="modal_input" type="text" name="busName">
                         <label>Your Email Adress</label>
@@ -2212,45 +2261,15 @@ This is the amount your sales are reduced based on the % of customers who use yo
     </script>
 
 
+<script src="https://kit.fontawesome.com/4c0e8abbff.js" crossorigin="anonymous"></script>
+    
 
-    <script type="text/javascript">
-      var small = false;
-        $(window).resize(function(){     
-           if ($('#step3wide').width() == 300 && small == false){
-              
-              $('#step3small').html($('#step3wide').html());
-              $('#step3wide').html('');
-              $('#step3small').show();
-              calcSavings();
-              small = true;
-           }
-           if(small == true){
-              if ($('#step3wide').width() != 300 ){
-                
-                $('#step3wide').html($('#step3small').html());
-                $('#step3small').html('');
-                $('#step3small').hide();
-                calcSavings();
-                small = false;
-              }
-           }
-        });
-       
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-        $(window).on('load', function() {
-          if ($('#step3wide').width() == 300 ){
-              
-              $('#step3small').html($('#step3wide').html());
-              $('#step3wide').html('');
-              $('#step3small').show();
-              calcSavings();
-              small = true;
-          }
-        });
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-
-
-    </script>
+    
 
 
 
