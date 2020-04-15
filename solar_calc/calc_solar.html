@@ -28,6 +28,14 @@
 
     <link rel="stylesheet" href="./calc_files/combined.css">-->
 
+    <script src="https://kit.fontawesome.com/4c0e8abbff.js" crossorigin="anonymous"></script>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 
 
     <style type="text/css">
@@ -838,10 +846,7 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .widget_calculator .results p{font-size:16px;text-align:center;}
 .widget_calculator .results p.p2{font-size:30px;line-height:normal;}
 .widget_calculator .results p.p2 .ps1,.widget_calculator .results p.p2 .ps2{font-size:41px;}
-#step3wide{
-  width: 300px;
-  display: none;
-}
+
 #step3small .steptitle{
   margin-top: 30px;
   margin-bottom: 20px;
@@ -858,6 +863,22 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .widget_calculator .results{padding:25px 10px;}
 .widget_calculator .results p.p2{font-size:23px;}
 .widget_calculator .results p.p2 .ps1,.widget_calculator .results p.p2 .ps2{font-size:34px;}
+
+.util-width-50 .form-control , .util-width-50 .static-form-control {
+      width: calc(100% - 20px) !important;
+      margin-left: 11px !important;
+}
+
+.util-width-50 .input-group{
+      padding-right: 10px !important;
+}
+
+.adjustmob .static-form-control {
+   width: calc(100% - 20px) !important;
+      margin-left: 11px !important;
+}
+
+
 }
 @media (max-width: 362px){
 .texttitle {
@@ -1064,7 +1085,7 @@ td{
 
 <body class="vsc-initialized">
 
-    <section id="calc_amz" class="widget_calculator" style="margin-bottom: 0;">
+    <section id="calc_solar" class="widget_calculator" style="margin-bottom: 0;">
 
         <div class="container">
 
@@ -1088,7 +1109,7 @@ td{
 
 
                             <!--=========================-->
-                            <div class="fg-sales-price ">
+                            <div class="nvepay ">
                                 <div class="form-group row" >
                                     <label class="col-sm-5 col-form-label">Averaged NVE Payment:
                                       
@@ -1100,7 +1121,7 @@ td{
                             </div>    
                             <!--===========================-->
 
-                             <div class="fg-sales-price ">
+                             <div class="effppw">
                                 <div class="form-group row" >
                                     <label class="col-sm-5 col-form-label">Effective Price Per Watt:
                                       
@@ -1113,7 +1134,7 @@ td{
                             <!--===========================-->
 
 
-                            <div class="fg-coupom">
+                            <div class="wipout">
                               <div class="form-group row">
                                     <label class="col-sm-5 col-form-label">Wipe-out %
                              
@@ -1128,27 +1149,25 @@ td{
 
 
 
-
-
                           <div class="titleinputs" style="margin-top: 0px;">
                             <div class="numbertitle">2</div>
                             <div class="texttitle">Solar Power System</div>
                           </div>
 
-                            <div class="fg-loan-term util-width-50">
+                            <div class="prodfac util-width-50">
                               <div class="form-group">
                                 <label>Production Factor</label> 
                                 <select class="form-control">
-                                    <option value="1">
+                                    <option value="0">
                                         SOUTH
                                     </option>
-                                    <option value="2">
+                                    <option value="1">
                                         SW / SE
                                     </option>
-                                    <option value="3">
+                                    <option value="2">
                                         E / W
                                     </option>
-                                    <option value="4">
+                                    <option value="3">
                                         NW / NE
                                     </option>
                                     <option value="4">
@@ -1159,26 +1178,26 @@ td{
                             </div> 
 
 
-                            <div class="fg-initial-deposit util-width-50">
+                            <div class="prodfacval util-width-50">
         <div class="form-group" ><label style= "color: #E5E5E5;">Production Factor: </label> <p class="static-form-control">1.85</p></div>
     </div> 
 
 
 
-<div class="fg-loan-term util-width-50">
+<div class="panelsize util-width-50">
                               <div class="form-group">
                                 <label>Panel Size (watts):</label> 
                                 <select class="form-control">
-                                    <option value="1">
+                                    <option value="0">
                                         QCELL 325
                                     </option>
-                                    <option value="2">
+                                    <option value="1">
                                         SILFAB 320
                                     </option>
-                                    <option value="3">
+                                    <option value="2">
                                         SOLARA 360
                                     </option>
-                                    <option value="4">
+                                    <option value="3">
                                         QCELL 315
                                     </option>
                                 </select> <!---->
@@ -1186,21 +1205,21 @@ td{
                             </div> 
 
 
-                            <div class="fg-initial-deposit util-width-50">
+                            <div class="panelwatts util-width-50">
         <div class="form-group" ><label style= "">Watts: </label> <p class="static-form-control">325</p></div>
     </div> 
 
 
 
 
-    <div class="fg-initial-deposit util-width-50">
+    <div class="panelupg util-width-50">
         <div class="form-group" ><label style= "">Upgrade: </label> <p class="static-form-control">0</p></div>
     </div> 
 
 
 
 
-    <div class="fg-initial-deposit util-width-50">
+    <div class="panelt util-width-50">
         <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
     </div> 
 
@@ -1216,24 +1235,24 @@ td{
       <div class="form-group" ><label style= "">Total: </label> <p class=""></p></div>
     </div> 
 
-    <div class="fg-loan-term util-width-50">
+    <div class="sqadder1 util-width-50">
                               <div class="form-group">
                                 <label>Adder 1:</label> 
                                 <select class="form-control">
-                                    <option value="1">
+                                    <option value="0">
                                         NONE
                                     </option>
-                                    <option value="2">
+                                    <option value="1">
                                         GIFT CARD
                                     </option>
-                                    <option value="3">
+                                    <option value="2">
                                         COMP OVER
-                                    </option><option value="4">
+                                    </option><option value="3">
                                         OVER W/2TEAR
-                                    </option><option value="5">
+                                    </option><option value="4">
                                         TILE-PAPER
                                     </option>
-                                    <option value="6">
+                                    <option value="5">
                                         INSULATION
                                     </option>
                                 </select> <!---->
@@ -1243,45 +1262,44 @@ td{
 
 
           
-                        <div class="fg-loan-amount util-width-50">
+                        <div class="sqfeet1 util-width-50">
                             <div class="form-group"><label>Square feet:</label> 
                                 <div class="input-group">
                                     <input type="tel" class="form-control" value="0">
-
                                 </div>
                             </div>
                         </div> 
 
 
-    <div class="fg-initial-deposit util-width-50">
+    <div class="sq1val util-width-50">
       <div class="form-group" ><label style= "">$ value: </label> <p class="static-form-control">0</p></div>
     </div> 
 
 
-    <div class="fg-initial-deposit util-width-50">
+    <div class="sq1total util-width-50">
       <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
     </div> 
 
 
 
-    <div class="fg-loan-term util-width-50">
+    <div class="sqadder2 util-width-50">
                               <div class="form-group">
                                 <label>Adder 2:</label> 
                                 <select class="form-control">
-                                   <option value="1">
+                                   <option value="0">
                                         NONE
                                     </option>
-                                    <option value="2">
+                                    <option value="1">
                                         GIFT CARD
                                     </option>
-                                    <option value="3">
+                                    <option value="2">
                                         COMP OVER
-                                    </option><option value="4">
+                                    </option><option value="3">
                                         OVER W/2TEAR
-                                    </option><option value="5">
+                                    </option><option value="4">
                                         TILE-PAPER
                                     </option>
-                                    <option value="6">
+                                    <option value="5">
                                         INSULATION
                                     </option>
                                 </select> <!---->
@@ -1291,7 +1309,7 @@ td{
 
 
           
-                        <div class="fg-loan-amount util-width-50">
+                        <div class="sqfeet2 util-width-50">
                             <div class="form-group"><label>Square feet:</label> 
                                 <div class="input-group">
                                     <input type="tel" class="form-control" value="0">
@@ -1301,12 +1319,12 @@ td{
                         </div> 
 
 
-    <div class="fg-initial-deposit util-width-50">
+    <div class="sq2val util-width-50">
       <div class="form-group" ><label style= "">$ value: </label> <p class="static-form-control">0</p></div>
     </div> 
 
 
-    <div class="fg-initial-deposit util-width-50">
+    <div class="sq2total util-width-50">
       <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
     </div> 
 
@@ -1331,33 +1349,33 @@ td{
 
 
 
-<div class="fg-loan-term util-width-50">
+<div class="flatadder1 util-width-50">
                               <div class="form-group">
                                 <label>Adder 1:</label> 
                                 <select class="form-control">
-                                    <option value="1">
+                                    <option value="0">
                                         NONE
                                     </option>
-                                    <option value="2">
+                                    <option value="1">
                                         MPU 100-225
                                     </option>
-                                    <option value="3">
+                                    <option value="2">
                                        CENTER FED MAIN
-                                    </option><option value="4">
+                                    </option><option value="3">
                                         DERATE MAIN
-                                    </option><option value="5" >
+                                    </option><option value="4" >
                                         LG 10KW BATT
                                     </option>
-                                    <option value="6">
+                                    <option value="5">
                                         TRENCH DRT
                                     </option>
-                                    <option value="7">
+                                    <option value="6">
                                        TRENCH CCRET
                                     </option>
-                                    <option value="5" >
+                                    <option value="7" >
                                         OVER 2 PLANES
                                     </option>
-                                    <option value="6">
+                                    <option value="8">
                                         AEROSEAL
                                     </option>
                                 </select> <!---->
@@ -1367,7 +1385,7 @@ td{
 
 
           
-                        <div class="fg-loan-amount util-width-50">
+                        <div class="flatnum1 util-width-50">
                             <div class="form-group"><label>Number:</label> 
                                 <div class="input-group">
                                     <input type="tel" class="form-control" value="0">
@@ -1385,37 +1403,37 @@ td{
 
 
 
-                        <div class="fg-initial-deposit ">
+                        <div class="flat1total adjustmob">
                           <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
                         </div> 
 
-<div class="fg-loan-term util-width-50">
+<div class="flatadder2 util-width-50">
                               <div class="form-group">
                                 <label>Adder 2:</label> 
                                 <select class="form-control">
-                                    <option value="1">
+                                    <option value="0">
                                         NONE
                                     </option>
-                                    <option value="2">
+                                    <option value="1">
                                         MPU 100-225
                                     </option>
-                                    <option value="3">
+                                    <option value="2">
                                        CENTER FED MAIN
-                                    </option><option value="4">
+                                    </option><option value="3">
                                         DERATE MAIN
-                                    </option><option value="5" >
+                                    </option><option value="4" >
                                         LG 10KW BATT
                                     </option>
-                                    <option value="6">
+                                    <option value="5">
                                         TRENCH DRT
                                     </option>
-                                    <option value="7">
+                                    <option value="6">
                                        TRENCH CCRET
                                     </option>
-                                    <option value="5" >
+                                    <option value="7" >
                                         OVER 2 PLANES
                                     </option>
-                                    <option value="6">
+                                    <option value="8">
                                         AEROSEAL
                                     </option>
                                 </select> <!---->
@@ -1425,7 +1443,7 @@ td{
 
 
           
-                        <div class="fg-loan-amount util-width-50">
+                        <div class="flatnum2 util-width-50">
                             <div class="form-group"><label>Number:</label> 
                                 <div class="input-group">
                                     <input type="tel" class="form-control" value="0">
@@ -1436,7 +1454,7 @@ td{
 
                           
 
-                        <div class="fg-initial-deposit ">
+                        <div class="flat2total adjustmob">
                           <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
                         </div> 
 
@@ -1455,24 +1473,24 @@ td{
   </div>
 
 
-<div class="fg-loan-term util-width-50">
+<div class="perwattadder util-width-50">
                               <div class="form-group">
                                 <label>Adder:</label> 
                                 <select class="form-control">
-                                    <option value="1">
+                                    <option value="0">
                                         NONE
                                     </option>
-                                    <option value="2">
+                                    <option value="1">
                                        BIRD BARRIER
                                     </option>
-                                    <option value="3">
+                                    <option value="2">
                                         FLAT ROOF
-                                    </option><option value="4">
+                                    </option><option value="3">
                                         GROUND MNT
-                                    </option><option value="5" >
+                                    </option><option value="4" >
                                         CLAY/LT WT TILE
                                     </option>
-                                    <option value="6">
+                                    <option value="5">
                                        STEEP ROOF
                                     </option>
                               
@@ -1481,7 +1499,7 @@ td{
                             </div> 
 
 
-                            <div class="fg-initial-deposit util-width-50">
+                            <div class="pwadval util-width-50">
         <div class="form-group" ><label style= "color: #E5E5E5;">per watt adder: </label> <p class="static-form-control">$ 0</p></div>
     </div> 
 
@@ -1507,68 +1525,68 @@ td{
   </div>
 
 
-<div class="fg-loan-term util-width-50">
+<div class="finfac util-width-50">
                               <div class="form-group">
                                 <label>Financing Factor:</label> 
                                 <select class="form-control">
-                                    <option value="1">
+                                    <option value="0">
                                         LP 25YR-2.99
                                     </option>
-                                    <option value="2">
+                                    <option value="1">
                                         LP 25YR-3.99
                                     </option>
-                                    <option value="3">
+                                    <option value="2">
                                         LP 20YR-2.99
-                                    </option><option value="4">
+                                    </option><option value="3">
                                         LP 20YR-3.99
-                                    </option><option value="5" >
+                                    </option><option value="4" >
                                         LP 20YR-4.99
                                     </option>
-                                    <option value="6">
+                                    <option value="5">
                                         LP 15YR-3.99
                                     </option>
-                                    <option value="7">
+                                    <option value="6">
                                         LP 12YR-2.99
                                     </option>
-                                    <option value="1">
+                                    <option value="7">
                                         LP 10YR-2.99
                                     </option>
-                                    <option value="2">
+                                    <option value="8">
                                         SL 25YR-4.99
                                     </option>
-                                    <option value="3">
+                                    <option value="9">
                                         SL 20YR-2.99
-                                    </option><option value="4">
+                                    </option><option value="10">
                                         SL 20YR-3.99
-                                    </option><option value="5" >
+                                    </option><option value="11" >
                                         SL 15YR-2.99
                                     </option>
-                                    <option value="6">
+                                    <option value="12">
                                         SL 12YR-2.99
                                     </option>
-                                    <option value="7">
+                                    <option value="13">
                                         SL 10YR-2.49
                                     </option>
-                                    <option value="1">
+                                    <option value="14">
                                         DF 20YR-3.99
                                     </option>
-                                    <option value="2">
+                                    <option value="15">
                                         DF 20YR-4.99
                                     </option>
-                                    <option value="3">
+                                    <option value="16">
                                         DF 12YR-2.99
-                                    </option><option value="4">
+                                    </option><option value="17">
                                         SF 20YR-2.99
-                                    </option><option value="5" >
+                                    </option><option value="18" >
                                         SF 20YR 3.79
                                     </option>
-                                    <option value="6">
+                                    <option value="19">
                                         SF 20YR-4.79
                                     </option>
-                                    <option value="7">
+                                    <option value="20">
                                         SF 20YR-5.79
                                     </option>
-                                    <option value="7">
+                                    <option value="21">
                                         SF 15YR-3.79
                                     </option>
                                 </select> <!---->
@@ -1576,25 +1594,35 @@ td{
                             </div> 
 
 
-                            <div class="fg-initial-deposit util-width-50">
+                            <div class="finfacval util-width-50">
         <div class="form-group" ><label style= "color: #E5E5E5;">Financing Factor:</label> <p class="static-form-control">0</p></div>
     </div> 
 
 
-<div class="fg-initial-deposit ">
+<div class="payfac adjustmob" >
         <div class="form-group" ><label style= "">Payment Factor:</label> <p class="static-form-control">0</p></div>
     </div> 
-                        
+  </div>
 
-
-
-
-                     
-                   
-                        </div>
-                        <!--div class="input flex-input-->
+<!--div class="input flex-input-->
 
                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1618,7 +1646,7 @@ td{
                       
 
 
-                              <div class="fg-unit-selling-price disab">
+                              <div class="firstkwh disab">
                                   <div class="form-group row">
                                       <label class="col-sm-5 col-form-label">1ST YR kWh's:
                                         
@@ -1632,7 +1660,7 @@ td{
                               </div>
 
 
-                               <div class="fg-margin-per-unit disab">
+                               <div class="tensav disab">
                                   <div class="form-group row">
                                       <label class="col-sm-5 col-form-label">SAVINGS- 10 YRS:
                                         
@@ -1647,7 +1675,7 @@ td{
 
 
 
-                            <div class="fg-margin-perc-unit disab">
+                            <div class="twentysav disab">
                                 <div class="form-group row">
                                     <label class="col-sm-5 col-form-label">SAVINGS- 25 YRS:
                                       
@@ -1716,7 +1744,7 @@ td{
                                   <tr>
                                     <td class="tg-73oq">ADDERS
                                     </td>
-                                    <td id="t4" class="tg-3z1b">$ 0</td>
+                                    <td id="t5" class="tg-3z1b">$ 0</td>
                                   </tr>
 
 
@@ -1725,7 +1753,7 @@ td{
                                   <tr class="totalrow">
                                     <td class="tg-73oq totacell-t cbl">GROSS PRICE
                                     </td>
-                                    <td id="t5" class="tg-3z1b totacell-val cbr">$ 0</td>
+                                    <td id="t6" class="tg-3z1b totacell-val cbr">$ 0</td>
                                   </tr>
 
 
@@ -1743,14 +1771,14 @@ td{
                                   <tr>
                                     <td class="tg-73oq ctl">(less) TAX CREDIT
                                     </td>
-                                    <td id="t6" class="tg-3z1b ctr">$ 0</td>
+                                    <td id="t7" class="tg-3z1b ctr">$ 0</td>
                                   </tr>
 
 
                                   <tr class="totalrow">
                                     <td class="tg-73oq totacell-t cbl">NET PRICE
                                     </td>
-                                    <td id="t10" class="tg-3z1b totacell-val cbr">$ 0</td>
+                                    <td id="t8" class="tg-3z1b totacell-val cbr">$ 0</td>
                                   </tr>
 
 
@@ -1766,20 +1794,20 @@ td{
                                    <tr>
                                     <td class="tg-73oq ctl">PMT W/O ITC PAYBACK
                                     </td>
-                                    <td id="t6" class="tg-3z1b ctr">$ 0</td>
+                                    <td id="t9" class="tg-3z1b ctr">$ 0</td>
                                   </tr>
 
                                   <tr>
                                     <td class="tg-73oq ">PMT WITH ITC PAYBACK
                                     </td>
-                                    <td id="t6" class="tg-3z1b ">$ 0</td>
+                                    <td id="t10" class="tg-3z1b ">$ 0</td>
                                   </tr>
 
 
                                   <tr class="totalrow">
                                     <td class="tg-73oq totacell-t cbl">TOTAL COMBINED PAYMENTS
                                     </td>
-                                    <td id="t10" class="tg-3z1b totacell-val cbr">$ 0</td>
+                                    <td id="t11" class="tg-3z1b totacell-val cbr">$ 0</td>
                                   </tr>
 
                                   
@@ -1802,14 +1830,7 @@ td{
 
 
                           
-                            
-                            
-                        
-
-                            
-                            
-
-
+                      
                               <table class="tg" id="result-table" style = "width: 100%;" >
                                   <tr>
                                     <td style= "font-size: 25px;" class="tg-73oq cleft">Monthly Savings:
@@ -1818,7 +1839,10 @@ td{
                                   </tr>
                               </table>
 
-                              <hr>
+
+
+
+                            <hr>
 
                             <div id="get_result" style="margin-top: 30px">
                                 <button type="button" class="btn btn-brand-secondary btn-lg" data-toggle="modal" data-target="#exampleModal">
@@ -1883,7 +1907,7 @@ td{
         </div>
         <!--end contaimer-->
     </section>
-    <!-- end calc_amz -->
+    <!-- end calc_solar -->
 
     <!-- Modal subscribe-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
@@ -1898,12 +1922,13 @@ td{
                 <div class="modal-body">
                     <div class="modal_inputs_div">
                         
-                        <label>First Name</label>
+                        <label>Name</label>
                         <input id="calc_Name" class="modal_input" type="text" name="busName">
-                        <label>Your Email Adress</label>
+                        <label>Your Email Address</label>
                         <input id="calc_email" class="modal_input" type="email" name="email">
-                        <label>Phone Number</label>
-                        <input id="calc_tel" class="modal_input input-phone" type="tel" name="telefone" placeholder="(0xxx) xxx xxx" size="10" minlength="10" maxlength="10" onkeyup="">     
+                        <label>Address</label>
+                        <input id="calc_address" class="modal_input" type="text" name="address">
+                        
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -1925,7 +1950,7 @@ td{
             }).format(
                 $(this).val().replace(/\D/g, '')
             ));
-            var calcEl = $('#calc_amz');
+            var calcEl = $('#calc_solar');
             var dep = parseInt(calcEl.find('.fg-units-sold').find('input').val().replace(/\D/g, '')) - calcEl.find('.fg-sales-price').find('input').val().replace(/\D/g, '');
             $('.static-form-control').html('$ ' + new Intl.NumberFormat('en-US', {
                 maximumSignificantDigits: 8
@@ -1954,7 +1979,109 @@ td{
 
 
 
+<script type="text/javascript">
+  /*
+============  data  ================
+  */
 
+
+  var prodfacdata = [
+    ['SOUTH'      ,  1.85 ],
+    ['SW / SE'    ,  1.73 ],
+    ['E / W'      ,  1.6  ],
+    ['NW / NE'    ,  1.44 ],
+    ['NORTH'      ,  1.25 ]
+  ];
+
+
+  var fin1 = [
+    [ 'LP 25YR-2.99' ,  1.290225 , 0.00488 ],
+    [ 'LP 20YR-3.99' ,  1.2102   , 0.00627 ],
+    [ 'LP 20YR-2.99' ,  1.2756   , 0.00573 ],
+    [ 'LP 15YR-3.99' ,  1.179    , 0.00773 ],
+    [ 'LP 12YR-2.99' ,  1.2075   , 0.00869 ],
+    [ 'LP 10YR-2.99' ,  1.182    , 0.01026 ],
+
+    [ 'SL 10YR-2.49' ,  1.1626   , 0.01003 ],
+    [ 'SL 15YR-2.99' ,  1.1863   , 0.00721 ],
+    [ 'SL 20YR-3.99' ,  1.205    , 0.00628 ],
+    [ 'SL 25YR-4.49' ,  1.2102   , 0.00574 ],
+
+    [ 'DF 20YR-3.99' ,  1.186  , 0.00629 ]
+  ];
+
+
+  var panels = [
+    [ 'QCELL 325'  ,  325 ,  0    ],
+    [ 'SILFAB 320' ,  320 ,  0.05 ],
+    [ 'SOLARA 360' ,  360 ,  0.40 ],
+    [ 'QCELL 315'  ,  315 ,  0    ]
+  ];
+
+  var eachadd = [
+    [ 'NONE'            , 0       ],
+    [ 'MPU 100-225'     , 2400.00 ],
+    [ 'CENTER FED MAIN' , 450.00  ],
+    [ 'DERATE MAIN'     , 425.00  ],
+    [ 'LG 10KW BATT'    , 9800.00 ],
+    [ 'TRENCH DRT'      , 15.00   ],
+    [ 'TRENCH CCRET'    , 25.00   ],
+    [ 'OVER 2 PLANES'   , 300.00  ],
+    [ 'AEROSEAL'        , 1200.00 ]
+  ];
+
+
+  var pwadd =  [
+    [ 'NONE'             ,  0    ],
+    [ 'BIRD BARRIER'     ,  0.11 ],
+    [ 'FLAT ROOF'        ,  0.15 ],
+    [ 'GROUND MNT'       ,  0.60 ],
+    [ 'CLAY/LT WT TILE'  ,  0.50 ],
+    [ 'STEEP ROOF'       ,  0.15 ],
+  ];
+
+
+  var sqftadd =  [
+    [ 'NONE'          ,  0    ],
+    [ 'GIFT CARD'     ,  1    ],
+    [ 'COMP OVER'     ,  3.5  ],
+    [ 'OVER W/2TEAR'  ,  4.5  ],
+    [ 'TILE-PAPER'    ,  4.5  ],
+    [ 'INSULATION'    ,  1.25 ],
+  ];
+
+  
+  var financing = [
+    [ 'LP 25YR-2.99'  , 23.50  ,  1.290225  , 0.00339   ,  0.00488 ],
+    [ 'LP 25YR-3.99'  , 19.84  ,  1.237763  , 0.00380   ,  0.00544 ],
+    [ 'LP 20YR-2.99'  , 22.50  ,  1.275625  , 0.00397   ,  0.00573 ],
+    [ 'LP 20YR-3.99'  , 17.74  ,  1.208871  , 0.00437   ,  0.00628 ],
+    [ 'LP 20YR-4.99'  , 13.99  ,  1.159472  , 0.00479   ,  0.00686 ],
+    [ 'LP 15YR-3.99'  , 16.25  ,  1.188906  , 0.00534   ,  0.00774 ],
+    [ 'LP 12YR-2.99'  , 18.50  ,  1.219225  , 0.00595   ,  0.00873 ],
+    [ 'LP 10YR-2.99'  , 16.50  ,  1.192225  , 0.00695   ,  0.01028 ],
+
+    [ 'SL 25YR-4.99'  , 23.05  ,  1.172500  , 0.00424   ,  0.00605 ],
+    [ 'SL 20YR-2.99'  , 22.00  ,  1.268400  , 0.00397   ,  0.00573 ],
+    [ 'SL 20YR-3.99'  , 16.50  ,  1.192225  , 0.00437   ,  0.00628 ],
+    [ 'SL 15YR-2.99'  , 16.75  ,  1.195556  , 0.00496   ,  0.00721 ],
+    [ 'SL 12YR-2.99'  , 13.75  ,  1.156406  , 0.00595   ,  0.00873 ],
+    [ 'SL 10YR-2.49'  , 14.75  ,  1.169256  , 0.00676   ,  0.01003 ],
+
+    [ 'DF 20YR-3.99'  , 15.00  ,  1.172500  , 0.00437   ,  0.00628 ],
+    [ 'DF 20YR-4.99'  , 12.00  ,  1.134400  , 0.00479   ,  0.00686 ],
+    [ 'DF 12YR-2.99'  , 15.00  ,  1.172500  , 0.00595   ,  0.00873 ],
+
+    [ 'SF 20YR-2.99'  , 21.00  ,  1.254100  , 0.00240   ,  0.00550 ],
+    [ 'SF 20YR 3.79'  , 19.50  ,  1.233025  , 0.00310   ,  0.00590 ],
+    [ 'SF 20YR-4.79'  , 15.50  ,  1.179025  , 0.00390   ,  0.00640 ],
+    [ 'SF 20YR-5.79'  , 13.50  ,  1.153225  , 0.00470   ,  0.00700 ],
+    [ 'SF 15YR-3.79'  , 18.00  ,  1.212400  , 0.00310   ,  0.00720 ]
+  ];
+
+
+
+</script>
     
 
 
@@ -1964,94 +2091,93 @@ td{
         var calcEl;
 
         /*fase one inputs*/
-        var salesPrice;
-        var unitsSold;
-        var coupom;
-        var amzReturns;
-        var fbaFee;
-        var refFee;
-        var coupomFee;
-        var percCopom;
-        var fgCogs;
-        var ppcCpu;
-        var fbAds;
-        var giveaways;
+        var nvepay;
+        var effppw;
+        var wipout;
+        var prodfac;
+        var panelsize;
+        var sqadder1;
+        var sqfeet1;
+        var sqadder2;
+        var sqfeet2;
+        var flatadder1;
+        var flatnum1;
+        var flatadder2;
+        var flatnum2;
+        var perwattadder;
+        var finfac;
 
-        /*fase 3*/
-        var unitSellingPrice;
-        var marginUnit;
-        var marginPercUnit;
-        var contPerUnit;
-        var contPerc;
-        var breakeven;
-        var breakevenUnit;
-
-        /*fase two results*/
-        var t_sales;
-        var t_amz_promo;
-        var t_sales_ret;
-        var t_amz_reimb;
-        var t_total_rev;
-        var t_amz_fba_fee;
-        var t_amz_ref_fee;
-        var t_coupom_fee;
-        var t_cost_goods;
-        var t_total_cost_sales;
-        var t_tgross_margin;
-        var t_ppc_adds;
-        var t_fb_ads;
-        var t_giveaways;
-        var t_total_adv;
-        var t_total_cont_margin;
+        /*fase 1 output*/
+        var prodfacval;
+        var panelwatts;
+        var panelupg;
+        var panelt;
+        var sq1val;
+        var sq1total;
+        var sq2val;
+        var sq2total;
+        var flat1total;
+        var flat2total;
+        var pwadval;
+        var finfacval;
+        var payfac;
 
 
-        /*fixed cost variables*/
-        var fc_email;
-        var fc_site;
-        var fc_soft;
-        var fc_sample;
-        var fc_jungle;
-        var fc_other1;
-        var fc_other2;
-        var fc_other3;
-        var fc_other4;
-        var fc_other5;
-        var fc_other6;
+        /*fase 2 outputs*/
+        var firstkwh;
+        var tensav;
+        var twentysav;
+        
 
-        var total_fixed_costs;
-        var final_res;
+        /*fase 3 outputs*/
+        var ANNUALUSAGE ;
+        var WATTS;
+        var NOFPANELS ;
+        var SYSSIZE ;
+        var ADDERS;
+        var GROSSPRICE  ;
+        var TAXCREDIT ;
+        var NETPRICE  ;
+        var PMTWOITC  ;
+        var PMTWITHITC;
+        var TOTALCOMB;
+        var monsavings;
+     
 
+        /*calc vars
+        =================================================*/
+        /*fase 1 output*/
+        var Vprodfacval;
+        var Vpanelwatts;
+        var Vpanelupg;
+        var Vpanelt;
+        var Vsq1val;
+        var Vsq1total;
+        var Vsq2val;
+        var Vsq2total;
+        var Vflat1total;
+        var Vflat2total;
+        var Vpwadval;
+        var Vfinfacval;
+        var Vpayfac;
+        /*fase 2 outputs*/
+        var Vfirstkwh;
+        var Vtensav;
+        var Vtwentysav;
+        /*fase 3 outputs*/
+        var VANNUALUSAGE ;
+        var VWATTS;
+        var VNOFPANELS ;
+        var VSYSSIZE ;
+        var VADDERS;
+        var VGROSSPRICE  ;
+        var VTAXCREDIT ;
+        var VNETPRICE  ;
+        var VPMTWOITC  ;
+        var VPMTWITHITC;
+        var VTOTALCOMB;
+        var Vmonsavings;
 
-
-        /*output vars - only store result*/
-        var v_sales;
-        var v_amz_promo;
-        var v_sales_ret;
-        var v_amz_reimb;
-        var v_total_rev;
-        var v_amz_fba_fee;
-        var v_amz_ref_fee;
-        var v_coupom_fee;
-        var v_cost_goods;
-        var v_total_cost_sales;
-        var v_tgross_margin;
-        var v_ppc_adds;
-        var v_fb_ads;
-        var v_giveaways;
-        var v_total_adv;
-        var v_total_cont_margin;
-
-        var v_total_fixed_costs;
-        var v_final_res;
-
-        /*outpt vars fase 3*/
-        var v_unitSellingPrice;
-        var v_marginUnit;
-        var v_marginPercUnit;
-        var v_contPerUnit;
-        var v_contPerc;
-        var v_breakeven;
-        var v_breakevenUnit;
 
 
         /*Calculate payments*/
@@ -2070,165 +2196,141 @@ td{
 
 
             /*get input fields*/
-            calcEl = $('#calc_amz');
-
+            calcEl = $('#calc_solar');
+            
 
             /*fase 1 inputs*/
-            salesPrice = parseFloat(calcEl.find('.fg-sales-price').find('input').val().replace(/,/g, ''));
-            unitsSold = parseFloat(calcEl.find('.fg-units-sold').find('input').val().replace(/,/g, ''));
-            coupom = parseFloat(calcEl.find('.fg-coupom').find('input').val().replace(/,/g, ''))/100;
-            amzReturns = parseFloat(calcEl.find('.fg-amz-returns').find('input').val().replace(/,/g, ''))/100;
-            fbaFee = parseFloat(calcEl.find('.fg-fba-fee').find('input').val().replace(/,/g, ''));
-            refFee = parseFloat(calcEl.find('.fg-ref-fee').find('input').val().replace(/,/g, ''))/100;
-            coupomFee = parseFloat(calcEl.find('.fg-coupom-fee').find('input').val().replace(/,/g, ''));
-            percCopom = parseFloat(calcEl.find('.fg-using-coupon').find('input').val().replace(/,/g, ''))/100;
-            fgCogs = parseFloat(calcEl.find('.fg-cogs').find('input').val().replace(/,/g, ''));
-            ppcCpu = parseFloat(calcEl.find('.fg-ppc-cpu').find('input').val().replace(/,/g, ''));
-            fbAds = parseFloat(calcEl.find('.fg-fb-ads').find('input').val().replace(/,/g, ''));
-            giveaways = parseFloat(calcEl.find('.fg-giveaways').find('input').val().replace(/,/g, ''));
+            nvepay  = parseFloat(calcEl.find('.nvepay').find('input').val().replace(/,/g, ''));
+            effppw = parseFloat(calcEl.find('.effppw').find('input').val().replace(/,/g, ''));
+            wipout = parseFloat(calcEl.find('.wipout').find('input').val().replace(/,/g, ''))/100;
+            prodfac = parseFloat(calcEl.find('.prodfac').find('select').val().replace(/,/g, ''));
+            panelsize = parseFloat(calcEl.find('.panelsize').find('select').val().replace(/,/g, ''));
+            sqadder1 = parseFloat(calcEl.find('.sqadder1').find('select').val().replace(/,/g, ''));
+            sqfeet1 = parseFloat(calcEl.find('.sqfeet1').find('input').val().replace(/,/g, ''));
+            sqadder2 = parseFloat(calcEl.find('.sqadder2').find('select').val().replace(/,/g, ''));
+            sqfeet2 = parseFloat(calcEl.find('.sqfeet2').find('input').val().replace(/,/g, ''));
+            flatadder1 = parseFloat(calcEl.find('.flatadder1').find('select').val().replace(/,/g, ''));
+            flatnum1 = parseFloat(calcEl.find('.flatnum1').find('input').val().replace(/,/g, ''));
+            flatadder2 = parseFloat(calcEl.find('.flatadder2').find('select').val().replace(/,/g, ''));
+            flatnum2 = parseFloat(calcEl.find('.flatnum2').find('input').val().replace(/,/g, ''));
+            perwattadder = parseFloat(calcEl.find('.perwattadder').find('select').val().replace(/,/g, ''));
+            finfac = parseFloat(calcEl.find('.finfac').find('select').val().replace(/,/g, ''));
 
 
 
 
-
-            /*fase 3 outputs*/
-            unitSellingPrice = calcEl.find('.fg-unit-selling-price').find('input');
-            marginUnit = calcEl.find('.fg-margin-per-unit').find('input');
-            marginPercUnit = calcEl.find('.fg-margin-perc-unit').find('input');
-            contPerUnit = calcEl.find('.fg-cont-per-unit').find('input');
-            contPerc = calcEl.find('.fg-cont-perc').find('input');
-            breakeven = calcEl.find('.fg-breakeven').find('input');
-            breakevenUnit = calcEl.find('.fg-breakeven-unit').find('input');
-
-
-
-            /*elements result fields table*/
-            t_sales = calcEl.find('#t1');
-            t_amz_promo = calcEl.find('#t2');
-            t_sales_ret = calcEl.find('#t3');
-            t_amz_reimb = calcEl.find('#t4');
-            t_total_rev = calcEl.find('#t5');
-            t_amz_fba_fee = calcEl.find('#t6');
-            t_amz_ref_fee = calcEl.find('#t7');
-            t_coupom_fee = calcEl.find('#t8');
-            t_cost_goods = calcEl.find('#t9');
-            t_total_cost_sales = calcEl.find('#t10');
-            t_tgross_margin = calcEl.find('#t11');
-            t_ppc_adds = calcEl.find('#t12');
-            t_fb_ads = calcEl.find('#t13');
-            t_giveaways = calcEl.find('#t14');
-            t_total_adv = calcEl.find('#t15');
-            t_total_cont_margin = calcEl.find('#t16');
+            /*fase 1 outputs*/
+            prodfacval = calcEl.find('.prodfacval').find('p');
+            panelwatts = calcEl.find('.panelwatts').find('p');
+            panelupg = calcEl.find('.panelupg').find('p');
+            panelt = calcEl.find('.panelt').find('p');
+            sq1val = calcEl.find('.sq1val').find('p');
+            sq1total = calcEl.find('.sq1total').find('p');
+            sq2val = calcEl.find('.sq2val').find('p');
+            sq2total = calcEl.find('.sq2total').find('p');
+            flat1total = calcEl.find('.flat1total').find('p');
+            flat2total = calcEl.find('.flat2total').find('p');
+            pwadval = calcEl.find('.pwadval').find('p');
+            finfacval = calcEl.find('.finfacval').find('p');
+            payfac = calcEl.find('.payfac').find('p');
 
 
-            /*fixed costs inputs*/
-            fc_email = parseFloat(calcEl.find('.fg-email-prov').find('input').val().replace(/,/g, ''));
-            fc_site = parseFloat(calcEl.find('.fg-website').find('input').val().replace(/,/g, ''));
-            fc_soft = parseFloat(calcEl.find('.fg-acc-software').find('input').val().replace(/,/g, ''));
-            fc_sample = parseFloat(calcEl.find('.fg-prod-sample').find('input').val().replace(/,/g, ''));
-            fc_jungle = parseFloat(calcEl.find('.fg-scot-viral').find('input').val().replace(/,/g, ''));
-            fc_other1 = parseFloat(calcEl.find('.fg-other-1').find('input').val().replace(/,/g, ''));
-            fc_other2 = parseFloat(calcEl.find('.fg-other-2').find('input').val().replace(/,/g, ''));
-            fc_other3 = parseFloat(calcEl.find('.fg-other-3').find('input').val().replace(/,/g, ''));
-            fc_other4 = parseFloat(calcEl.find('.fg-other-4').find('input').val().replace(/,/g, ''));
-            fc_other5 = parseFloat(calcEl.find('.fg-other-5').find('input').val().replace(/,/g, ''));
-            fc_other6 = parseFloat(calcEl.find('.fg-other-6').find('input').val().replace(/,/g, ''));
+            /*fase 2 output*/
+            firstkwh = calcEl.find('.firstkwh').find('input');
+            tensav = calcEl.find('.tensav').find('input');
+            twentysav = calcEl.find('.twentysav').find('input');
 
-            /*elements result output*/
-            total_fixed_costs = calcEl.find('#total_fixed_costs');
-            final_res = calcEl.find('#final_res');
 
+            /*output result table*/
+            ANNUALUSAGE = calcEl.find('#t1');
+            WATTS = calcEl.find('#t2');
+            NOFPANELS  = calcEl.find('#t3');
+            SYSSIZE  = calcEl.find('#t4');
+            ADDERS = calcEl.find('#t5');
+            GROSSPRICE   = calcEl.find('#t6');
+            TAXCREDIT  = calcEl.find('#t7');
+            NETPRICE   = calcEl.find('#t8');
+            PMTWOITC   = calcEl.find('#t9');
+            PMTWITHITC = calcEl.find('#t10');
+            TOTALCOMB = calcEl.find('#t11');
+            monsavings = calcEl.find('#final_res');
             
 
+            
             /* Calculate results */
-            v_sales = salesPrice * unitsSold ;
-            v_amz_promo = -(salesPrice * coupom) * unitsSold * percCopom;
-            v_sales_ret = -(v_sales + v_amz_promo) * amzReturns ;
-            v_amz_reimb =( unitsSold * amzReturns ) * (salesPrice * ( 1-coupom )) * refFee ;
-            v_total_rev = v_sales + v_amz_promo + v_sales_ret + v_amz_reimb;
+              
 
-            v_amz_fba_fee = unitsSold * fbaFee;
-            v_amz_ref_fee = (v_sales + v_amz_promo) * refFee ;
-            v_coupom_fee = unitsSold * percCopom * coupomFee ;
-            v_cost_goods = unitsSold * fgCogs;
-            v_total_cost_sales = v_amz_fba_fee + v_amz_ref_fee + v_coupom_fee + v_cost_goods;
+            VANNUALUSAGE = ((nvepay * 12) / 13) * 100;
+            VWATTS = (VANNUALUSAGE / (prodfacdata[prodfac][1])) * wipout;
 
-            v_tgross_margin = v_total_rev - v_total_cost_sales;
+            VNOFPANELS = Math.ceil(VWATTS / (panels[panelsize][1])) ;
 
-            v_ppc_adds = unitsSold * ppcCpu;
-            v_fb_ads = unitsSold * fbAds;
-            v_giveaways = unitsSold * giveaways ;
-            v_total_adv = v_ppc_adds + v_fb_ads + v_giveaways;
+            VSYSSIZE = (VNOFPANELS * (panels[panelsize][1])) / 1000 ;
+          
+            Vprodfacval = prodfacdata[prodfac][1];
+            Vpanelwatts = panels[panelsize][1];
+            Vpanelupg = panels[panelsize][2];
+            Vpanelt = Vpanelupg * VSYSSIZE;
+            Vsq1val = sqftadd[sqadder1][1];
+            Vsq1total = sqfeet1 * Vsq1val;
+            Vsq2val = sqftadd[sqadder2][1];
+            Vsq2total = sqfeet2 * Vsq2val;
+            Vflat1total = eachadd[flatadder1][1] * flatnum1;
+            Vflat2total = eachadd[flatadder2][1] * flatnum2;
+            Vpwadval = pwadd[perwattadder][1] * VSYSSIZE * 1000;
+            Vfinfacval = financing[finfac][2];
+            Vpayfac = financing[finfac][4];
 
-            v_total_cont_margin = v_tgross_margin - v_total_adv;
+            VADDERS = Vsq1total + Vsq2total + Vflat1total + Vflat2total + Vpwadval;
+            VGROSSPRICE  = ((effppw * VSYSSIZE * 1000) + VADDERS) * Vfinfacval;
+            VTAXCREDIT = VGROSSPRICE * 0.26 ;
+            VNETPRICE = VGROSSPRICE - VTAXCREDIT;
+            VPMTWOITC  = VGROSSPRICE * Vpayfac;
+            VPMTWITHITC = VGROSSPRICE * (financing[finfac][3]);
+            VTOTALCOMB = VPMTWITHITC;
+            Vmonsavings = nvepay - VTOTALCOMB ;
+
+            Vfirstkwh = (VSYSSIZE * Vprodfacval * 0.9) * 1000;
+            Vtensav =  ((nvepay * Math.pow(1.047, 5)) - VTOTALCOMB) * 120;
+            Vtwentysav = ((nvepay * Math.pow(1.047, 13)) - VTOTALCOMB) * 300;
             
-            v_total_fixed_costs = fc_email+fc_site+fc_soft+fc_sample+fc_jungle+fc_other1+fc_other2+fc_other3+fc_other4+fc_other5+fc_other6;
-
-            v_final_res = v_total_cont_margin - v_total_fixed_costs;
 
             
              /* Put results in elements */
-            t_sales.html(v_sales.toFixed(2));
-            t_amz_promo.html(v_amz_promo.toFixed(2));
-            t_sales_ret.html(v_sales_ret.toFixed(2));
-            t_amz_reimb.html(v_amz_reimb.toFixed(2));
-            t_total_rev.html(v_total_rev.toFixed(2));
-
-            t_amz_fba_fee.html(v_amz_fba_fee.toFixed(2));
-            t_amz_ref_fee.html(v_amz_ref_fee.toFixed(2));
-            t_coupom_fee.html(v_coupom_fee.toFixed(2));
-            t_cost_goods.html(v_cost_goods.toFixed(2));
-            t_total_cost_sales.html(v_total_cost_sales.toFixed(2));
-
-            t_tgross_margin.html(v_tgross_margin.toFixed(2));
-
-            t_ppc_adds.html(v_ppc_adds.toFixed(2));
-            t_fb_ads.html(v_fb_ads.toFixed(2));
-            t_giveaways.html(v_giveaways.toFixed(2));
-            t_total_adv.html(v_total_adv.toFixed(2));
-
-            t_total_cont_margin.html(v_total_cont_margin.toFixed(2));
             
-            total_fixed_costs.html(v_total_fixed_costs.toFixed(2));
+            firstkwh.val(Vfirstkwh.toFixed(0)); 
+            tensav.val(Vtensav.toFixed(2));
+            twentysav.val(Vtwentysav.toFixed(2));
 
-            final_res.html(v_final_res.toFixed(2));
+            ANNUALUSAGE.html(VANNUALUSAGE.toFixed(2));  
+            WATTS.html(VWATTS.toFixed(0)); 
 
+            NOFPANELS.html(VNOFPANELS.toFixed(0));
 
-
-            /*calculates fase three outputs*/
-            v_unitSellingPrice = salesPrice * (1 - coupom);
-            v_marginUnit = v_tgross_margin / unitsSold;
-            v_marginPercUnit = (v_marginUnit / v_unitSellingPrice)*100 ;
-            v_contPerUnit = v_total_cont_margin / unitsSold;
-            v_contPerc = (v_contPerUnit / v_unitSellingPrice) * 100;
-            v_breakeven = (v_total_fixed_costs / v_contPerc) *100;
-            v_breakevenUnit = v_total_fixed_costs / v_contPerUnit;
-
-
-            /*insert fase three values*/ 
-            unitSellingPrice.val(v_unitSellingPrice.toFixed(2));
-            marginUnit.val(v_marginUnit.toFixed(2));
-            marginPercUnit.val(v_marginPercUnit.toFixed(0));
-            contPerUnit.val(v_contPerUnit.toFixed(2));
-            contPerc.val(v_contPerc.toFixed(0));
-            breakeven.val(v_breakeven.toFixed(0));
-            breakevenUnit.val(v_breakevenUnit.toFixed(0)); 
-
-
-
-            //health_i_hra = formatCurrency(health_i_hra);
+            SYSSIZE.html(VSYSSIZE.toFixed(2)); 
+            ADDERS.html(VADDERS.toFixed(2));  
+            GROSSPRICE.html(VGROSSPRICE.toFixed(2)); 
+            TAXCREDIT.html(VTAXCREDIT.toFixed(2)); 
+            NETPRICE.html(VNETPRICE.toFixed(2)); 
+            PMTWOITC.html(VPMTWOITC.toFixed(2));  
+            PMTWITHITC.html(VPMTWITHITC.toFixed(2)); 
+            TOTALCOMB.html(VTOTALCOMB.toFixed(2)); 
+            monsavings.html(Vmonsavings.toFixed(2)); 
            
+            prodfacval.html(Vprodfacval.toFixed(2));  
+            panelwatts.html(Vpanelwatts.toFixed(2));
+            panelupg.html(Vpanelupg.toFixed(2)); 
+            panelt.html(Vpanelt.toFixed(2)); 
+            sq1val.html(Vsq1val.toFixed(2)); 
+            sq1total.html(Vsq1total.toFixed(2)); 
+            sq2val.html(Vsq2val.toFixed(2)); 
+            sq2total.html(Vsq2total.toFixed(2)); 
+            flat1total.html(Vflat1total.toFixed(2));  
+            flat2total.html(Vflat2total.toFixed(2)); 
+            pwadval.html(Vpwadval.toFixed(2)); 
+            finfacval.html(Vfinfacval.toFixed(6)); 
+            payfac.html(Vpayfac.toFixed(6)); 
 
-
-            /*show results*/
-            //var res = $('#result-table');
-           // res.find('#t1').html(health_i_st);
-           
-
-
-            //repayment = repayment.toFixed(2);
-            //$('.ps2').html(repayment);
-            //$('.ps2').next().html(repayFrequency);
 
         }
     </script>
@@ -2245,6 +2347,8 @@ td{
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
         })
+
+
         calcSavings();
     </script>
 
@@ -2261,13 +2365,7 @@ td{
     </script>
 
 
-<script src="https://kit.fontawesome.com/4c0e8abbff.js" crossorigin="anonymous"></script>
-    
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     
 
