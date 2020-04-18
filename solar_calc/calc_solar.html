@@ -767,8 +767,8 @@ section{padding-bottom:30px;margin-bottom:30px;}
 @media (max-width: 767px){
 .btn{font-size:14px;line-height:20px;}
 }
-.btn-brand-secondary{color:black;background: #EDD401;border-color:#EDD401;}
-.btn-brand-secondary:hover{color:black;background:#EDD401;border-color:#EDD401;}
+.btn-brand-secondary{color:#fff;background: #F4540C;border-color:#F4540C;}
+.btn-brand-secondary:hover{color:black;background:#F4540C;border-color:#F4540C;}
 .btn-brand-secondary:focus{box-shadow:0 0 0 0.2rem rgba(23, 163, 6, 0.2);}
 .btn-brand-secondary:disabled{color:rgb(255, 255, 255);background:linear-gradient(103.26deg, rgb(114, 187, 25) 0%, rgb(23, 163, 6) 94.93%);border-color:rgb(23, 163, 6);}
 /*! CSS Used from: https://ciroluizmg.github.io/calc_files/widget_calculator.css */
@@ -827,7 +827,7 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .widget_calculator .results p.p2{font-size:30px;line-height:normal;}
 .widget_calculator .results p.p2 .ps1,.widget_calculator .results p.p2 .ps2{font-size:41px;}
 .texttitle {
-    background-color: gray !important;
+    //background-color: gray !important;
     width: 86% !important;
     color: white !important;
 }
@@ -894,16 +894,16 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .modal-content{border-radius:1.2rem;}
 .modal_inputs_div{display:block;width:80%;margin:0px auto;}
 .modal-body{background-color:#E5E5E5;}
-.modal-footer{background-color:#A3B59A;border-bottom-left-radius:1.2rem;border-bottom-right-radius:1.2rem;}
+.modal-footer{background-color:#0481FE;border-bottom-left-radius:1.2rem;border-bottom-right-radius:1.2rem;}
 .modal-title{font-size:24px;}
 .modal_input{width:100%;padding:.375rem .75rem;border:0 none;box-shadow:none;font-size:16px;font-weight:300;color:rgb(38, 38, 41);}
 .modal-footer button{margin:10px auto;font-size:1.2rem;}
 .modal_inputs_div label{margin-top:8px;}
 #get_result button{display:block!important;margin:auto!important;}
-.widget_calculator .results{background-color:#A3B59A;}
+.widget_calculator .results{background-color:#0481FE;}
 .widget_calculator .input .btn-group .btn-selected{background-color:#D34654;border-color:#D34654;}
 .text-pink{color:#A3B59A !important;}
-.widget_calculator .input .input-group .input-group-prepend,.widget_calculator .input .input-group .input-group-append{color:#A3B59A;}
+.widget_calculator .input .input-group .input-group-prepend,.widget_calculator .input .input-group .input-group-append{color:#38C319;}
 
 
 .btn-freq{
@@ -984,7 +984,7 @@ section{padding-bottom:30px;margin-bottom:30px;}
 
 
 .texttitle{
-  background-color: gray;
+  background-color: #38C319;
   width: 90%;
   color: white;
 
@@ -1001,7 +1001,7 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .steptitle-n {
   width: 60px;
   height: 60px;
-    background-color: #EDD401;
+    background-color: #F4540C;
     text-align: center;
 padding-top: 11px;
 font-weight: 600;
@@ -1083,11 +1083,12 @@ td{
     
 </head>
 
-<body class="vsc-initialized">
 
+<body class="vsc-initialized">
     <section id="calc_solar" class="widget_calculator" style="margin-bottom: 0;">
 
         <div class="container">
+<h3 style="text-align: center;   " >DIY Pricing</h3>
 
 
 
@@ -1115,7 +1116,7 @@ td{
                                       
                                     </label>
                                     <div class="input-group col-sm-7"><span class="input-group-prepend">$</span>
-                                      <input type="tel" class="form-control" value="90.00">
+                                      <input type="text" class="form-control" value="90.00">
                                     </div>
                                 </div>
                             </div>    
@@ -1127,7 +1128,7 @@ td{
                                       
                                     </label>
                                     <div class="input-group col-sm-7"><span class="input-group-prepend">$</span>
-                                      <input type="tel" class="form-control" value="2.85">
+                                      <input type="text" class="form-control" value="2.85">
                                     </div>
                                 </div>
                             </div>    
@@ -1178,8 +1179,11 @@ td{
                             </div> 
 
 
-                            <div class="prodfacval util-width-50">
-        <div class="form-group" ><label style= "color: #E5E5E5;">Production Factor: </label> <p class="static-form-control">1.85</p></div>
+    <div class="prodfacval util-width-50" style= "display: none;">
+      <div class="form-group" >
+        <label style= "color: #E5E5E5;">Production Factor: </label> 
+          <p class="static-form-control">1.85</p>
+      </div>
     </div> 
 
 
@@ -1205,21 +1209,21 @@ td{
                             </div> 
 
 
-                            <div class="panelwatts util-width-50">
+                            <div class="panelwatts util-width-50" style= "display: none;" >
         <div class="form-group" ><label style= "">Watts: </label> <p class="static-form-control">325</p></div>
     </div> 
 
 
 
 
-    <div class="panelupg util-width-50">
+    <div class="panelupg util-width-50" style= "display: none;" >
         <div class="form-group" ><label style= "">Upgrade: </label> <p class="static-form-control">0</p></div>
     </div> 
 
 
 
 
-    <div class="panelt util-width-50">
+    <div class="panelt util-width-50" style= "display: none;">
         <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
     </div> 
 
@@ -1271,12 +1275,12 @@ td{
                         </div> 
 
 
-    <div class="sq1val util-width-50">
+    <div class="sq1val util-width-50" style= "display: none;">
       <div class="form-group" ><label style= "">$ value: </label> <p class="static-form-control">0</p></div>
     </div> 
 
 
-    <div class="sq1total util-width-50">
+    <div class="sq1total util-width-50" style= "display: none;">
       <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
     </div> 
 
@@ -1319,12 +1323,12 @@ td{
                         </div> 
 
 
-    <div class="sq2val util-width-50">
+    <div class="sq2val util-width-50" style= "display: none;">
       <div class="form-group" ><label style= "">$ value: </label> <p class="static-form-control">0</p></div>
     </div> 
 
 
-    <div class="sq2total util-width-50">
+    <div class="sq2total util-width-50" style= "display: none;">
       <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
     </div> 
 
@@ -1403,7 +1407,7 @@ td{
 
 
 
-                        <div class="flat1total adjustmob">
+                        <div class="flat1total adjustmob" style= "display: none;">
                           <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
                         </div> 
 
@@ -1454,7 +1458,7 @@ td{
 
                           
 
-                        <div class="flat2total adjustmob">
+                        <div class="flat2total adjustmob" style= "display: none;">
                           <div class="form-group" ><label style= "">Total: </label> <p class="static-form-control">0</p></div>
                         </div> 
 
@@ -1499,7 +1503,7 @@ td{
                             </div> 
 
 
-                            <div class="pwadval util-width-50">
+                            <div class="pwadval util-width-50" style= "display: none;">
         <div class="form-group" ><label style= "color: #E5E5E5;">per watt adder: </label> <p class="static-form-control">$ 0</p></div>
     </div> 
 
@@ -1594,12 +1598,12 @@ td{
                             </div> 
 
 
-                            <div class="finfacval util-width-50">
+                            <div class="finfacval util-width-50" style= "display: none;">
         <div class="form-group" ><label style= "color: #E5E5E5;">Financing Factor:</label> <p class="static-form-control">0</p></div>
     </div> 
 
 
-<div class="payfac adjustmob" >
+<div class="payfac adjustmob" style= "display: none;" >
         <div class="form-group" ><label style= "">Payment Factor:</label> <p class="static-form-control">0</p></div>
     </div> 
   </div>
@@ -1914,7 +1918,7 @@ td{
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Please fill the fields bellow to get results via email</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Simply Fill Out The Info Below to Receive The Results Plus, Receive a $1000 Visa Gift Card 5 Days After solar Panels Are Installed</h5>
                     <button type="button" class="close close-cross" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"> × </span>
                     </button>
@@ -1928,7 +1932,9 @@ td{
                         <input id="calc_email" class="modal_input" type="email" name="email">
                         <label>Address</label>
                         <input id="calc_address" class="modal_input" type="text" name="address">
-                        
+                        <label>Phone Number</label>
+                        <input id="calc_tel" class="modal_input input-phone" type="tel" name="telefone" placeholder="(0xxx) xxx xxx" size="10" minlength="10" maxlength="10" onkeyup="" 
+            >
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -2362,6 +2368,22 @@ td{
         /*auto responder form filds*/
             
         //}
+
+
+
+        function doFormatPhone(A){
+        
+        var inp = $('#calc_tel');
+        
+
+        var B=document.getElementById(A);
+        B.oninput=function(){
+
+            inp.val(inp.val().replace(/\D/g,''));
+
+            formatPhone(this)}}function formatPhone(A){A.value=formatPhoneStr(A.value)}function formatPhoneStr(A){var C=A.replace(/[^0-9xX]/g,"");C=C.replace(/[xX]/g,"x");var B="";if(C.indexOf("x")>-1){B=" "+C.substr(C.indexOf("x"));C=C.substr(0,C.indexOf("x"))}switch(C.length){case (10):return C.replace(/(...)(...)(....)/g,"($1) $2 $3")+B;case (11):if(C.substr(0,1)=="1"){return C.substr(1).replace(/(...)(...)(....)/g,"($1) $2 $3")+B}break;default:}return A}
+
+        window.onload=function(){doFormatPhone("calc_tel")};
     </script>
 
 
