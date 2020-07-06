@@ -1,0 +1,131 @@
+body {
+    background-color: rgb(243, 243, 243);
+    color: rgb(38, 38, 41);
+    font-size: 16px;
+    line-height: 19px;
+    font-family: "museo-sans", sans-serif;
+    font-weight: 300;
+}
+
+@media (max-width: 575px) {
+    body {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+/* TEXT COLOURS */
+.text-pink {
+    color: rgb(234, 23, 119);
+}
+.text-white {
+    color: rgb(255, 255, 255);
+}
+/* BG COLOURS */
+.bg-purple {
+    background-color: rgb(86, 90, 191)!important;
+}
+.bg-white {
+    background-color: rgb(255, 255, 255)!important;
+}
+.bg-brand-primary {
+    background-color:rgb(234, 23, 119)!important;
+}
+
+/* SECTIONS */
+section {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 60px;
+    margin-bottom: 60px;
+}
+section:first-child {
+    padding-top: 60px;
+}
+section:last-child {
+    border-bottom: 0 none;
+    margin-bottom: 0;
+}
+section.no-padding {
+    padding: 0;
+    margin-bottom: 30px;
+}
+section.no-bottom-padding {
+    padding-bottom: 0;
+}
+section.no-border {
+    border: 0 none;
+}
+
+
+@media (max-width: 767px) {
+    section {
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+/* INTEREST RATES */
+.interest-rate {
+    font-weight: 700;
+    padding: 10px 0;
+}
+.interest-rate > div:first-child {
+    padding-right: 15px;
+    border-right: 1px solid rgb(38, 38, 41);
+}
+.interest-rate > div:last-child {
+    padding-left: 15px;
+}
+.interest-rate > div span {
+    font-size: 53px;
+    line-height: 64px;
+    letter-spacing: -0.06em;
+}
+.interest-rate > div sup {
+    font-size: 30px;
+    line-height: 36px;
+    vertical-align: middle;
+}
+.interest-rate > div .interest-rate-type {
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: -10px;
+}
+
+@media (max-width: 767px) {
+    .interest-rate > div span {
+        font-size: 45px;
+        line-height: 54px;
+    }
+    .interest-rate > div sup {
+        font-size: 27px;
+        line-height: 32px;
+    }
+    .interest-rate > div .interest-rate-type {
+        font-size: 11px;
+        line-height: 13px;
+    }
+}
+
+/* UTILITES */
+.util-width-limit-mobile {
+    max-width: 320px;
+}
+.util-margin-centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+.util-margin-b-1rem {
+    margin-bottom: 1rem;
+}
+.util-width-50 {
+    width: 50%;
+}
+.util-mw-100 {
+    max-width: 100%;
+}
+@media (max-width: 991px) {
+    .util-md-width-122px {
+        width: 122px;
+    }
+}

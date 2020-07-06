@@ -1,0 +1,204 @@
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+<head>
+    <style type="text/css">
+        
+        .main{
+            width:95%;
+            background-color: #ffffff;
+            margin: auto;
+            overflow: auto;
+            font-family:  Arial, Helvetica, sans-serif;
+        }
+        .container{
+            width: 70%;
+            background-color: rgb(229, 229, 229);
+            margin:auto;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            overflow: auto;
+            padding-bottom: 30px;
+            padding-right: 30px;
+            padding-left: 30px;
+            border-radius: 10px;
+            box-sizing: border-box;
+
+        }
+        .label{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .value{
+            width: 50%;
+            height: 40px;
+            background-color: #ffffff;
+            margin: auto;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 25px;
+            line-height: 40px;
+            border-radius: 5px;
+        }
+        .result{
+            width: 100%;
+            height: 270px;
+            background-color: #8BBE6C;
+            margin-top: 30px;
+            color:#ffffff;
+            font-weight: 500;   
+            border-radius: 10px;
+        }
+        .resultpar {
+            text-align: center;
+            font-size: 50px;
+            line-height:60px;
+            margin: 0;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+        .label:not(:first-child) {
+            margin-top: 30px
+        }
+        .header{
+            width: 70%;
+            margin:auto;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            overflow: auto;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        img{
+            max-width: 150px;
+            display: block;
+            margin:auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width:100%;
+                box-sizing: border-box;
+            }
+            .header {
+                width:100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <style type="text/css">
+        
+        .main{
+            width:95%;
+            background-color: #ffffff;
+            margin: auto;
+            overflow: auto;
+            font-family:  Arial, Helvetica, sans-serif;
+        }
+        .container{
+            width: 70%;
+            background-color: rgb(229, 229, 229);
+            margin:auto;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            overflow: auto;
+            padding-bottom: 30px;
+            padding-right: 30px;
+            padding-left: 30px;
+            border-radius: 10px;
+            box-sizing: border-box;
+
+        }
+        .label{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .value{
+            width: 50%;
+            height: 40px;
+            background-color: #ffffff;
+            margin: auto;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 25px;
+            line-height: 40px;
+            border-radius: 5px;
+        }
+        .result{
+            width: 100%;
+            height: 270px;
+            background-color: #8BBE6C;
+            margin-top: 30px;
+            color:#ffffff;
+            font-weight: 500;   
+            border-radius: 10px;
+        }
+        .resultpar {
+            text-align: center;
+            font-size: 50px;
+            line-height:60px;
+            margin: 0;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+        .label:not(:first-child) {
+            margin-top: 30px
+        }
+        .header{
+            width: 70%;
+            margin:auto;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            overflow: auto;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        img{
+            max-width: 150px;
+            display: block;
+            margin:auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width:100%;
+                box-sizing: border-box;
+            }
+            .header {
+                width:100%;
+            }
+        }
+    </style>
+    <div class="main">
+        <div class="header">
+            <img src="https://i.ibb.co/Bn0NVqs/law-firm-image.png">
+            <p style="text-align: center; font-size: 35px; margin-bottom: 0px; margin-top:25px;">Law Firm Thought-Leadership Cost Calculator</p>
+            {{email}}
+        </div>
+        <div class="container">
+            <p class='label'>Number of attorneys at your firm:
+     </p>
+            <p class="value">{{att}}</p>
+
+            <p class='label'>Your ideal number of thought-leadership pieces written annually by you/each of your firm's attorneys:</p>
+            <p class="value">{{pieces}}</p>
+
+            <p class='label'>Your hourly rate/Typical hourly rate for mid-level associates at your firm:</p>
+            <p class="value">{{rate}}</p>
+
+            <div class="result">
+                <p style = 'height: 70px; line-height: 70px; text-align: center; margin:0; font-size: 40px;'>Total:</p>
+                <div style = "height: 100%; box-sizing: border-box; padding-top: 70px; margin-top: -70px;">
+                    <p class="resultpar">$ {{result}}</p>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</body>

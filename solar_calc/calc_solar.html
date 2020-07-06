@@ -773,7 +773,7 @@ section{padding-bottom:30px;margin-bottom:30px;}
 .btn-brand-secondary:disabled{color:rgb(255, 255, 255);background:linear-gradient(103.26deg, rgb(114, 187, 25) 0%, rgb(23, 163, 6) 94.93%);border-color:rgb(23, 163, 6);}
 /*! CSS Used from: https://ciroluizmg.github.io/calc_files/widget_calculator.css */
 @media (min-width: 576px){
-.widget_calculator .calculator_tile{background:rgb(255, 255, 255);box-shadow:0px 4px 11px rgba(0, 0, 0, 0.15);border-radius:23px;padding:30px;}
+.widget_calculator .calculator_tile{background:#F4540C;box-shadow:0px 4px 11px rgba(0, 0, 0, 0.15);border-radius:23px;padding:30px;}
 }
 .widget_calculator .flex-layout{background-color:rgb(229, 229, 229);display:flex;justify-content:space-between;align-items:stretch;padding:30px 30px 0;}
 .widget_calculator .flex-input{display:flex;justify-content:space-between;align-items:stretch;flex-wrap:wrap;align-content:flex-start;margin-right:15px;width:45%;}
@@ -1085,11 +1085,15 @@ td{
 
 
 <body class="vsc-initialized">
-    <section id="calc_solar" class="widget_calculator" style="margin-bottom: 0;">
+
+<section id="calc_solar" class="widget_calculator" style="margin-bottom: 0;">
 
         <div class="container">
-<h3 style="text-align: center;   " >DIY Pricing</h3>
 
+<img style = " display: block;
+  margin-left: auto;
+  margin-right: auto; width: 150px; margin-bottom: 30px;" src="https://enjoysolar.com/wp-content/uploads/2020/02/ES-Logo-Final.png">         
+<h3 style="text-align: center;   " >Enjoy Solar's Proprietary Do it Yourself Pricing System</h3>
 
 
             <div class="calculator_tile">
@@ -1849,9 +1853,13 @@ td{
                             <hr>
 
                             <div id="get_result" style="margin-top: 30px">
-                                <button type="button" class="btn btn-brand-secondary btn-lg" data-toggle="modal" data-target="#exampleModal">
+                                <button  id = "emailmeresults" type="button" class="btn btn-brand-secondary btn-lg" data-toggle="modal" data-target="#exampleModal">
                                 Email me results                               
                                 </button>
+                            </div>
+                            <div>
+                              <p id="emailmeok" style=" padding: 30px; border: 1px solid #39437F; display: none; ">
+                              </p>
                             </div>
 
 
@@ -2058,32 +2066,32 @@ td{
 
   
   var financing = [
-    [ 'LP 25YR-2.99'  , 23.50  ,  1.290225  , 0.00339   ,  0.00488 ],
-    [ 'LP 25YR-3.99'  , 19.84  ,  1.237763  , 0.00380   ,  0.00544 ],
-    [ 'LP 20YR-2.99'  , 22.50  ,  1.275625  , 0.00397   ,  0.00573 ],
-    [ 'LP 20YR-3.99'  , 17.74  ,  1.208871  , 0.00437   ,  0.00628 ],
-    [ 'LP 20YR-4.99'  , 13.99  ,  1.159472  , 0.00479   ,  0.00686 ],
-    [ 'LP 15YR-3.99'  , 16.25  ,  1.188906  , 0.00534   ,  0.00774 ],
-    [ 'LP 12YR-2.99'  , 18.50  ,  1.219225  , 0.00595   ,  0.00873 ],
-    [ 'LP 10YR-2.99'  , 16.50  ,  1.192225  , 0.00695   ,  0.01028 ],
+    [ 'LP 25YR-2.99'  , 23.50  ,  1.290225  , 0.00339   ,  0.00488 , 25 ],
+    [ 'LP 25YR-3.99'  , 19.84  ,  1.237763  , 0.00380   ,  0.00544 , 25 ],
+    [ 'LP 20YR-2.99'  , 22.50  ,  1.275625  , 0.00397   ,  0.00573 , 20 ],
+    [ 'LP 20YR-3.99'  , 17.74  ,  1.208871  , 0.00437   ,  0.00628 , 20 ],
+    [ 'LP 20YR-4.99'  , 13.99  ,  1.159472  , 0.00479   ,  0.00686 , 20 ],
+    [ 'LP 15YR-3.99'  , 16.25  ,  1.188906  , 0.00534   ,  0.00774 , 15 ],
+    [ 'LP 12YR-2.99'  , 18.50  ,  1.219225  , 0.00595   ,  0.00873 , 12 ],
+    [ 'LP 10YR-2.99'  , 16.50  ,  1.192225  , 0.00695   ,  0.01028 , 10 ],
 
-    [ 'SL 25YR-4.99'  , 23.05  ,  1.172500  , 0.00424   ,  0.00605 ],
-    [ 'SL 20YR-2.99'  , 22.00  ,  1.268400  , 0.00397   ,  0.00573 ],
-    [ 'SL 20YR-3.99'  , 16.50  ,  1.192225  , 0.00437   ,  0.00628 ],
-    [ 'SL 15YR-2.99'  , 16.75  ,  1.195556  , 0.00496   ,  0.00721 ],
-    [ 'SL 12YR-2.99'  , 13.75  ,  1.156406  , 0.00595   ,  0.00873 ],
-    [ 'SL 10YR-2.49'  , 14.75  ,  1.169256  , 0.00676   ,  0.01003 ],
+    [ 'SL 25YR-4.99'  , 23.05  ,  1.172500  , 0.00424   ,  0.00605 , 25 ],
+    [ 'SL 20YR-2.99'  , 22.00  ,  1.268400  , 0.00397   ,  0.00573 , 20 ],
+    [ 'SL 20YR-3.99'  , 16.50  ,  1.192225  , 0.00437   ,  0.00628 , 20 ],
+    [ 'SL 15YR-2.99'  , 16.75  ,  1.195556  , 0.00496   ,  0.00721 , 15 ],
+    [ 'SL 12YR-2.99'  , 13.75  ,  1.156406  , 0.00595   ,  0.00873 , 12 ],
+    [ 'SL 10YR-2.49'  , 14.75  ,  1.169256  , 0.00676   ,  0.01003 , 10 ],
 
-    [ 'DF 20YR-3.99'  , 15.00  ,  1.172500  , 0.00437   ,  0.00628 ],
-    [ 'DF 20YR-4.99'  , 12.00  ,  1.134400  , 0.00479   ,  0.00686 ],
-    [ 'DF 12YR-2.99'  , 15.00  ,  1.172500  , 0.00595   ,  0.00873 ],
+    [ 'DF 20YR-3.99'  , 15.00  ,  1.172500  , 0.00437   ,  0.00628 , 20 ],
+    [ 'DF 20YR-4.99'  , 12.00  ,  1.134400  , 0.00479   ,  0.00686 , 20 ],
+    [ 'DF 12YR-2.99'  , 15.00  ,  1.172500  , 0.00595   ,  0.00873 , 12 ],
 
-    [ 'SF 20YR-2.99'  , 21.00  ,  1.254100  , 0.00240   ,  0.00550 ],
-    [ 'SF 20YR 3.79'  , 19.50  ,  1.233025  , 0.00310   ,  0.00590 ],
-    [ 'SF 20YR-4.79'  , 15.50  ,  1.179025  , 0.00390   ,  0.00640 ],
-    [ 'SF 20YR-5.79'  , 13.50  ,  1.153225  , 0.00470   ,  0.00700 ],
-    [ 'SF 15YR-3.79'  , 18.00  ,  1.212400  , 0.00310   ,  0.00720 ]
-  ];
+    [ 'SF 20YR-2.99'  , 21.00  ,  1.254100  , 0.00240   ,  0.00550 , 20 ],
+    [ 'SF 20YR 3.79'  , 19.50  ,  1.233025  , 0.00310   ,  0.00590 , 20 ],
+    [ 'SF 20YR-4.79'  , 15.50  ,  1.179025  , 0.00390   ,  0.00640 , 20 ],
+    [ 'SF 20YR-5.79'  , 13.50  ,  1.153225  , 0.00470   ,  0.00700 , 20 ],
+    [ 'SF 15YR-3.79'  , 18.00  ,  1.212400  , 0.00310   ,  0.00720 , 15 ]
+  ] ;
 
 
 
@@ -2183,6 +2191,12 @@ td{
         var VPMTWITHITC;
         var VTOTALCOMB;
         var Vmonsavings;
+        var bill10;
+        var bill20;
+        var nuyearsavg;
+        var avgbillmonth;
+        var residual;
+        var totalavg;
 
 
 
@@ -2247,6 +2261,7 @@ td{
             twentysav = calcEl.find('.twentysav').find('input');
 
 
+
             /*output result table*/
             ANNUALUSAGE = calcEl.find('#t1');
             WATTS = calcEl.find('#t2');
@@ -2293,10 +2308,18 @@ td{
             VNETPRICE = VGROSSPRICE - VTAXCREDIT;
             VPMTWOITC  = VGROSSPRICE * Vpayfac;
             VPMTWITHITC = VGROSSPRICE * (financing[finfac][3]);
-            VTOTALCOMB = VPMTWITHITC;
+
+            residual = nvepay * (1-wipout);
+
+
+            VTOTALCOMB = VPMTWITHITC + residual;
             Vmonsavings = nvepay - VTOTALCOMB ;
 
             Vfirstkwh = (VSYSSIZE * Vprodfacval * 0.9) * 1000;
+
+            bill10 = nvepay * Math.pow(1.047, 10);
+            bill20 = nvepay * Math.pow(1.047, 20);
+
             Vtensav =  ((nvepay * Math.pow(1.047, 5)) - VTOTALCOMB) * 120;
             Vtwentysav = ((nvepay * Math.pow(1.047, 13)) - VTOTALCOMB) * 300;
             
@@ -2312,6 +2335,10 @@ td{
             WATTS.html(VWATTS.toFixed(0)); 
 
             NOFPANELS.html(VNOFPANELS.toFixed(0));
+
+
+            
+
 
             SYSSIZE.html(VSYSSIZE.toFixed(2)); 
             ADDERS.html(VADDERS.toFixed(2));  
@@ -2336,6 +2363,15 @@ td{
             pwadval.html(Vpwadval.toFixed(2)); 
             finfacval.html(Vfinfacval.toFixed(6)); 
             payfac.html(Vpayfac.toFixed(6)); 
+
+            
+
+            nuyearsavg = Math.ceil((financing[finfac][6])/2);
+            avgbillmonth = (nvepay * Math.pow(1.047, nuyearsavg)) * wipout;
+            totalavg = avgbillmonth + VPMTWITHITC;
+
+            
+
 
 
         }
@@ -2384,6 +2420,59 @@ td{
             formatPhone(this)}}function formatPhone(A){A.value=formatPhoneStr(A.value)}function formatPhoneStr(A){var C=A.replace(/[^0-9xX]/g,"");C=C.replace(/[xX]/g,"x");var B="";if(C.indexOf("x")>-1){B=" "+C.substr(C.indexOf("x"));C=C.substr(0,C.indexOf("x"))}switch(C.length){case (10):return C.replace(/(...)(...)(....)/g,"($1) $2 $3")+B;case (11):if(C.substr(0,1)=="1"){return C.substr(1).replace(/(...)(...)(....)/g,"($1) $2 $3")+B}break;default:}return A}
 
         window.onload=function(){doFormatPhone("calc_tel")};
+
+
+
+
+        $("#button-modal").click(function(){
+
+            var name = $('#calc_Name').val();
+            var email = $('#calc_email').val();
+            var adress = $('#calc_address').val();
+            var phone = $('#calc_tel').val();
+
+            var repwipout = (wipout * 100).toFixed(1);
+
+
+
+
+
+
+
+            $.post("emailme.php",
+                 {
+                  'nvepay' : nvepay.toFixed(2), 
+                  'bill10 ' : bill10.toFixed(2),
+                  'bill20' : bill20.toFixed(2),
+                  'wipout' : repwipout,
+                  'VNOFPANELS' : VNOFPANELS.toFixed(0),
+                  'VSYSSIZE' : VSYSSIZE.toFixed(2),
+                  'VTAXCREDIT' : VTAXCREDIT.toFixed(2),
+                  'VPMTWITHITC' : VPMTWITHITC.toFixed(2),
+                  'avgbillmonth' : avgbillmonth.toFixed(2),
+                  'totalavg' : totalavg.toFixed(2),
+                  'Vtensav' : Vtensav.toFixed(0),
+                  'Vtwentysav' : Vtwentysav.toFixed(2), 
+
+                  'name' : name,
+                  'email' : email,
+                  'adress' : adress,
+                  'phone' : phone 
+                },
+
+            function(data, status){
+                console.log("Data: " + data + "\nStatus: " + status);
+            });
+              $(this).hide("slow");
+              $('#emailmeok').show("slow").html('Please check your email inbox');
+            });
+
+
+
+
+
+
+
     </script>
 
 
