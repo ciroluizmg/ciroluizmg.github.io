@@ -1,0 +1,258 @@
+function VUE_APP_CALCCLREPAY(instanceId, config) {
+    return new Vue({
+        el: '#CALCCLREPAY_' + instanceId,
+        data: {
+            inputData: {
+                externalLeadId: null,
+                loanAmount: "45,000",
+                vehiclePurchasePrice: "45,000",
+                initialDeposit: 0,
+                loanTerm: "5",
+                interestRate: "3.00",
+                repaymentFrequency: "monthly",
+                balloonAmount: 0,
+                isPersonal: true
+            },
+            workbookData: {
+                repaymentPerMonth: 0,
+                repaymentOverLoan: 0,
+                totalInterestPaid: 0,
+                balloonPayment: 0,
+                initialDeposit: 0
+            },
+            typeData: {
+                loanTerms: [{
+                    id: "3",
+                    text: "3 years"
+                },{
+                    id: "4",
+                    text: "4 years"
+                },{
+                    id: "5",
+                    text: "5 years"
+                }],
+                paymentFrequencies: [{
+                    id: "monthly",
+                    text: "Monthly"
+                },{
+                    id: "fortnightly",
+                    text: "Fortnightly"
+                },{
+                    id: "weekly",
+                    text: "Weekly"
+                }]
+            },
+            uiData: {
+                activeTab: 'loan-details',
+                isLoading: false,
+                isSubmitting: false,
+                showMore: true,
+                personalBusiness: "personal",
+                ctaButtonLocation: "/car-loans/buying-personal-car/",
+                countUp: []
+            },
+            errors: {
+                loanAmount: null,
+                vehiclePurchasePrice: null,
+                initialDeposit: null,
+                loanTerm: null,
+                interestRate: null,
+                repaymentFrequency: null,
+                balloonAmount: null,
+                isPersonal: null
+            }
+        },
+        watch: {
+            "inputData.loanAmount": _.debounce(function (newValue) {
+                try { newValue = newValue.replace(new RegExp(/,/g), ""); } catch (e) {}
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.inputData.loanAmount = parseFloat(newValue).toLocaleString('en-AU', {maximumFractionDigits: 2});
+                    $vm.errors.loanAmount = null;
+                    if (newValue > 150000) {
+                        $vm.errors.loanAmount = "Maximum loan amount is $150,000.";
+                        return false;
+                    }
+                    else {
+                        visitor.setValues({"product-carLoanAmount": newValue}, function () {});
+                        $vm.submit();
+                    }
+                }
+            }, 500),
+            "inputData.vehiclePurchasePrice": _.debounce(function (newValue) {
+                try { newValue = newValue.replace(new RegExp(/,/g), ""); } catch (e) {}
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.inputData.vehiclePurchasePrice = parseFloat(newValue).toLocaleString('en-AU', {maximumFractionDigits: 2});
+                    $vm.errors.loanAmount = null;
+                    visitor.setValues({"product-carPurchasePrice": newValue}, function () {});
+                    $vm.submit();
+                }
+            }, 500),
+            "inputData.loanTerm": _.debounce(function (newValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.loanTerm = null;
+                    if (newValue < 3 || newValue > 5) {
+                        $vm.errors.loanTerm = "Loan term must be between 3 and 5 years.";
+                    }
+                    else {
+                        visitor.setValues({'carLoanTerm': newValue, 'carLoanTermString': newValue + " years"}, function () {});
+                        $vm.submit();
+                    }
+                }
+            }, 500),
+            "inputData.interestRate": _.debounce(function (newValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.interestRate = null;
+                    if (parseFloat(newValue) <= 0) {
+                        $vm.errors.interestRate = "Interest rate must be between greater than 0%.";
+                    }
+                    else if (parseFloat(newValue) > 25) {
+                        $vm.errors.interestRate = "Interest rate must be less than 25%.";
+                    }
+                    else {
+                        visitor.setValues({'calculator-carInterestRate': newValue}, function () {});
+                        $vm.submit();
+                    }
+                }
+            }, 500),
+            "inputData.repaymentFrequency": _.debounce(function (newValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.repaymentFrequency = null;
+                    visitor.setValues({'carPaymentFrequency': newValue}, function () {});
+                    $vm.submit();
+                }
+            }, 0),
+            "inputData.balloonAmount": _.debounce(function (newValue) {
+                var $vm = this;
+                if (validation.required(newValue)) {
+                    $vm.errors.interestRate = null;
+                    if (parseFloat(newValue) > 50) {
+                        $vm.errors.interestRate = "Maximum balloon allowed is 50%.";
+                    }
+                    else {
+                        visitor.setValues({'calculator-carBalloon': newValue}, function () {});
+                        $vm.submit();
+                    }
+                }
+            }, 500),
+            "uiData.personalBusiness": _.debounce(function (newValue) {
+                var $vm = this;
+                if (newValue == "personal") {
+                    $vm.inputData.isPersonal = true;
+                    $vm.uiData.ctaButtonLocation = "/car-loans/buying-personal-car/";
+                }
+                else {
+                    $vm.inputData.isPersonal = false;
+                    $vm.uiData.ctaButtonLocation = "/car-loans/buying-business-car/";
+                }
+            }, 0),
+            "uiData.showMore": _.debounce(function (newValue) {
+                $vm = this;
+                $vm.updateUi();
+            }, 0)
+        },
+        methods: {
+            validate: function () {
+                var $vm = this;
+                var validationFailed = false;
+                return !validationFailed;
+            },
+            submit: function () {
+                var $vm = this;
+                $vm.uiData.isSubmitting = true;
+                if ($vm.validate()) {
+                    var workbookPacket = {
+                        "Purchase Price": parseFloat(utils.stripOutCommas($vm.inputData.vehiclePurchasePrice)),
+                        "Upfront Fee": 0,
+                        "Repayment Frequency": $vm.inputData.repaymentFrequency,
+                        "Loan Amount": parseFloat(utils.stripOutCommas($vm.inputData.loanAmount)),
+                        "Add Fee To Loan Amount": "FALSE",
+                        "Interest Rate": parseFloat($vm.inputData.interestRate) / 100,
+                        "Loan Term": $vm.inputData.loanTerm,
+                        "Balloon Payment %": parseFloat($vm.inputData.balloonAmount) / 100
+                    }
+                    axios
+                        .post(utils.apiPath() + "/workbook/calculator/car-loan-calculator/execute?outs=vals", workbookPacket, {
+                            withCredentials: false,
+                            headers: {}
+                        })
+                        .then(function (response) {
+                            $vm.workbookData.repaymentPerMonth = parseFloat(response.data.outputs.find(function (x) { if (x.def.ParameterType.name == "Monthly Repayment") { return x; } }).val).toLocaleString('en-AU', {maximumFractionDigits: 2});
+                            $vm.workbookData.repaymentOverLoan = parseFloat(response.data.outputs.find(function (x) { if (x.def.ParameterType.name == "Total Repayments") { return x; } }).val).toLocaleString('en-AU', {maximumFractionDigits: 0});
+                            $vm.workbookData.totalInterestPaid = parseFloat(response.data.outputs.find(function (x) { if (x.def.ParameterType.name == "Total Interest") { return x; } }).val).toLocaleString('en-AU', {maximumFractionDigits: 0});
+                            $vm.workbookData.balloonPayment = parseFloat(response.data.outputs.find(function (x) { if (x.def.ParameterType.name == "Balloon Payment $") { return x; } }).val).toLocaleString('en-AU', {maximumFractionDigits: 0});
+                            if (response.data.outputs.find(function (x) { if (x.def.ParameterType.name == "Deposit Amount") { return x; } }).val == "N/A") {
+                                $vm.workbookData.initialDeposit = "$ 0"
+                            }
+                            else {
+                                $vm.workbookData.initialDeposit = "$ " + parseFloat(response.data.outputs.find(function (x) { if (x.def.ParameterType.name == "Deposit Amount") { return x; } }).val).toLocaleString('en-AU', {maximumFractionDigits: 0});
+                            }
+                            $vm.uiData.isSubmitting = false;
+                            $vm.uiData.isLoading = false;
+                            $vm.updateUi();
+                        });
+                    return true;
+                }
+                else {
+                    $vm.uiData.isSubmitting = false;
+                    $vm.uiData.isLoading = false;
+                    return false;
+                }
+            },
+            updateUi: function () {
+                jQuery("#tooltip1").tooltip({
+                    title: "<p>A balloon is an amount that is owed as a lump sum payment at the end of your loan.</p>",
+                    html: true,
+                    placement: 'bottom'
+                });
+            }
+        },
+        created: function () {
+            var $vm = this;
+            $vm.uiData.isLoading = true;
+            visitor.getValue("externalLeadId,product-carLoanAmount,product-carPurchasePrice,carLoanTerm,calculator-carInterestRate,carPaymentFrequency,calculator-carBalloon", function (response) {
+                if (response.hasOwnProperty("externalLeadId")) {
+                    $vm.inputData.externalLeadId = response['externalLeadId'];
+                }
+                if (response.hasOwnProperty("product-carLoanAmount")) {
+                    $vm.inputData.loanAmount = response['product-carLoanAmount'];
+                }
+                if (response.hasOwnProperty("product-carPurchasePrice")) {
+                    $vm.inputData.vehiclePurchasePrice = response['product-carPurchasePrice'];
+                }
+                if (response.hasOwnProperty("carLoanTerm")) {
+                    $vm.inputData.loanTerm = response['carLoanTerm'];
+                }
+                /*if (response.hasOwnProperty("calculator-carInterestRate")) {
+                    $vm.inputData.interestRate = response['calculator-carInterestRate'];
+                }*/
+                if (response.hasOwnProperty("carPaymentFrequency")) {
+                    $vm.inputData.repaymentFrequency = response['carPaymentFrequency'];
+                }
+                if (response.hasOwnProperty("calculator-carBalloon")) {
+                    $vm.inputData.balloonAmount = response['calculator-carBalloon'];
+                }
+                $vm.submit();
+            })
+            /* Process Config */
+            if (config.hasOwnProperty('interestRate') && !isNaN(parseFloat(config.interestRate))) {
+                $vm.inputData.interestRate = parseFloat(config.interestRate);
+            }
+            if (config.hasOwnProperty('balloonAmount') && !isNaN(parseFloat(config.balloonAmount))) {
+                $vm.inputData.balloonAmount = parseFloat(config.balloonAmount);
+            }
+            if (config.hasOwnProperty('loanType')) {
+                if (config.loanType == "personal") {
+                    $vm.inputData.isPersonal = true;
+                }
+                else {
+                    $vm.inputData.isPersonal = false;
+                }
+            }
+        }
+    })
+}
