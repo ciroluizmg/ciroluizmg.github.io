@@ -941,13 +941,14 @@ section.no-border {
 
 .widget_calculator .results p.p1 {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .widget_calculator .results p.p2 {
     font-size: 40px;
     font-weight: 500;
-    line-height: 61px;
+    line-height: 40px;
+    margin-top: 30px;
 }
 
 .widget_calculator .results p.p2 .ps1,
@@ -1131,6 +1132,20 @@ section.no-border {
 .widget_calculator .broker-block{
    // padding: 10px 30px 0;
 }
+
+.p1{
+    background-color: #F04B2D;
+    padding: 10px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.p_res{
+    //font-weight: bold;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
 
 </style>
 
@@ -1369,10 +1384,13 @@ section.no-border {
 
     <div class="results util-width-50 resvha">
         <div class="result-box">    
-            <p class="p1">Your estimated repayments are</p>
+            <p class="p1">FHA 3.5% Down</p>
              <!----> 
-             <p></p> 
-             <p class="p2"><span class="ps1">$</span> <span class="ps2">647.87</span> <span>monthly</span> <!----> <!----></p> 
+             <p class="p_res">Down Payment: $ <span class="downp_res">0.00</span></p>
+             <p class="p_res">Mortgage Payment: $ <span class="paym_res">0.00</span></p>
+             <p class="p_res">Mortgage Insurance: $ <span class="insur_res">0.00</span></p>
+
+             <p class="p2"><span class="ps1">$</span> <span class="ps2">0.00</span> <span>monthly</span> <!----> <!----></p> 
              <div id="emailmeok" style = "margin: auto; display: none; margin-top: 15px">
                 <p  style=" padding: 30px; border: 1px solid #39437F;  "></p>
             </div>                                    
@@ -1388,10 +1406,14 @@ section.no-border {
 
     <div class="results util-width-50 resva">
         <div class="result-box">    
-            <p class="p1">Your estimated repayments are</p>
+            <p class="p1">VA Zero Down</p>
+
+             <p class="p_res">Down Payment: $ <span class="downp_res">0.00</span></p>
+             <p class="p_res">Mortgage Payment: $ <span class="paym_res">0.00</span></p>
+             <p class="p_res">Mortgage Insurance: $ <span class="insur_res">0.00</span></p>
              <!----> 
              <p></p> 
-             <p class="p2"><span class="ps1">$</span> <span class="ps2">647.87</span> <span>monthly</span> <!----> <!----></p> 
+             <p class="p2"><span class="ps1">$</span> <span class="ps2">0.00</span> <span>monthly</span> <!----> <!----></p> 
              <div id="emailmeok" style = "margin: auto; display: none; margin-top: 15px">
                 <p  style=" padding: 30px; border: 1px solid #39437F;  "></p>
             </div>                                    
@@ -1412,10 +1434,13 @@ section.no-border {
     
     <div class="results util-width-50 resconv5">
         <div class="result-box">    
-            <p class="p1">Your estimated repayments are</p>
+            <p class="p1">Conventional 5% Down</p>
+             <p class="p_res">Down Payment: $ <span class="downp_res">0.00</span></p>
+             <p class="p_res">Mortgage Payment: $ <span class="paym_res">0.00</span></p>
+             <p class="p_res">Mortgage Insurance: $ <span class="insur_res">0.00</span></p>
              <!----> 
              <p></p> 
-             <p class="p2"><span class="ps1">$</span> <span class="ps2">647.87</span> <span>monthly</span> <!----> <!----></p> 
+             <p class="p2"><span class="ps1">$</span> <span class="ps2">0.00</span> <span>monthly</span> <!----> <!----></p> 
              <div id="emailmeok" style = "margin: auto; display: none; margin-top: 15px">
                 <p  style=" padding: 30px; border: 1px solid #39437F;  "></p>
             </div>                                    
@@ -1431,10 +1456,13 @@ section.no-border {
 
     <div class="results util-width-50 resconv10">
         <div class="result-box">    
-            <p class="p1">Your estimated repayments are</p>
+            <p class="p1">Conventional 10% Down</p>
+            <p class="p_res">Down Payment: $ <span class="downp_res">0.00</span></p>
+             <p class="p_res">Mortgage Payment: $ <span class="paym_res">0.00</span></p>
+             <p class="p_res">Mortgage Insurance: $ <span class="insur_res">0.00</span></p>
              <!----> 
              <p></p> 
-             <p class="p2"><span class="ps1">$</span> <span class="ps2">647.87</span> <span>monthly</span> <!----> <!----></p> 
+             <p class="p2"><span class="ps1">$</span> <span class="ps2">0.00</span> <span>monthly</span> <!----> <!----></p> 
              <div id="emailmeok" style = "margin: auto; display: none; margin-top: 15px">
                 <p  style=" padding: 30px; border: 1px solid #39437F;  "></p>
             </div>                                    
@@ -1454,10 +1482,13 @@ section.no-border {
     
     <div class="results util-width-50 resconv20">
         <div class="result-box">    
-            <p class="p1">Your estimated repayments are</p>
+            <p class="p1">Conventional 20% Down</p>
+            <p class="p_res">Down Payment: $ <span class="downp_res">0.00</span></p>
+             <p class="p_res">Mortgage Payment: $ <span class="paym_res">0.00</span></p>
+             <p class="p_res">Mortgage Insurance: $ <span class="insur_res">0.00</span></p>
              <!----> 
              <p></p> 
-             <p class="p2"><span class="ps1">$</span> <span class="ps2">647.87</span> <span>monthly</span> <!----> <!----></p> 
+             <p class="p2"><span class="ps1">$</span> <span class="ps2">0.00</span> <span>monthly</span> <!----> <!----></p> 
              <div id="emailmeok" style = "margin: auto; display: none; margin-top: 15px">
                 <p  style=" padding: 30px; border: 1px solid #39437F;  "></p>
             </div>                                    
@@ -1473,10 +1504,13 @@ section.no-border {
 
     <div class="results util-width-50 resconv25">
         <div class="result-box">    
-            <p class="p1">Your estimated repayments are</p>
+            <p class="p1">Conventional 25% Down</p>
+            <p class="p_res">Down Payment: $ <span class="downp_res">0.00</span></p>
+             <p class="p_res">Mortgage Payment: $ <span class="paym_res">0.00</span></p>
+             <p class="p_res">Mortgage Insurance: $ <span class="insur_res">0.00</span></p>
              <!----> 
              <p></p> 
-             <p class="p2"><span class="ps1">$</span> <span class="ps2">647.87</span> <span>monthly</span> <!----> <!----></p> 
+             <p class="p2"><span class="ps1">$</span> <span class="ps2">0.00</span> <span>monthly</span> <!----> <!----></p> 
              <div id="emailmeok" style = "margin: auto; display: none; margin-top: 15px">
                 <p  style=" padding: 30px; border: 1px solid #39437F;  "></p>
             </div>                                    
@@ -1565,7 +1599,9 @@ section.no-border {
 <style type="text/css">
    
 
-
+    .p2 span:last-child{
+        font-size: 30px;
+    }
 
     .modal-info{
         border-bottom-left-radius: 1.2rem;
@@ -1634,9 +1670,15 @@ section.no-border {
     .widget_calculator .input .input-group .input-group-prepend, .widget_calculator .input .input-group .input-group-append{
         color: #00305B;   
     }
+    #get_result{
+        display: none;
+    }
     @media (max-width: 767px){
         .p3 {
            margin-top: 0 !important;
+        }
+        .results{
+            text-align: center;
         }
     }
     @media (max-width: 992px){
@@ -1941,17 +1983,27 @@ var calculator = $('.remort_calculator');
         //console.log(paymentMonth);
 
 
+        
+        //mort_insur = mort_insur.toFixed(2);
+        //deposit = deposit.toFixed(2);
+        var monthly_total = paymentMonth + mort_insur;
+        monthly_total = monthly_total.toFixed(2);
         paymentMonth  = paymentMonth.toFixed(2);
         if (paymentMonth == -1) {
             paymentMonth = 'none';
         }
-        var resp = [paymentMonth , mort_insur];
+        deposit = deposit.toFixed(2);
+        mort_insur = mort_insur.toFixed(2);
+        var resp = [ deposit , paymentMonth , mort_insur , monthly_total];
         return resp;
     }
 
 
 function insert_res (el , res){
-    $('.'+el).find('.ps2').html(res[0]);
+    $('.'+el).find('.downp_res').html(res[0]);
+    $('.'+el).find('.paym_res').html(res[1]);
+    $('.'+el).find('.insur_res').html(res[2]);
+    $('.'+el).find('.ps2').html(res[3]);
 }
 
 
@@ -1973,6 +2025,8 @@ function calculateOptions () {
 }
 
 $('.calculate').click(calculateOptions);
+
+calculateOptions();
 
 /*
         $('.ps2').html(paymentMonth);
