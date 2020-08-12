@@ -1191,7 +1191,7 @@ section.no-border {
                             <div class="form-group"><label>Purchase Price</label> 
                                 <div class="input-group">
                                     <span class="input-group-prepend">$</span> 
-                                    <input type="tel" class="form-control pur_price format_currency" value="150,000">
+                                    <input type="tel" class="form-control pur_price format_currency" value="300,000">
                                 </div>
                             </div>
                         </div> 
@@ -1203,41 +1203,12 @@ section.no-border {
                 <label>Amortization</label> 
                 <select class="form-control">
                                     
-                                    <option value="12">
-                                        1 year
-                                    </option>
-                                    <option value="24">
-                                        2 years
-                                    </option>
-                                    <option value="36">
-                                        3 years
-                                    </option>
-                                    <option value="48">
-                                        4 years
-                                    </option>
-                                    <option value="60">
-                                        5 years
-                                    </option>
-                                    <option value="72">
-                                        6 years
-                                    </option>
-                                    <option value="84">
-                                        7 years
-                                    </option>
-
-                                    <option value="120">
-                                        10 years
-                                    </option>
+                                    
                                     <option value="180">
                                         15 years
                                     </option>
-                                    <option value="240" selected>
-                                        20 years
-                                    </option>
-                                    <option value="300">
-                                        25 years
-                                    </option>
-                                    <option value="360">
+                                
+                                    <option value="360" selected>
                                         30 years
                                     </option>
 
@@ -1371,7 +1342,7 @@ section.no-border {
 
 <div class="flex-layout" style="padding:0; padding-bottom: 30px; background: #00305B;">
 <!-- Button trigger modal -->
-            <button style = "display: block; margin: auto; background: #F04B2D; border-color: #F04B2D;" type="button" class="btn btn-brand-secondary" data-toggle="modal" data-target="#exampleModal">
+            <button style = "display: block; margin: auto; background: #F04B2D; border-color: #F04B2D;" type="button" class="calculate btn btn-brand-secondary" >
                 Calculate
             </button>
 
@@ -1396,7 +1367,7 @@ section.no-border {
 
 <div class="flex-layout">
 
-    <div class="results util-width-50 ">
+    <div class="results util-width-50 resvha">
         <div class="result-box">    
             <p class="p1">Your estimated repayments are</p>
              <!----> 
@@ -1415,7 +1386,7 @@ section.no-border {
         </div>
     </div> 
 
-    <div class="results util-width-50 ">
+    <div class="results util-width-50 resva">
         <div class="result-box">    
             <p class="p1">Your estimated repayments are</p>
              <!----> 
@@ -1439,7 +1410,7 @@ section.no-border {
 
 <div class="flex-layout">
     
-    <div class="results util-width-50 ">
+    <div class="results util-width-50 resconv5">
         <div class="result-box">    
             <p class="p1">Your estimated repayments are</p>
              <!----> 
@@ -1458,7 +1429,7 @@ section.no-border {
         </div>
     </div> 
 
-    <div class="results util-width-50 ">
+    <div class="results util-width-50 resconv10">
         <div class="result-box">    
             <p class="p1">Your estimated repayments are</p>
              <!----> 
@@ -1481,7 +1452,7 @@ section.no-border {
 
 <div class="flex-layout">
     
-    <div class="results util-width-50 ">
+    <div class="results util-width-50 resconv20">
         <div class="result-box">    
             <p class="p1">Your estimated repayments are</p>
              <!----> 
@@ -1500,7 +1471,7 @@ section.no-border {
         </div>
     </div> 
 
-    <div class="results util-width-50 ">
+    <div class="results util-width-50 resconv25">
         <div class="result-box">    
             <p class="p1">Your estimated repayments are</p>
              <!----> 
@@ -1704,104 +1675,11 @@ var calculator = $('.remort_calculator');
 
 
     
-    /*var loanAmountValid = false;
-    var interestValid = false;
-    var balloonValid = false;*/
-
-    /* max loan amount*/
-
-    /*$('.fg-loan-amount').find("input").on('input', function(){
-        if (   parseInt($(this).val().replace(/\D/g,'')) > 50000){
-            loanAmountValid = false;
-
-            if( ! $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is $50,000.</div>");
-            }else{
-                $(this).parent().parent().find(".alert").remove();
-                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is $50,000.</div>");
-            }
-
-
-        }else{
-            if(parseInt($(this).val().replace(/\D/g,'')) > 2000){
-                loanAmountValid = true;
-                if( $(this).parent().parent().find(".alert").length  ){
-                    $(this).parent().parent().find(".alert").remove();
-                }
-            } 
-
-                   
-        }
-
-
-
-        if (   parseInt($(this).val().replace(/\D/g,'')) < 2000){
-            loanAmountValid = false;
-
-            if( ! $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().append("<div class='alert alert-danger'>Minimum is $2,000.</div>");
-            }else{
-                $(this).parent().parent().find(".alert").remove();
-                $(this).parent().parent().append("<div class='alert alert-danger'>Minimum is $2,000.</div>");
-            }    
-
-        }else{
-
-
-            if(parseInt($(this).val().replace(/\D/g,'')) < 50000){
-                loanAmountValid = true;
-                if( $(this).parent().parent().find(".alert").length  ){
-                    $(this).parent().parent().find(".alert").remove();
-                }
-            }     
-        }
-
-    });*/
-
-
-
-
-
-
-
     
-    /* max interest amount*/
-    /*$('.fg-interest-rate').find("input").on('input', function(){
-        if (   parseInt($(this).val()) > 25){
-            interestValid = false;
-
-            if( ! $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is 25%</div>");
-            }        
-           
-        }else{
-            interestValid = true;
-            if( $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().find(".alert").remove();
-            }       
-        }
-    });*/
-
-/* max balloon*/
-    /*$('.fg-balloon-repayment').find("input").on('input', function(){
-        if (   parseInt($(this).val() ) > 50){
-            balloonValid = false;
-
-            if( ! $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().append("<div class='alert alert-danger'>Limit is 50%</div>");
-            }        
-           
-        }else{
-            balloonValid = true;
-            if( $(this).parent().parent().find(".alert").length  ){
-                $(this).parent().parent().find(".alert").remove();
-            }       
-        }
-    });*/
 
 </script>
 
-<!--<script src="https://unpkg.com/libphonenumber-js@^1.7.6/bundle/libphonenumber-min.js"></script>-->
+
 
 <script>
 
@@ -1952,6 +1830,7 @@ var calculator = $('.remort_calculator');
     var paym_default_3;
     var minRep;
     var totalAmount;
+    var mort_insur;
     
    
 
@@ -1960,7 +1839,7 @@ var calculator = $('.remort_calculator');
     var r;
     var paymentMonth;
 
-    function calcPayments(){   
+    function calcPayments(dwp, mIns , prem){   
 
         calcEl = $('#CALCCLREPAY_7b24d123146f4bde8b1c32a3431cd378');
         purch_remort = parseInt(calcEl.find('.purch_remort').find('select').val());
@@ -1972,11 +1851,12 @@ var calculator = $('.remort_calculator');
         loanTerm = parseInt(calcEl.find('.loanTerm').find('select').val());
         rep_inter_val = parseFloat(calcEl.find('.rep_inter_val').find('input').val().replace(/,/g,''));
                 
-
-        deposit = parseInt(calcEl.find('.deposit').find('input').val().replace(/,/g,''));
+        deposit = dwp * deal_value;
+        //deposit = parseInt(calcEl.find('.deposit').find('input').val().replace(/,/g,''));
         equity = parseInt(calcEl.find('.equity').find('input').val().replace(/\D/g,''));
-
         
+           
+
         
         /*initialDeposit = parseInt(calcEl.find('.fg-initial-deposit').find('input').val().replace(/\D/g,''));
         loanTerm = parseInt(calcEl.find('.fg-loan-term').find('select').val());
@@ -1990,9 +1870,10 @@ var calculator = $('.remort_calculator');
         
 
         
+        totalAmount  = (deal_value - deposit) * (1 + prem);
 
-        
-        totalAmount  = deal_value - deposit;
+        mort_insur = (totalAmount * mIns) / 12;
+
         var repaym_el = calcEl.find('.rep_inter_val').find('input');
         var deposit_el = calcEl.find('.deposit').find('input');
         var value_el = calcEl.find('.deal_value').find('input');
@@ -2040,78 +1921,7 @@ var calculator = $('.remort_calculator');
 
                // var paymentMonth = (r * totalAmount) / (1-   (   1 / ( Math.pow((1+r) , n) )   )   );
             }
-
-            if(rep_inter == 2){
-                minRep = totalAmount / loanTerm;
-                minRep = minRep.toFixed(2);
-                if (rep_inter_val < minRep) {
-                    paymentMonth = -1; // adiante se -1 => 'none'
-                    //interestValid = false;
-                    if( repaym_el.parent().parent().find(".alert").length  ){
-                        repaym_el.parent().parent().find(".alert").remove();
-                    }
-                    minRep = Math.ceil(parseFloat(minRep));
-                    repaym_el.parent().parent().append("<div class='alert alert-danger'>Minimum is $"+minRep+"</div>");
-                }else{
-                    //interestValid = true;
-                    if( repaym_el.parent().parent().find(".alert").length  ){
-                        repaym_el.parent().parent().find(".alert").remove();
-                    }
-                    n = loanTerm;
-                    r = rep_inter_val; 
-                    function calculate_remainder(rate){
-                        var months = n;
-                        var remainder = totalAmount;
-                        var payment = r;
-                        while(months > 0){
-                            remainder = (remainder * (1 + (rate/(100*12)) ))  - payment ; 
-                            months--;
-                        }
-                        return remainder;
-                    }
-                    var j = 0;
-                    var i = 10;
-                    var r1;
-                    var r2 = calculate_remainder(j);
-                    if (r2 != 0) {
-                        if (r2 > 0) {
-                            i = i * -1;
-                        }
-                        j = j + i;
-                        while (Math.abs(i) > 0.0001 ){
-                            r1 = r2;
-                            r2 = calculate_remainder(j);
-                            //console.log(i);
-                            if (r2 == 0) {
-                                break;
-                            }
-                            if ( (r1 < 0 && r2 > 0)  || (r1 > 0 && r2 < 0) ) { //if sign inverts
-                                i = (i/10) * -1; //invert sign and divide by ten; 
-                                if (Math.abs(r2) > Math.abs(r1) ) {
-                                    j = j + (5 * i);
-                                }else{
-                                    j = j + i
-                                }
-                            }else{
-                                j = j + i;
-                            }
-                           // repaym default to total/months
-                           // se  rep < min (total/months) => msm 'rep maior que ...' e result = none.
-                           // se rep >= min calcula resultado e se msm, retira mensagem 
-                        }
-                    }
-
-                    paymentMonth = j;    //this is the interest 
-                }
-            }
         }
-
-        
-        /*if (rep_inter == 2) {
-            var paymentMonth = (r * totalAmount) / (1-   (   1 / ( Math.pow((1+r) , n) )   )   );
-        }*/
-        
-
         
         /*if(repayFrequency == 'monthly'){
             repayment = paymentMonth;
@@ -2122,10 +1932,49 @@ var calculator = $('.remort_calculator');
         if(repayFrequency == 'weekly'){
             repayment = paymentWeek;
         }*/
+
+       //console.log(deal_value);
+       //console.log(loanTerm);
+        //console.log(deposit);
+        //console.log(totalAmount);
+        //console.log(mort_insur);
+        //console.log(paymentMonth);
+
+
         paymentMonth  = paymentMonth.toFixed(2);
         if (paymentMonth == -1) {
             paymentMonth = 'none';
         }
+        var resp = [paymentMonth , mort_insur];
+        return resp;
+    }
+
+
+function insert_res (el , res){
+    $('.'+el).find('.ps2').html(res[0]);
+}
+
+
+function calculateOptions () {
+    /*calcPayments(   DOWNPAYMENT    ,  INSURANCE   ,   PREMIUM/FEE  ) */
+    var fha = calcPayments(0.035 , 0.0085 , 0.0175);
+    insert_res('resvha' , fha);
+    var va = calcPayments(0 , 0 , 0.023);
+    insert_res('resva' , va);
+    var conv5 = calcPayments(0.05 , 0.008 , 0);
+    insert_res('resconv5' , conv5);
+    var conv10 = calcPayments(0.1 , 0.0055 , 0);
+    insert_res('resconv10' , conv10);
+    var conv20 = calcPayments(0.2 , 0 , 0);
+    insert_res('resconv20' , conv20);
+    var conv25 = calcPayments(0.25 , 0 , 0);
+    insert_res('resconv25' , conv25);
+    //alert(conv25[1]);
+}
+
+$('.calculate').click(calculateOptions);
+
+/*
         $('.ps2').html(paymentMonth);
         if(rep_inter == 1){
             $('.ps2').next().html('monthly');
@@ -2137,13 +1986,7 @@ var calculator = $('.remort_calculator');
             $('.ps1').html('');
             $('.p1').html('The annual interest is');
         }
-    }
-
-
-
-
-
-
+*/
 
 
 </script>
@@ -2156,7 +1999,7 @@ $(function () {
 })
 
 
-calcPayments();
+//calculateOptions();
 
 
 $('.spanval').parent().parent().find('input').on('input' , function(){
